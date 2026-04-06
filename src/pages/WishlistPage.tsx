@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/useLanguage';
 import { Heart, ShoppingCart, Trash2, ArrowRight, Star } from 'lucide-react';
 import { type Game } from '../types';
 import { useStore } from '../contexts/useStore';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 export function WishlistPage() {
+  const { t } = useLanguage();
   const { wishlist, removeFromWishlist, addToCart, isInCart } = useStore();
 
   const handleAddToCart = (game: Game) => {
@@ -91,8 +93,8 @@ export function WishlistPage() {
 
               <p className="text-sm text-general mb-3">{game.developer}</p>
 
-              <p className="text-general text-sm mb-4 line-clamp-2">
-                {game.description}
+<p className="text-general text-sm mb-4 line-clamp-2">
+                {game.description || t('gameModal.noDescription')}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-4">
@@ -101,7 +103,7 @@ export function WishlistPage() {
                   key={g}
                   className="inline-block text-xs badge-primary-soft text-primary px-3 py-1 rounded-full"
                 >
-                  {g}
+                  {t(`genres.${g.toLowerCase()}`) || g}
                 </span>
                 ))}
               </div>

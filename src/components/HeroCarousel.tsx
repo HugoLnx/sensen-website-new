@@ -1,14 +1,18 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import type { Game } from "@/types";
+import { useLanguage } from "@/contexts/useLanguage";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { Game } from "@/types";
+import { resolveMedia } from "@/utils/media";
 
 interface HeroCarouselProps {
   games: Game[];
 }
 
 export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % games.length);
@@ -24,52 +28,71 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
     return () => clearInterval(timer);
   }, [currentIndex, goToNext, games.length]);
 
+  // Play current video, pause others
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === currentIndex) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  }, [currentIndex, games]);
+
   if (games.length === 0) return null;
   const current = games[currentIndex];
 
-  // Lógica para manter 3 itens visíveis no mobile e travar o scroll no final
   const translateValue = Math.min(currentIndex, games.length - 3);
 
+  const getPreviewVideo = (gameId: string | number | undefined) =>
+    resolveMedia(`/videos/game${gameId ?? 0}_preview.mp4`);
+
   return (
-    <section
-      className="relative w-full h-[calc(100vh-64px)] bg-cover bg-center flex items-center justify-center transition-all duration-1000 ease-in-out"
-      style={{ backgroundImage: `url(${current.image})` }}
-    >
-      {/* Overlay */}
+    <section className="relative w-full h-[calc(100vh-64px)] flex items-center justify-center transition-all duration-1000 ease-in-out">
+      {/* Main Video Background */}
+      <video
+        src={getPreviewVideo(current.id)}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      {/* Conteúdo */}
       <div className="relative z-10 text-center px-4 max-w-4xl">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">{current.title}</h1>
-        <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto line-clamp-2">
-          {current.description}
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-general">{current.title}</h1>
+        <p className="text-xl text-general-dim mb-8 max-w-2xl mx-auto line-clamp-2">
+          {t(current.description ?? '')}
         </p>
         <Link to={`/games/${current.slug}`}>
-          <button className="bg-violet-600 hover:bg-violet-700 text-white font-bold py-4 px-10 rounded-lg transition-colors shadow-lg">
-            JOGUE AGORA
+          <button className="bg-primary hover:bg-primary-dark text-primary-on-color font-bold py-4 px-10 rounded-lg transition-colors shadow-lg">
+            {t('hero.playNow')}
           </button>
         </Link>
       </div>
 
       <button
         onClick={goToPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-gray-900/40 hover:bg-gray-900/80 p-3 rounded-full transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-general hover:bg-primary-dark p-3 rounded-full transition-all"
       >
-        <ChevronLeft className="w-8 h-8 text-white" />
+        <ChevronLeft className="w-8 h-8 text-general" />
       </button>
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-gray-900/40 hover:bg-gray-900/80 p-3 rounded-full transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-general hover:bg-primary-dark p-3 rounded-full transition-all"
       >
-        <ChevronRight className="w-8 h-8 text-white" />
+        <ChevronRight className="w-8 h-8 text-general" />
       </button>
 
-      {/* Container das Miniaturas Responsivo */}
+      {/* Thumbnails with static images */}
       <div className="absolute bottom-8 w-full px-4 overflow-hidden">
         <div
-          className="flex transition-transform duration-500 ease-in-out md:transform-none md:justify-center md:items-center md:space-x-4"
+          className="flex transition-transform duration-500 ease-in-out md:transform-none md:justify-center md:space-x-4 md:items-center"
           style={{
-            // Aplica o translate apenas em telas menores (mobile)
             transform: window.innerWidth < 768 
               ? `translateX(-${translateValue * 33.33}%)` 
               : 'none'
@@ -80,16 +103,16 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
               key={game.id}
               onClick={() => setCurrentIndex(index)}
               className={`relative cursor-pointer transition-all duration-300 overflow-hidden rounded-md shrink-0 
-                w-1/3 px-1 md:w-auto md:px-0 
+                w-1/3 px-1 md:px-0 h-16 md:h-24 md:w-24
                 ${index === currentIndex
-                  ? "border-2 border-violet-600 scale-110"
-                  : "border-2 border-transparent opacity-40 hover:opacity-70"
+                  ? "border-2 border-primary scale-110"
+                  : "border-2 border-transparent opacity-60 hover:opacity-100"
                 }`}
             >
               <img
-                src={game.image}
+                src={resolveMedia(game.image)}
                 alt={game.title}
-                className="w-full h-16 object-cover md:w-24"
+                className="w-full h-full object-cover rounded-md"
               />
             </div>
           ))}

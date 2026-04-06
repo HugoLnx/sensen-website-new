@@ -1,9 +1,11 @@
-import { useStore } from "@/contexts/useStore";
+// import { useStore } from "@/contexts/useStore";
 import type { Game } from "@/types";
 import { resolveMedia } from "@/utils/media";
-import { Star, Calendar, Users, ShoppingCart, X, Heart } from "lucide-react";
+import { X } from "lucide-react";
 import { useRef, useState } from "react";
 import ImageWithFallback from "./figma/ImageWithFallback";
+import { useLanguage } from "@/contexts/useLanguage";
+import { FaSteam } from "react-icons/fa";
 
 /* =======================
    TIPOS
@@ -18,12 +20,6 @@ type GameModalProps = {
    HELPERS
 ======================= */
 
-const formatPriceBRL = (price: number) =>
-  price.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-
 // const formatDateBR = (date: string) =>
 //   new Date(date).toLocaleDateString("pt-BR");
 
@@ -32,7 +28,11 @@ const formatPriceBRL = (price: number) =>
 ======================= */
 
 export function GameModal({ game, onClose }: GameModalProps) {
-  const { addToCart, addToWishlist, isInCart, isInWishlist } = useStore();
+  const { t } = useLanguage();
+  // const { addToCart, addToWishlist, isInCart, isInWishlist } = useStore();
+  const platformIcons: { [key: string]: React.ElementType } = {
+    PC: FaSteam,
+  };
 
   const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -41,16 +41,16 @@ export function GameModal({ game, onClose }: GameModalProps) {
 
   if (!game) return null;
 
-  const handleAddToCart = () => {
-    addToCart(game);
-  };
+  // const handleAddToCart = () => {
+  //   addToCart(game);
+  // };
 
-  const handleAddToWishlist = () => {
-    addToWishlist(game);
-  };
+  // const handleAddToWishlist = () => {
+  //   addToWishlist(game);
+  // };
 
-  const inCart = isInCart(game);
-  const inWishlist = isInWishlist(game);
+  // const inCart = isInCart(game);
+  // const inWishlist = isInWishlist(game);
 
   const videoSrc = resolveMedia(game.video);
   const imageSrc = resolveMedia(game.image);
@@ -67,7 +67,7 @@ export function GameModal({ game, onClose }: GameModalProps) {
         {/* Botão fechar */}
         <button
           onClick={onClose}
-          aria-label="Fechar modal"
+          aria-label={t('common.closeModal')}
           className="absolute top-4 right-4 text-gray-500 hover:text-black"
         >
           <X />
@@ -83,13 +83,13 @@ export function GameModal({ game, onClose }: GameModalProps) {
                 className={`px-3 py-1 rounded ${!showVideo ? 'bg-violet-600 text-white' : 'bg-general text-general'}`}
                 onClick={() => setShowVideo(false)}
               >
-                Ver Imagem
+                {t('gameModal.viewImage')}
               </button>
               <button
                 className={`px-3 py-1 rounded ${showVideo ? 'bg-violet-600 text-white' : 'bg-general text-general'}`}
                 onClick={() => setShowVideo(true)}
               >
-                Ver Vídeo
+                {t('gameModal.viewVideo')}
               </button>
             </div>
 
@@ -105,56 +105,15 @@ export function GameModal({ game, onClose }: GameModalProps) {
           </div>
 
         {/* =======================
-            GRID DE ESTATÍSTICAS
-        ======================= */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <div className="flex items-center gap-3 bg-general p-3 rounded-lg">
-            <Star className="w-5 h-5 text-yellow-400 fill-current" />
-            <div>
-              <p className="text-xs text-gray-500">Avaliação</p>
-              <p className="font-medium">{game?.rating}</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 bg-general p-3 rounded-lg">
-            <Calendar className="w-5 h-5 text-violet-500" />
-            <div>
-              <p className="text-xs text-gray-500">Lançamento</p>
-              <p className="font-medium">
-                {String(game?.release_date ?? '2024').slice(0, 10)}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 bg-general p-3 rounded-lg">
-            <Users className="w-5 h-5 text-blue-500" />
-            <div>
-              <p className="text-xs text-gray-500">Jogadores</p>
-              <p className="font-medium">{game?.players}</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 bg-general p-3 rounded-lg">
-            <ShoppingCart className="w-5 h-5 text-green-500" />
-            <div>
-              <p className="text-xs text-gray-500">Preço</p>
-              <p className="font-medium">
-                {formatPriceBRL(game?.price || 0)}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* =======================
             GÊNEROS
         ======================= */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mt-2 mb-6">
           {game?.genre.map((genre) => (
             <span
               key={genre}
               className="px-3 py-1 rounded-full text-sm bg-general text-white"
             >
-              {genre}
+              {t(`genres.${genre}`)}
             </span>
           ))}
         </div>
@@ -163,90 +122,34 @@ export function GameModal({ game, onClose }: GameModalProps) {
             DESCRIÇÃO
         ======================= */}
         <div className="mb-6 max-w-prose">
-          <h3 className="text-lg font-semibold mb-2">Descrição</h3>
+          <h3 className="text-lg font-semibold mb-2">{t('gameModal.description')}</h3>
           <p className="text-gray-500 leading-relaxed">
-            {game?.description ||
-              game?.short_description ||
-              "Descrição não disponível."}
+            {t(game.description || 'gameModal.noDescription')}
           </p>
         </div>
 
-        {/* =======================
-            CARACTERÍSTICAS
-        ======================= */}
-        {game.features && game.features.length > 0 && (
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">Características</h3>
-            <ul className="space-y-2">
-              {game.features.map((feature, index) => (
-                <li key={index} className="flex gap-2 text-gray-500">
-                  <span className="text-violet-500">•</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* =======================
-            REQUISITOS DE SISTEMA
-        ======================= */}
-        {game.systemRequirements && (
-          <div className="bg-general p-4 rounded-lg">
-            <h3 className="text-lg font-semibold mb-4">
-              Requisitos de Sistema
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-medium mb-2">Mínimo</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>SO: {game.systemRequirements.minimum.OS}</li>
-                  <li>CPU: {game.systemRequirements.minimum.CPU}</li>
-                  <li>RAM: {game.systemRequirements.minimum.RAM}</li>
-                  <li>GPU: {game.systemRequirements.minimum.GPU}</li>
-                  <li>Armazenamento: {game.systemRequirements.minimum.Armazenamento}</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-medium mb-2">Recomendado</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>SO: {game.systemRequirements.recommended.OS}</li>
-                  <li>CPU: {game.systemRequirements.recommended.CPU}</li>
-                  <li>RAM: {game.systemRequirements.recommended.RAM}</li>
-                  <li>GPU: {game.systemRequirements.recommended.GPU}</li>
-                  <li>Armazenamento: {game.systemRequirements.recommended.Armazenamento}</li>
-                </ul>
+        {game.storeLinks && Object.keys(game.storeLinks).length > 0 && (
+            <div className="bg-general p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold mb-3 text-primary">{t('gamePage.buy')}</h3>
+              <div className="flex flex-wrap gap-4">
+                {Object.entries(game.storeLinks).map(([store, link]) => {
+                  const Icon = platformIcons[store === 'steam' ? 'PC' : store];
+                  return (
+                    <a
+                      key={store}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary flex items-center gap-2 bg-general-dark px-4 py-2 rounded-lg transition-colors"
+                    >
+                      {Icon ? <Icon size={24} className="text-general" /> : <span className="text-general font-medium">{store}</span>}
+                      <span className="text-general font-medium">{store === 'steam' ? 'Steam' : store}</span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
-          </div>
-        )}
-        {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <button
-              onClick={handleAddToCart}
-              className={`flex-1 px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 ${
-                inCart
-                  ? 'bg-green-600 hover:bg-green-700 text-white'
-                  : 'btn-primary'
-              }`}
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {inCart ? 'No Carrinho' : 'Adicionar ao Carrinho'}
-            </button>
-            <button
-              onClick={handleAddToWishlist}
-              className={`flex-1 px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 ${
-                inWishlist
-                  ? 'bg-pink-600 hover:bg-pink-700 text-white'
-                  : 'bg-general hover:opacity-90 text-general'
-              }`}
-            >
-              <Heart className={`w-5 h-5 ${inWishlist ? 'fill-current' : ''}`} />
-              {inWishlist ? 'Na Lista de Desejos' : 'Adicionar à Lista de Desejos'}
-            </button>
-          </div>
+          )}
       </div>
     </div>
   );

@@ -3,14 +3,14 @@ export const settingsMock = {
   siteName: "Sensen Games",
   logoUrl: "/images/logo.jpg",
   iconUrl: "/images/icon.png",
-  primaryColor: "#7c3aed", // violet-600
-  secondaryColor: "#10B981", // emerald-500
+  primaryColor: "#FF6700",
+  secondaryColor: "#F5F5F5",
   fontFamily: "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
-  generalTextColor: "#e5e7eb", // gray-200
-  pageBackgroundColor: "#0f172a", // slate-900
-  generalBackgroundColor: "#0b1220", // slate-950
-  headerBackgroundColor: "#111827", // gray-900
-  footerBackgroundColor: "#0b1220", // slate-950
+  generalTextColor: "#FFFFFF",
+  pageBackgroundColor: "#0f172a",
+  generalBackgroundColor: "#2C2C2C",
+  headerBackgroundColor: "#373737",
+  footerBackgroundColor: "#373737",
   homepageTitle: "Experimente a próxima geração de jogos indie",
   catalogPageTitle: "Nosso Catálogo de Jogos Incríveis",
   homepageFeaturedSectionTitle: "TÍTULOS EM DESTAQUE",
