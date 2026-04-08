@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, type ReactNode } from 'react';
+import React, { createContext, useState, type ReactNode } from 'react';
 import { detectLanguage } from '@/utils/detectLanguage';
 import ptBR from '../i18n/translations/pt-BR.json' with { type: 'json' };
 import enUS from '../i18n/translations/en-US.json' with { type: 'json' };
