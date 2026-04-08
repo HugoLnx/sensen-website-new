@@ -31,7 +31,7 @@ export function Cart() {
               Adicione alguns jogos incríveis ao seu carrinho!
             </p>
             <Link
-              to="/catalogo"
+              to="/jogos"
               className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-lg transition-colors"
             >
               Explorar Catálogo
@@ -180,7 +180,7 @@ export function Cart() {
               </button>
 
               <Link
-                to="/catalogo"
+                to="/jogos"
                 className="block text-center text-violet-400 hover:text-violet-300 transition-colors text-sm"
               >
                 Continuar comprando

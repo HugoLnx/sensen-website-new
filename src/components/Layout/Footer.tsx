@@ -48,7 +48,7 @@ const Footer = () => {
               <nav>
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/" className="hover:text-primary transition-colors">{t('header.home')}</Link></li>
-                  <li><Link to="catalogo" className="hover:text-primary transition-colors">{t('header.catalog')}</Link></li>
+                  <li><Link to="jogos" className="hover:text-primary transition-colors">{t('header.games')}</Link></li>
                   <li><Link to="/contato" className="hover:text-primary transition-colors">{t('header.contact')}</Link></li>
                 </ul>
               </nav>

@@ -10,7 +10,7 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/catalogo" element={<CatalogPage />} />
+      <Route path="/jogos" element={<CatalogPage />} />
       <Route path="/contato" element={<ContactPage />} />
       <Route path="/carrinho" element={<Cart />} />
       <Route path="/lista-desejos" element={<WishlistPage />} />

@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Home",
-    "catalog": "Catalog",
+    "games": "Games",
     "contact": "Contact"
   },
   "footer": {
@@ -24,7 +24,7 @@
     "featuredTitle": "Featured Titles",
     "aboutTitle": "FUELING ADVENTURE AND IMAGINATION",
     "homepageTitle": "Experience the next generation of indie games",
-    "catalogPageTitle": "Our Amazing Games Catalog",
+    "gamesPageTitle": "Our Amazing Games",
     "homepageAboutUsTitle": "About Us",
     "homepageAboutUsText": "We are two brothers who have been gaming together since the Super Nintendo and PlayStation 1 & 2 era. We played Megaman X series, Castlevania SotN, Super Metroid, Aero Fighters, Guitar Hero and other classics all day back then! After years working as web programmer and web designer, we decided to start making games in the style we love to play: challenging and fun!",
     "homepageMailingListTitle": "JOIN OUR EMAIL LIST",
@@ -45,8 +45,8 @@
     "about": {
       "title": "About Sensen Games",
       "ctaTitle": "Ready to Start?",
-      "ctaDescription": "Explore our catalog and find your next favorite game.",
-      "catalog": "View Catalog",
+      "ctaDescription": "Explore our games and find your next favorite one.",
+      "games": "View Games",
       "contact": "Contact Us"
     }
   },
@@ -68,12 +68,12 @@
     "description": "Description",
     "noDescription": "Description not available."
   },
-  "catalog": {
+  "gamesPage": {
     "all": "All",
     "loading": "Loading data...",
     "error": "Loading error",
     "noGames": "No games found for this genre.",
-    "title": "Games Catalog",
+    "title": "Games List",
     "subtitle": "Explore our curated selection of amazing indie games",
     "filterPrefix": "Filter by genre:",
     "viewDetails": "View Details"

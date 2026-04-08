@@ -12,7 +12,7 @@ export const settingsMock = {
   headerBackgroundColor: "#373737",
   footerBackgroundColor: "#373737",
   homepageTitle: "Experimente a próxima geração de jogos indie",
-  catalogPageTitle: "Nosso Catálogo de Jogos Incríveis",
+  gamesPageTitle: "Nosso Catálogo de Jogos Incríveis",
   homepageFeaturedSectionTitle: "TÍTULOS EM DESTAQUE",
   homepageAboutUsTitle: "ALIMENTANDO AVENTURA E IMAGINAÇÃO",
   homepageAboutUsText: "Somos dois irmãos que jogam juntos desde as eras do Super Nintendo e PlayStation 1 & 2. Jogávamos as séries Megaman X, Castlevania SotN, Super Metroid, Aero Fighters, Guitar Hero e outros clássicos o dia todo naquela época! Depois de alguns anos trabalhando como programador web e web designer, decidimos começar a fazer jogos no estilo que amamos jogar: desafiadores e divertidos!",

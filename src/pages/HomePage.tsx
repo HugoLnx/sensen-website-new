@@ -84,8 +84,8 @@ export const HomePage: React.FC = () => {
               <h2 className="text-3xl mb-8 text-primary">{t('home.about.ctaTitle')}</h2>
               <p className="text-xl mb-8 text-general">{t('home.about.ctaDescription')}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link className="btn-primary px-8 py-3 rounded-lg transition-colors" to="/catalogo">
-                  {t('home.about.catalog')}
+                <Link className="btn-primary px-8 py-3 rounded-lg transition-colors" to="/jogos">
+                  {t('home.about.games')}
                 </Link>
                 <Link className="bg-general-dark hover:bg-primary-dark text-general px-8 py-3 rounded-lg transition-colors border border-general-dark" to="/contato">
                   {t('home.about.contact')}

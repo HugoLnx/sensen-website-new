@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Início",
-    "catalog": "Catálogo",
+    "games": "Jogos",
     "contact": "Contato"
   },
   "footer": {
@@ -24,7 +24,7 @@
     "featuredTitle": "Títulos em Destaque",
     "aboutTitle": "ALIMENTANDO AVENTURA E IMAGINAÇÃO",
     "homepageTitle": "Experimente a próxima geração de jogos indie",
-    "catalogPageTitle": "Nosso Incrível Catálogo de Jogos",
+    "gamesPageTitle": "Nossos Jogos",
     "homepageAboutUsTitle": "Sobre Nós",
     "homepageAboutUsText": "Somos dois irmãos que jogamos juntos desde a era do Super Nintendo e PlayStation 1 & 2. Jogamos Megaman X series, Castlevania SotN, Super Metroid, Aero Fighters, Guitar Hero e outros clássicos o dia todo naquela época! Após anos trabalhando como programador web e designer web, decidimos começar a fazer jogos no estilo que amamos jogar: desafiadores e divertidos!",
     "homepageMailingListTitle": "JUNTE-SE À NOSSA LISTA DE E-MAILS",
@@ -46,7 +46,7 @@
       "title": "Sobre a Sensen Games",
       "ctaTitle": "Pronto para Começar?",
       "ctaDescription": "Explore nosso catálogo e encontre seu próximo jogo favorito.",
-      "catalog": "Ver Catálogo",
+      "games": "Ver Jogos",
       "contact": "Fale Conosco"
     }
   },
@@ -68,7 +68,7 @@
     "description": "Descrição",
     "noDescription": "Descrição não disponível."
   },
-  "catalog": {
+  "gamesPage": {
     "all": "Todos",
     "loading": "Carregando dados...",
     "error": "Erro ao carregar",

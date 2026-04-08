@@ -64,7 +64,7 @@ const CatalogPage = () => {
   };
 
   if (settingsLoading || gamesLoading) {
-    return <div className="min-h-screen page-bg text-general flex items-center justify-center"><div className="text-center">{t('catalog.loading')}</div></div>;
+    return <div className="min-h-screen page-bg text-general flex items-center justify-center"><div className="text-center">{t('gamesPage.loading')}</div></div>;
   }
 
   if (settingsError || gamesError) {
@@ -75,16 +75,16 @@ const CatalogPage = () => {
     <div className="min-h-screen page-bg text-general py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl mb-4 text-primary">{t('catalog.title')}</h1>
+          <h1 className="text-4xl mb-4 text-primary">{t('gamesPage.title')}</h1>
           <p className="text-xl text-general max-w-2xl mx-auto">
-            {t('catalog.subtitle')}
+            {t('gamesPage.subtitle')}
           </p>
         </div>
 
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             <Tag className="w-5 h-5 text-primary" />
-            <span className="text-general">{t('catalog.filterPrefix')}</span>
+            <span className="text-general">{t('gamesPage.filterPrefix')}</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {allGenres.map((genre) => (
@@ -96,7 +96,7 @@ const CatalogPage = () => {
                   : 'bg-general text-general hover:bg-primary-soft'
                   }`}
               >
-                {genre === 'Todos' ? t('catalog.all') : t(`genres.${genre}`)}
+                {genre === 'Todos' ? t('gamesPage.all') : t(`genres.${genre}`)}
               </button>
             ))}
           </div>
@@ -173,7 +173,7 @@ const CatalogPage = () => {
                         handleGameClick(game);
                       }}
                     >
-                      {t('catalog.viewDetails')}
+                      {t('gamesPage.viewDetails')}
                     </button>
                   </div>
                 </div>
@@ -185,7 +185,7 @@ const CatalogPage = () => {
         {filteredGames.length === 0 && (
           <div className="text-center py-12">
             <p className="text-general text-xl">
-              {t('catalog.noGames')}
+              {t('gamesPage.noGames')}
             </p>
           </div>
         )}

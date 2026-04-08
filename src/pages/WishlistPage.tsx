@@ -24,7 +24,7 @@ export function WishlistPage() {
               Salve seus jogos favoritos para comprar depois!
             </p>
             <Link
-              to="/catalogo"
+              to="/jogos"
               className="inline-flex items-center gap-2 btn-primary px-6 py-3 rounded-lg transition-colors"
             >
               Explorar Catálogo
@@ -131,7 +131,7 @@ export function WishlistPage() {
         {/* Bottom Actions */}
         <div className="mt-8 flex justify-center">
           <Link
-            to="/catalogo"
+            to="/jogos"
             className="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 transition-colors"
           >
             <ArrowRight className="w-5 h-5" />

@@ -14,7 +14,7 @@ interface SiteSettings {
   headerBackgroundColor: string;
   footerBackgroundColor: string;
   homepageTitle: string;
-  catalogPageTitle: string;
+  gamesPageTitle: string;
   homepageFeaturedSectionTitle: string;
   homepageFeaturedSectionImageUrl: string;
   homepageAboutUsTitle: string;
