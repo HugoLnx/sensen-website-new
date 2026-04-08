@@ -16,6 +16,7 @@ export const gamesMock: Game[] = [
     players: "Single-player",
     platforms: ["PC"],
     storeLinks: {
+      press: "https://drive.google.com/drive/folders/1aNr4rs7a00bvgeaZWR2LrgNhQhUeDLd8",
       steam: "https://store.steampowered.com/app/1714300/Typomancer_in_the_Feathers_Way/?curator_clanid=40365443"
     },
     features: [
@@ -64,6 +65,7 @@ export const gamesMock: Game[] = [
     players: "Single-player",
     platforms: ["PC"],
     storeLinks: {
+      press: "https://drive.google.com/drive/folders/1yJ3gsKTpK14ovogckSVvxcz854f-fpyo",
       steam: "https://store.steampowered.com/app/1661700/Tyfortress_Tactical_Typing/?curator_clanid=40365443"
     },
     features: [
@@ -111,6 +113,10 @@ export const gamesMock: Game[] = [
     release_date: "09-06-2021T00:00:00.000Z",
     players: "Single-player",
     platforms: ["PC"],
+    storeLinks: {
+      press: "https://drive.google.com/drive/folders/1rd6U_k5JU74TSJQgf4H5NViwgNX-GgtU",
+      steam: "https://store.steampowered.com/app/1636000/Tybot_Invasion_The_Typing_Runner/"
+    },
     features: [
       "Mais de 5000 palavras: Nosso vocabulário conta com quase 5500 palavras EM INGLÊS, que são agrupadas pelo uso no seu dia a dia, palavras incomuns são utilizadas em alguns inimigos para dificultá-los um pouco. As palavras do vocabulário serão em inglês independente do idioma da interface.",
       "4 níveis de dificuldade: Fácil (menos de 40 palavras por minuto), Médio (menos de 60 palavras por minuto), Difícil (menos de 80 palavras por minuto), Insano (mais de 80 palavras por minuto).",
@@ -154,6 +160,10 @@ export const gamesMock: Game[] = [
     release_date: "10-09-2020T00:00:00.000Z",
     players: "Single-player",
     platforms: ["PC"],
+    storeLinks: {
+      press: "https://drive.google.com/drive/folders/1CpzChi7TBAwNiPjdwILv5z10wt7JjfEs",
+      steam: "https://store.steampowered.com/app/1263200/Smashing_Spirits_A_Primeira_Boxeadora_Brasileira/"
+    },
     features: [
       "Integração com Steam: Salvar na Nuvem da Steam.",
       "Chefes Nostálgicos: 4 chefes difíceis com movimentos baseados em padrão como os clássicos sidescrollers!",
@@ -195,6 +205,7 @@ export const gamesMock: Game[] = [
     players: "Single-player",
     platforms: ["PC"],
     storeLinks: {
+      press: "https://drive.google.com/drive/folders/1ZIDbyLLibq2SsW1_AS9ckbgjPeRD_2Nq",
       steam: "https://store.steampowered.com/app/1528580/Neon_Ships_The_Typeem_Up_Shooter/?curator_clanid=40365443"
     },
     features: [
@@ -237,6 +248,7 @@ export const gamesMock: Game[] = [
     players: "Single-player",
     platforms: ["PC"],
     storeLinks: {
+      press: "https://drive.google.com/drive/folders/1rAcBWtHtE8VGHVKXaP7lbo2AueYfAw7t",
       steam: "https://store.steampowered.com/app/1600870/King_Bullseye_Headshot_Training/?curator_clanid=40365443"
     },
     features: [
@@ -282,6 +294,7 @@ export const gamesMock: Game[] = [
     players: "Single-player",
     platforms: ["PC"],
     storeLinks: {
+      press: "https://drive.google.com/drive/folders/13ansk9VF6E6HvjqM0YsVeSrJ3b2A7cZY",
       steam: "https://store.steampowered.com/app/3700180/Akumas_Bloodrain_Demo/?curator_clanid=40365443"
     },
     features: [
@@ -327,6 +340,7 @@ export const gamesMock: Game[] = [
     players: "Single-player",
     platforms: ["PC"],
     storeLinks: {
+      press: "https://drive.google.com/drive/folders/1DPfYkoC2MU6y90Kw3aQc8J3VWw53-AgJ",
       steam: "https://store.steampowered.com/app/1555080/Sniper_Ships_Shootem_Up_on_Rails/?curator_clanid=40365443"
     },
     features: [
@@ -371,6 +385,7 @@ export const gamesMock: Game[] = [
     players: "Single-player",
     platforms: ["PC"],
     storeLinks: {
+      press: "https://drive.google.com/drive/folders/1L4I3bnwF6Fz-EA2URdP6Vr38kRt70O4J",
       steam: "https://store.steampowered.com/app/1791870/Spooky_Typing_The_Ghost_Plague/?curator_clanid=40365443"
     },
     features: [

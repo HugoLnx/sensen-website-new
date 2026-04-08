@@ -76,7 +76,9 @@
     "title": "Games List",
     "subtitle": "Explore our curated selection of amazing indie games",
     "filterPrefix": "Filter by genre:",
-    "viewDetails": "View Details"
+    "steam": "View on Steam",
+    "press": "Press Kit",
+    "viewTrailler": "View Trailler"
   },
   "games": {
     "typomancer": {

@@ -48,7 +48,7 @@ const Footer = () => {
               <nav>
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/" className="hover:text-primary transition-colors">{t('header.home')}</Link></li>
-                  <li><Link to="jogos" className="hover:text-primary transition-colors">{t('header.games')}</Link></li>
+                  <li><Link to="/jogos" className="hover:text-primary transition-colors">{t('header.games')}</Link></li>
                   <li><Link to="/contato" className="hover:text-primary transition-colors">{t('header.contact')}</Link></li>
                 </ul>
               </nav>
@@ -81,7 +81,7 @@ const Footer = () => {
                     </div>
                     <button 
                       type="submit" 
-                      className="bg-primary hover:bg-primary-dark text-primary-on-color font-medium px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 group whitespace-nowrap"
+                      className="bg-primary hover:bg-primary-dark hover:cursor-pointer text-primary-on-color font-medium px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 group whitespace-nowrap"
                     >
                       {t('footer.newsletter.button')} <FaArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                     </button>

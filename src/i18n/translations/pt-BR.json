@@ -76,7 +76,9 @@
     "title": "Catálogo de Jogos",
     "subtitle": "Explore nossa seleção curada de jogos indie incríveis",
     "filterPrefix": "Filtrar por gênero:",
-    "viewDetails": "Ver Detalhes"
+    "steam": "Ver na Steam",
+    "press": "Imprensa",
+    "viewTrailler": "Ver Trailler"
   },
   "games": {
     "typomancer": {

@@ -37,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
           className="fixed bottom-14 right-2 z-50 bg-primary hover:bg-violet-700 text-white p-3 rounded-full shadow-lg transition-colors flex items-center justify-center"
           aria-label="Voltar ao topo"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp className="w-6 h-6 hover:cursor-pointer" />
         </button>
       )}
     </div>

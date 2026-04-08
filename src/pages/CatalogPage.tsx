@@ -42,6 +42,23 @@ const CatalogPage = () => {
     : gamesData.filter(game => game.genre.includes(selectedGenre));
 
   const handleGameClick = (game: Game) => {
+    if (game.storeLinks?.steam) {
+      window.open(game.storeLinks.steam, '_blank');
+    } else {
+      setSelectedGame(game);
+      setIsModalOpen(true);
+    }
+  };
+  const handlePressClick = (game: Game) => {
+    if (game.storeLinks?.press) {
+      window.open(game.storeLinks.press, '_blank');
+    } else {
+      setSelectedGame(game);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleTraillerClick = (game: Game) => {
     setSelectedGame(game);
     setIsModalOpen(true);
   };
@@ -167,13 +184,31 @@ const CatalogPage = () => {
 
                   <div className="flex justify-between items-center">
                     <button
-                      className="btn-primary px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
+                      className="btn-steam px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleGameClick(game);
                       }}
                     >
-                      {t('gamesPage.viewDetails')}
+                      {t('gamesPage.steam')}
+                    </button>
+                    <button
+                      className="btn-primary px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePressClick(game);
+                      }}
+                    >
+                      {t('gamesPage.press')}
+                    </button>
+                    <button
+                      className="btn-primary px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleTraillerClick(game);
+                      }}
+                    >
+                      {t('gamesPage.viewTrailler')}
                     </button>
                   </div>
                 </div>
