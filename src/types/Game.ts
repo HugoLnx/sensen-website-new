@@ -3,7 +3,6 @@ export interface Game {
   title: string;
   slug?: string;
   developer: string;
-  price: number;
   image: string;
   video?: string;
   genre: string[];

@@ -19,7 +19,6 @@ export interface Game {
   id?: string | number;  // Aceita ID numérico (SQL)
   slug?: string;
   title: string;
-  price: number;
   thumbnail?: string;
   image?: string;
   video?: string;

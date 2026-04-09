@@ -133,7 +133,6 @@ const CatalogPage = () => {
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-violet-400">{`R$ ${game.price.toFixed(2).replace('.', ',')}`}</span>
                   <button
                     className="btn-primary px-4 py-2 rounded transition-colors"
                     onClick={(e) => {

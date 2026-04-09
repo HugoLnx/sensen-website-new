@@ -1,9 +1,13 @@
-import { useStore } from "@/contexts/useStore";
 import type { Game } from "@/types";
 import { resolveMedia } from "@/utils/media";
-import { Star, Calendar, Users, ShoppingCart, X, Heart } from "lucide-react";
+import { Star, Calendar, Users, ShoppingCart, X } from "lucide-react";
 import { useRef, useState } from "react";
 import ImageWithFallback from "./figma/ImageWithFallback";
+import { FaSteam } from "react-icons/fa";
+
+const platformIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  PC: FaSteam,
+};
 
 /* =======================
    TIPOS
@@ -18,11 +22,6 @@ type GameModalProps = {
    HELPERS
 ======================= */
 
-const formatPriceBRL = (price: number) =>
-  price.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
 
 // const formatDateBR = (date: string) =>
 //   new Date(date).toLocaleDateString("pt-BR");
@@ -32,7 +31,6 @@ const formatPriceBRL = (price: number) =>
 ======================= */
 
 export function GameModal({ game, onClose }: GameModalProps) {
-  const { addToCart, addToWishlist, isInCart, isInWishlist } = useStore();
 
   const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -40,17 +38,6 @@ export function GameModal({ game, onClose }: GameModalProps) {
   // use shared resolveMedia util
 
   if (!game) return null;
-
-  const handleAddToCart = () => {
-    addToCart(game);
-  };
-
-  const handleAddToWishlist = () => {
-    addToWishlist(game);
-  };
-
-  const inCart = isInCart(game);
-  const inWishlist = isInWishlist(game);
 
   const videoSrc = resolveMedia(game.video);
   const imageSrc = resolveMedia(game.image);
@@ -139,7 +126,7 @@ export function GameModal({ game, onClose }: GameModalProps) {
             <div>
               <p className="text-xs text-gray-500">Preço</p>
               <p className="font-medium">
-                {formatPriceBRL(game?.price || 0)}
+                0
               </p>
             </div>
           </div>
@@ -224,28 +211,21 @@ export function GameModal({ game, onClose }: GameModalProps) {
         )}
         {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <button
-              onClick={handleAddToCart}
-              className={`flex-1 px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 ${
-                inCart
-                  ? 'bg-green-600 hover:bg-green-700 text-white'
-                  : 'btn-primary'
-              }`}
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {inCart ? 'No Carrinho' : 'Adicionar ao Carrinho'}
-            </button>
-            <button
-              onClick={handleAddToWishlist}
-              className={`flex-1 px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 ${
-                inWishlist
-                  ? 'bg-pink-600 hover:bg-pink-700 text-white'
-                  : 'bg-general hover:opacity-90 text-general'
-              }`}
-            >
-              <Heart className={`w-5 h-5 ${inWishlist ? 'fill-current' : ''}`} />
-              {inWishlist ? 'Na Lista de Desejos' : 'Adicionar à Lista de Desejos'}
-            </button>
+            {Object.entries(game.storeLinks ?? {}).map(([store, link]) => {
+                  const Icon = platformIcons[store === 'steam' ? 'PC' : store]; // Re-using platformIcons for store links
+                  return (
+                    <a
+                      key={store}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-violet-400 flex items-center gap-2 bg-slate-800 px-4 py-2 rounded-lg transition-colors"
+                    >
+                      {Icon ? <Icon size={24} className="text-general" /> : <span className="text-general font-medium">{store}</span>}
+                      <span className="text-general font-medium">{store === 'steam' ? 'Steam' : store}</span>
+                    </a>
+                  );
+                })}
           </div>
       </div>
     </div>

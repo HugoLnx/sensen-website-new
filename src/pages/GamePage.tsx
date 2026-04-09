@@ -1,10 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { Star, ShoppingCart, Calendar, Users, Heart, ArrowLeft } from 'lucide-react';
+import { Star, Calendar, Users, ArrowLeft } from 'lucide-react';
 import { FaSteam } from 'react-icons/fa'; // Only for platform icon mapping
 import type { Game } from '../types';
 import { resolveMedia } from '../utils/media';
-import { useStore } from '@/contexts/useStore';
 import apiClient from '@/api/axios';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
@@ -21,8 +20,6 @@ const GamePage = () => {
   const [error, setError] = useState<string | null>(null);
   const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  const { addToCart, addToWishlist, isInCart, isInWishlist } = useStore();
 
 
   useEffect(() => {
@@ -56,17 +53,6 @@ const GamePage = () => {
   if (!game) {
     return <div className="min-h-screen page-bg text-general py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">Jogo não encontrado</div>;
   }
-
-  const handleAddToCart = () => {
-    addToCart(game);
-  };
-
-  const handleAddToWishlist = () => {
-    addToWishlist(game);
-  };
-
-  const inCart = isInCart(game);
-  const inWishlist = isInWishlist(game);
 
   const videoSrc = resolveMedia(game.video);
   const imageSrc = resolveMedia(game.image);
@@ -114,30 +100,6 @@ const GamePage = () => {
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={handleAddToCart}
-              className={`flex-1 px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-lg ${inCart
-                ? 'bg-green-600 hover:bg-green-700 text-white'
-                : 'btn-primary'
-                }`}
-            >
-              <ShoppingCart className="w-6 h-6" />
-              {inCart ? 'No Carrinho' : 'Adicionar ao Carrinho'}
-            </button>
-            <button
-              onClick={handleAddToWishlist}
-              className={`flex-1 px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-lg ${inWishlist
-                ? 'bg-pink-600 hover:bg-pink-700 text-white'
-                : 'bg-general hover:opacity-90 text-general border border-slate-700'
-                }`}
-            >
-              <Heart className={`w-6 h-6 ${inWishlist ? 'fill-current' : ''}`} />
-              {inWishlist ? 'Na Lista de Desejos' : 'Adicionar à Lista de Desejos'}
-            </button>
-          </div>
-
           {/* Info Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="flex items-center gap-2 bg-general p-4 rounded-lg shadow-md">
@@ -161,14 +123,6 @@ const GamePage = () => {
               <div>
                 <p className="text-sm text-general">Jogadores</p>
                 <p className="text-general text-lg font-semibold">{game.players || '1'}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 bg-general p-4 rounded-lg shadow-md">
-              <ShoppingCart className="w-6 h-6 text-green-400" />
-              <div>
-                <p className="text-sm text-general">Preço</p>
-                <p className="text-general text-lg font-semibold">{`R$ ${game.price.toFixed(2).replace('.', ',')}`}</p>
               </div>
             </div>
           </div>
