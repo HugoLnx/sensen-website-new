@@ -1,9 +1,7 @@
-// import { useStore } from "@/contexts/useStore";
 import type { Game } from "@/types";
 import { resolveMedia } from "@/utils/media";
 import { X } from "lucide-react";
-import { useRef, useState } from "react";
-import ImageWithFallback from "./figma/ImageWithFallback";
+import { useRef } from "react";
 import { useLanguage } from "@/contexts/useLanguage";
 import { FaSteam } from "react-icons/fa";
 
@@ -17,40 +15,15 @@ type GameModalProps = {
 };
 
 /* =======================
-   HELPERS
-======================= */
-
-// const formatDateBR = (date: string) =>
-//   new Date(date).toLocaleDateString("pt-BR");
-
-/* =======================
    COMPONENTE
 ======================= */
 
 export function GameModal({ game, onClose }: GameModalProps) {
   const { t } = useLanguage();
-  // const { addToCart, addToWishlist, isInCart, isInWishlist } = useStore();
-  const platformIcons: { [key: string]: React.ElementType } = {
-    PC: FaSteam,
-  };
 
-  const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  // use shared resolveMedia util
-
   if (!game) return null;
-
-  // const handleAddToCart = () => {
-  //   addToCart(game);
-  // };
-
-  // const handleAddToWishlist = () => {
-  //   addToWishlist(game);
-  // };
-
-  // const inCart = isInCart(game);
-  // const inWishlist = isInWishlist(game);
 
   const videoSrc = resolveMedia(game.video);
   const imageSrc = resolveMedia(game.image);
@@ -76,38 +49,29 @@ export function GameModal({ game, onClose }: GameModalProps) {
         {/* Título */}
         <h2 className="text-2xl font-bold mb-4">{game?.title}</h2>
 
-        {/* Media: Image / Video toggle */}
-          <div className="space-y-2">
-            <div className="flex gap-2">
-              <button
-                className={`px-3 py-1 rounded ${!showVideo ? 'bg-violet-600 text-white' : 'bg-general text-general'}`}
-                onClick={() => setShowVideo(false)}
-              >
-                {t('gameModal.viewImage')}
-              </button>
-              <button
-                className={`px-3 py-1 rounded ${showVideo ? 'bg-violet-600 text-white' : 'bg-general text-general'}`}
-                onClick={() => setShowVideo(true)}
-              >
-                {t('gameModal.viewVideo')}
-              </button>
+        {/* Media: Video (Default) */}
+        <div className="aspect-video overflow-hidden rounded-lg bg-general mb-6">
+          {videoSrc ? (
+            <video 
+              ref={videoRef} 
+              src={videoSrc} 
+              controls 
+              autoPlay 
+              loop 
+              className="w-full h-full object-cover" 
+              poster={imageSrc} 
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-gray-500">
+              {t('gameModal.noVideo') || 'Vídeo não disponível'}
             </div>
-
-            <div className="aspect-video overflow-hidden rounded-lg bg-general">
-              {!showVideo ? (
-                <ImageWithFallback src={imageSrc} alt={game.title} className="w-full h-full object-cover" />
-              ) : videoSrc ? (
-                <video ref={videoRef} src={videoSrc} controls autoPlay loop className="w-full h-full object-cover" poster={imageSrc} />
-              ) : (
-                <ImageWithFallback src={imageSrc} alt={game.title} className="w-full h-full object-cover" />
-              )}
-            </div>
-          </div>
+          )}
+        </div>
 
         {/* =======================
             GÊNEROS
         ======================= */}
-        <div className="flex flex-wrap gap-2 mt-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6">
           {game?.genre.map((genre) => (
             <span
               key={genre}
@@ -128,25 +92,22 @@ export function GameModal({ game, onClose }: GameModalProps) {
           </p>
         </div>
 
-        {game.storeLinks && Object.keys(game.storeLinks).length > 0 && (
+        {/* =======================
+            ONDE COMPRAR
+        ======================= */}
+        {game.storeLinks?.steam && (
             <div className="bg-general p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold mb-3 text-primary">{t('gamePage.buy')}</h3>
               <div className="flex flex-wrap gap-4">
-                {Object.entries(game.storeLinks).map(([store, link]) => {
-                  const Icon = platformIcons[store === 'steam' ? 'PC' : store];
-                  return (
-                    <a
-                      key={store}
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-primary flex items-center gap-2 bg-general-dark px-4 py-2 rounded-lg transition-colors"
-                    >
-                      {Icon ? <Icon size={24} className="text-general" /> : <span className="text-general font-medium">{store}</span>}
-                      <span className="text-general font-medium">{store === 'steam' ? 'Steam' : store}</span>
-                    </a>
-                  );
-                })}
+                <a
+                  href={game.storeLinks.steam}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary flex items-center gap-2 bg-general-dark px-4 py-2 rounded-lg transition-colors"
+                >
+                  <FaSteam size={24} className="text-general" />
+                  <span className="text-general font-medium">Steam</span>
+                </a>
               </div>
             </div>
           )}

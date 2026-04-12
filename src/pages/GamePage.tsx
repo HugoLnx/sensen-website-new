@@ -8,10 +8,6 @@ import { resolveMedia } from '../utils/media';
 import apiClient from '@/api/axios';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
-const platformIcons: { [key: string]: React.ElementType } = {
-  PC: FaSteam,
-};
-
 const GamePage = () => {
   const { slug } = useParams<{ slug?: string }>();
   const navigate = useNavigate();
@@ -123,25 +119,19 @@ const GamePage = () => {
             </p>
           </div>
 
-          {game.storeLinks && Object.keys(game.storeLinks).length > 0 && (
+          {game.storeLinks?.steam && (
             <div className="bg-general p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold mb-3 text-primary">{t('gamePage.buy')}</h3>
               <div className="flex flex-wrap gap-4">
-                {Object.entries(game.storeLinks).map(([store, link]) => {
-                  const Icon = platformIcons[store === 'steam' ? 'PC' : store];
-                  return (
-                    <a
-                      key={store}
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-primary flex items-center gap-2 bg-general-dark px-4 py-2 rounded-lg transition-colors"
-                    >
-                      {Icon ? <Icon size={24} className="text-general" /> : <span className="text-general font-medium">{store}</span>}
-                      <span className="text-general font-medium">{store === 'steam' ? 'Steam' : store}</span>
-                    </a>
-                  );
-                })}
+                <a
+                  href={game.storeLinks.steam}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary flex items-center gap-2 bg-general-dark px-4 py-2 rounded-lg transition-colors"
+                >
+                  <FaSteam size={24} className="text-general" />
+                  <span className="text-general font-medium">Steam</span>
+                </a>
               </div>
             </div>
           )}

@@ -2,7 +2,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Gamepad2, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/useLanguage';
-// import { useStore } from '@/contexts/useStore';
 import { useSettings } from '@/contexts/SettingsContext';
 import { resolveMedia } from '@/utils/media';
 
@@ -10,7 +9,6 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, currentLang, setLanguage } = useLanguage();
   const location = useLocation();
-  // const { getCartCount, wishlist } = useStore();
   const { settings } = useSettings();
 
   const navigation = [
@@ -24,10 +22,6 @@ const Header = () => {
   const toggleLanguage = () => {
     setLanguage(currentLang === 'pt-BR' ? 'en-US' : 'pt-BR');
   };
-
-  // const cartCount = getCartCount();
-  // const wishlistCount = wishlist.length;
-
 
   return (
     <header className="header-bg border-b border-slate-800 sticky top-0 z-50">
@@ -73,33 +67,6 @@ const Header = () => {
                     <span>{currentLang === 'pt-BR' ? 'EN' : 'PT'}</span>
                   </button>
                   
-                   {/* Wishlist Icon */}
-              {/* <Link
-                to="/lista-desejos"
-                className="relative text-general hover:text-violet-400 transition-colors"
-                title="Lista de Desejos"
-              >
-                <Heart className={`w-6 h-6 ${isActive('/lista-desejos') ? 'text-violet-400 fill-current' : ''}`} />
-                  {wishlistCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-violet-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                      {wishlistCount}
-                    </span>
-                  )}
-                </Link> */}
-
-                {/* Cart Icon */}
-                {/* <Link
-                  to="/carrinho"
-                  className="relative text-general hover:text-violet-400 transition-colors"
-                  title="Carrinho"
-                >
-                  <ShoppingCart className={`w-6 h-6 ${isActive('/carrinho') ? 'text-violet-400' : ''}`} />
-                  {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-violet-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                      {cartCount}
-                    </span>
-                  )}
-                </Link> */}
                 </div>
     
                 {/* Mobile Menu Button */}
@@ -143,43 +110,6 @@ className="md:hidden text-general hover:text-primary transition-colors"
                     </button>
                   </div>
                   
-                  {/* Mobile Wishlist Link */}
-                  {/* <Link
-                    to="/lista-desejos"
-                    className={`flex items-center gap-2 py-2 transition-colors ${
-                      isActive('/lista-desejos')
-                        ? 'text-violet-400'
-                        : 'text-general hover:text-violet-400'
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Heart className="w-5 h-5" />
-                    Lista de Desejos
-                    {wishlistCount > 0 && (
-                      <span className="bg-violet-600 text-white text-xs px-2 py-0.5 rounded-full">
-                        {wishlistCount}
-                      </span>
-                    )}
-                  </Link> */}
-
-                  {/* Mobile Cart Link */}
-                  {/* <Link
-                    to="/carrinho"
-                    className={`flex items-center gap-2 py-2 transition-colors ${
-                      isActive('/carrinho')
-                        ? 'text-violet-400'
-                        : 'text-general hover:text-violet-400'
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <ShoppingCart className="w-5 h-5" />
-                    Carrinho
-                    {cartCount > 0 && (
-                      <span className="bg-violet-600 text-white text-xs px-2 py-0.5 rounded-full">
-                        {cartCount}
-                      </span>
-                    )}
-                  </Link> */}
                 </div>
               )}
             </nav>
