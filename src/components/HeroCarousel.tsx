@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import type { Game } from "@/types";
 import { useLanguage } from "@/contexts/useLanguage";
-import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { FaSteam } from "react-icons/fa";
+import { GameModal } from "./GameModal";
 import { resolveMedia } from "@/utils/media";
 
 interface HeroCarouselProps {
@@ -12,6 +13,8 @@ interface HeroCarouselProps {
 export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const goToNext = useCallback(() => {
@@ -20,6 +23,16 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
 
   const goToPrev = () => {
     setCurrentIndex((prev) => (prev - 1 + games.length) % games.length);
+  };
+
+  const handleOpenModal = (game: Game) => {
+    setSelectedGame(game);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedGame(null), 300);
   };
 
   useEffect(() => {
@@ -68,11 +81,25 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
         <p className="text-xl text-general-dim mb-8 max-w-2xl mx-auto line-clamp-2">
           {t(current.description ?? '')}
         </p>
-        <Link to={`/games/${current.slug}`}>
-          <button className="bg-primary hover:bg-primary-dark text-primary-on-color font-bold py-4 px-10 rounded-lg transition-colors shadow-lg">
-            {t('hero.playNow')}
+        <div className="flex gap-4 justify-center flex-wrap">
+          <button 
+            onClick={() => handleOpenModal(current)}
+            className="bg-primary hover:cursor-pointer hover:bg-primary-dark text-primary-on-color font-bold py-4 px-10 rounded-lg transition-colors shadow-lg"
+          >
+            {t('hero.viewMore')}
           </button>
-        </Link>
+          {current.storeLinks?.steam && (
+            <a
+              href={current.storeLinks.steam}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-steam font-bold py-4 px-10 rounded-lg transition-colors shadow-lg flex items-center gap-2"
+            >
+              <FaSteam size={20} />
+              {t('gamesPage.steam')}
+            </a>
+          )}
+        </div>
       </div>
 
       <button
@@ -118,6 +145,12 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
           ))}
         </div>
       </div>
+
+      <GameModal 
+        game={selectedGame} 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+      />
     </section>
   );
 };

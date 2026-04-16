@@ -50,18 +50,6 @@
       "contact": "Contact Us"
     }
   },
-  "gamePage": {
-    "loading": "Loading game...",
-    "error": "Failed to fetch game details.",
-    "notFound": "Game not found",
-    "developer": "Developer",
-    "genres": "Genres",
-    "aboutGame": "About This Game",
-    "buy": "Where to Buy",
-    "image": "View Image",
-    "video": "View Video",
-    "back": "Back"
-  },
   "gameModal": {
     "viewImage": "View Image",
     "viewVideo": "View Video",
@@ -79,6 +67,9 @@
     "steam": "View on Steam",
     "press": "Press Kit",
     "viewTrailler": "View Trailler"
+  },
+  "hero": { 
+    "viewMore": "View More" 
   },
   "games": {
     "typomancer": {
@@ -131,6 +122,7 @@
     "submit": "Send Message",
     "successTitle": "Message Sent!",
     "successMessage": "Thank you for contacting us",
+    "thankYouContact": "Thank you for contacting us, {name}!",
     "newsletterSubscribed": "✅ Successfully subscribed to Newsletter!",
     "newsletterNotSubscribed": "❌ You chose not to receive the Newsletter.",
     "sendAnother": "Send another message",
@@ -152,9 +144,6 @@
     "contactEmail": "contact@sensengames.com",
     "contactPhone": "(11) 9999-9999",
     "contactAddress": "Av. Paulista, 1000"
-  },
-  "hero": {
-    "playNow": "PLAY NOW"
   },
   "common": {
     "emailError": "Enter a valid email.",

@@ -1,8 +1,8 @@
 {
-  "header": {
-    "home": "Início",
-    "games": "Jogos",
-    "contact": "Contato"
+  "header": { 
+    "home": "Início", 
+    "games": "Jogos", 
+    "contact": "Contato" 
   },
   "footer": {
     "sensenGames": "Sensen Games",
@@ -50,18 +50,6 @@
       "contact": "Fale Conosco"
     }
   },
-  "gamePage": {
-    "loading": "Carregando jogo...",
-    "error": "Falha ao buscar detalhes do jogo.",
-    "notFound": "Jogo não encontrado",
-    "developer": "Desenvolvedor",
-    "genres": "Gêneros",
-    "aboutGame": "Sobre este Jogo",
-    "buy": "Onde Comprar",
-    "image": "Ver Imagem",
-    "video": "Ver Vídeo",
-    "back": "Voltar"
-  },
   "gameModal": {
     "viewImage": "Ver Imagem",
     "viewVideo": "Ver Vídeo",
@@ -79,6 +67,9 @@
     "steam": "Ver na Steam",
     "press": "Imprensa",
     "viewTrailler": "Ver Trailler"
+  },
+  "hero": { 
+    "viewMore": "Ver mais" 
   },
   "games": {
     "typomancer": {
@@ -131,7 +122,7 @@
     "submit": "Enviar Mensagem",
     "successTitle": "Mensagem Enviada!",
     "successMessage": "Obrigado pelo contato",
-    "thankYouContact": "Thank you for contacting us, {name}!",
+    "thankYouContact": "Obrigado pelo contato, {name}!",
     "newsletterSubscribed": "✅ Inscrito na Newsletter com sucesso!",
     "newsletterNotSubscribed": "❌ Você optou por não receber a Newsletter.",
     "sendAnother": "Enviar outra mensagem",
@@ -153,9 +144,6 @@
     "contactEmail": "contato@sensengames.com",
     "contactPhone": "(11) 9999-9999",
     "contactAddress": "Av. Paulista, 1000"
-  },
-  "hero": {
-    "playNow": "JOGUE AGORA"
   },
   "common": {
     "emailError": "Digite um e-mail válido.",
