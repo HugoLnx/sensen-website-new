@@ -101,10 +101,13 @@
     }
   },
   "genres": {
-    "First Person": "Primeira Pessoa",
-    "Platformer": "Plataforma",
+    "2D": "2D",
+    "2D Platformer": "Plataforma 2D",
+    "2_5D": "2.5D",
+    "Retro FPS": "FPS Retrô",
     "Runner": "Corredor",
     "Shoot'em Up": "Atire em Todos",
+    "Target Shooting": "Tiro ao Alvo",
     "Tower Defense": "Defesa de Torre",
     "Typing": "Digitação"
   },

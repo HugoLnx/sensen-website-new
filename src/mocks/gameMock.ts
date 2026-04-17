@@ -9,7 +9,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game1_preview.mp4",
     description: "games.typomancer.description",
     developer: "Sensen Games",
-    genre: ["Typing", "Platformer"],
+    genre: ["Typing", "2D Platformer", "2D"],
     rating: 4.5,
     platforms: ["PC"],
     storeLinks: {
@@ -25,7 +25,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game2_preview.mp4",
     description: "games.tyfortress.description",
     developer: "Sensen Games",
-    genre: ["Typing", "Tower Defense"],
+    genre: ["Typing", "Tower Defense", "2D"],
     rating: 4.2,
     platforms: ["PC"],
     storeLinks: {
@@ -41,7 +41,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game3_preview.mp4",
     description: "games.tybot-invasion.description",
     developer: "Sensen Games",
-    genre: ["Typing", "Runner", "Shoot'em Up"],
+    genre: ["Typing", "Runner", "2D"],
     rating: 4.8,
     platforms: ["PC"],
     storeLinks: {
@@ -57,7 +57,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game4_preview.mp4",
     description: "games.smashing-spirits.description",
     developer: "Sensen Games",
-    genre: ["Platformer"],
+    genre: ["2D Platformer", "2D"],
     rating: 4.9,
     platforms: ["PC"],
     storeLinks: {
@@ -73,7 +73,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game5_preview.mp4",
     description: "games.neon-ships.description",
     developer: "Sensen Games",
-    genre: ["Typing", "Shoot'em Up"],
+    genre: ["Typing", "Shoot'em Up", "2D"],
     rating: 4.7,
     platforms: ["PC"],
     storeLinks: {
@@ -89,7 +89,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game6_preview.mp4",
     description: "games.kings-bullseye.description",
     developer: "Sensen Games",
-    genre: ["Shoot'em Up"],
+    genre: ["Target Shooting", "2D"],
     rating: 4.9,
     platforms: ["PC"],
     storeLinks: {
@@ -105,7 +105,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game7_preview.mp4",
     description: "games.akuma-bloodrain.description",
     developer: "Sensen Games",
-    genre: ["First Person", "Shoot'em Up"],
+    genre: ["Retro FPS", "2_5D"],
     rating: 4.8,
     platforms: ["PC"],
     storeLinks: {
@@ -121,7 +121,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game8_preview.mp4",
     description: "games.sniper-ships.description",
     developer: "Sensen Games",
-    genre: ["Shoot'em Up"],
+    genre: ["Shoot'em Up", "2D"],
     rating: 4.7,
     platforms: ["PC"],
     storeLinks: {
@@ -137,7 +137,7 @@ export const gamesMock: Game[] = [
     video: "/videos/game9_preview.mp4",
     description: "games.spooky-typing.description",
     developer: "Sensen Games",
-    genre: ["Typing", "Runner"],
+    genre: ["Typing", "Runner", "2D"],
     rating: 5.0,
     platforms: ["PC"],
     storeLinks: {

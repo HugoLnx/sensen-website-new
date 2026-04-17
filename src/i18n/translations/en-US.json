@@ -101,10 +101,13 @@
     }
   },
   "genres": {
-    "First Person": "First Person",
-    "Platformer": "Platformer",
+    "2D": "2D",
+    "2D Platformer": "2D Platformer",
+    "2_5D": "2.5D",
+    "Retro FPS": "Retro FPS",
     "Runner": "Runner",
     "Shoot'em Up": "Shoot'em Up",
+    "Target Shooting": "Target Shooting",
     "Tower Defense": "Tower Defense",
     "Typing": "Typing"
   },
