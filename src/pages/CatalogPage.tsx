@@ -172,7 +172,7 @@ const CatalogPage = () => {
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {game.genre.slice(0, 2).map((g) => (
+                    {game.genre.slice(0, 5).map((g) => (
                       <span
                         key={g}
                         className="text-xs bg-primary-soft text-primary px-2 py-1 rounded font-medium"

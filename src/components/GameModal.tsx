@@ -97,7 +97,7 @@ export function GameModal({ game, onClose }: GameModalProps) {
         ======================= */}
         {game.storeLinks?.steam && (
             <div className="bg-general p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-primary">{t('gamePage.buy')}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-primary">{t('gamesPage.steam')}</h3>
               <div className="flex flex-wrap gap-4">
                 <a
                   href={game.storeLinks.steam}

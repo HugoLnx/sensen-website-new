@@ -101,13 +101,12 @@
     }
   },
   "genres": {
-    "acao": "Action",
-    "aventura": "Adventure",
-    "indie": "Indie",
-    "estrategia": "Strategy",
-    "simulacao": "Simulation",
-    "casual": "Casual",
-    "demo": "Demo"
+    "First Person": "First Person",
+    "Platformer": "Platformer",
+    "Runner": "Runner",
+    "Shoot'em Up": "Shoot'em Up",
+    "Tower Defense": "Tower Defense",
+    "Typing": "Typing"
   },
   "contact": {
     "title": "Get In Touch",
