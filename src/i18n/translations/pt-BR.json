@@ -1,8 +1,8 @@
 {
-  "header": { 
-    "home": "Início", 
-    "games": "Jogos", 
-    "contact": "Contato" 
+  "header": {
+    "home": "Início",
+    "games": "Jogos",
+    "contact": "Contato"
   },
   "footer": {
     "sensenGames": "Sensen Games",
@@ -68,8 +68,8 @@
     "press": "Imprensa",
     "viewTrailler": "Ver Trailler"
   },
-  "hero": { 
-    "viewMore": "Ver mais" 
+  "hero": {
+    "viewMore": "Ver mais"
   },
   "games": {
     "typomancer": {
@@ -114,7 +114,7 @@
   "contact": {
     "title": "Entre em Contato",
     "subtitle": "Tem dúvidas ou sugestões? Adoraríamos ouvir você!",
-    "infoTitle": "Informações de Contato",
+    "infoTitle": "Nossas Redes Sociais",
     "sendMessage": "Envie uma Mensagem",
     "name": "Nome",
     "email": "E-mail",
@@ -138,14 +138,36 @@
       "hours": "9h - 18h",
       "closed": "Fechado"
     },
-    "contactInfo": {
-      "email": "Email",
-      "phone": "Telefone",
-      "address": "Endereço"
-    },
-    "contactEmail": "contato@sensengames.com",
-    "contactPhone": "(11) 9999-9999",
-    "contactAddress": "Av. Paulista, 1000"
+    "socials": {
+      "steam": {
+        "label": "Steam (Página do estúdio)",
+        "url": "https://store.steampowered.com/developer/sensengames"
+      },
+      "press": {
+        "label": "Press Kit",
+        "url": "https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://instagram.com/sensengames"
+      },
+      "threads": {
+        "label": "Threads",
+        "url": "https://threads.com/sensengames"
+      },
+      "bluesky": {
+        "label": "Bluesky",
+        "url": "https://sensengames.bsky.social/"
+      },
+      "twitter": {
+        "label": "X/Twitter",
+        "url": "https://x.com/sensengames"
+      },
+      "facebook": {
+        "label": "Facebook",
+        "url": "https://fb.com/sensengames/"
+      }
+    }
   },
   "common": {
     "emailError": "Digite um e-mail válido.",

@@ -20,13 +20,15 @@ export const settingsMock = {
   mailingListImageUrl: "/images/mailing_list_bg.jpg",
   homepageMailingListTitle: "ENTRE PARA NOSSA LISTA DE E-MAILS",
   socialLinks: [
-    { name: 'Twitter', icon: 'FaTwitter', url: 'https://x.com/sensengames' },
-    { name: 'Facebook', icon: 'FaFacebook', url: 'https://www.facebook.com/sensengames/' },
-    { name: 'Instagram', icon: 'FaInstagram', url: 'https://www.instagram.com/sensengames/' },
     { name: 'Steam', icon: 'FaSteam', url: 'https://store.steampowered.com/developer/sensengames' },
+    { name: 'Press Kit', icon: 'FaGoogleDrive', url: 'https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma' },
+    { name: 'Instagram', icon: 'FaInstagram', url: 'https://instagram.com/sensengames' },
+    { name: 'Threads', icon: 'ThreadsIcon', url: 'https://threads.com/sensengames' }, 
+    { name: 'Bluesky', icon: 'BlueskyIcon', url: 'https://sensengames.bsky.social/' },
+    { name: 'X/Twitter', icon: 'FaTwitter', url: 'https://x.com/sensengames' },
+    { name: 'Facebook', icon: 'FaFacebook', url: 'https://fb.com/sensengames/' },
     { name: 'YouTube', icon: 'FaYoutube', url: 'https://www.youtube.com/@sensengames' },
-    { name: 'BlueSky', icon: 'BlueskyIcon', url: 'https://bsky.app/profile/sensengames.bsky.social' },
-  ],
+  ], 
   createdAt: "2024-01-12T12:00:00.000Z",
   updatedAt: "2024-01-12T12:00:00.000Z"
 };

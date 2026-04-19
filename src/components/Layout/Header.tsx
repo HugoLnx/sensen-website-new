@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Gamepad2, Globe } from 'lucide-react';
+import { FaSteam, FaInstagram, FaGoogleDrive } from 'react-icons/fa';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/useLanguage';
 import { useSettings } from '@/contexts/SettingsContext';
-import { resolveMedia } from '@/utils/media';
+import { resolveMedia } from '@/utils/media'; 
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -66,12 +67,22 @@ const Header = () => {
                     <Globe className="w-4 h-4" />
                     <span>{currentLang === 'pt-BR' ? 'EN' : 'PT'}</span>
                   </button>
-                  
-                </div>
+
+                  {/* Social Icons Desktop */}
+                  <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Steam" aria-label="Steam">
+                    <FaSteam className="w-5 h-5" />
+                  </a>
+                  <a href="https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Press Kit" aria-label="Press Kit">
+                    <FaGoogleDrive className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/sensengames" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Instagram" aria-label="Instagram">
+                    <FaInstagram className="w-5 h-5" />
+                  </a>
+                </div> 
     
                 {/* Mobile Menu Button */}
                 <button
-className="md:hidden text-general hover:text-primary transition-colors"
+                  className="md:hidden text-general hover:text-primary transition-colors"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                   {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -103,14 +114,29 @@ className="md:hidden text-general hover:text-primary transition-colors"
                         toggleLanguage();
                         setMobileMenuOpen(false);
                       }}
-                      className="w-full flex items-center gap-2 p-3 rounded-lg hover:bg-general-dark transition-colors text-left"
+                      className="w-full flex items-center gap-2 rounded-lg hover:bg-general-dark transition-colors text-left"
                     >
                       <Globe className="w-5 h-5" />
                       <span>Switch to {currentLang === 'pt-BR' ? 'English' : 'Português'}</span>
                     </button>
                   </div>
-                  
-                </div>
+
+                  {/* Social Icons Mobile */}
+                  <div className="py-2 border-t border-slate-700">
+                    <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-3 py-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      <FaSteam className="w-5 h-5 shrink-0" />
+                      <span>Steam</span>
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-3 py-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      <FaGoogleDrive className="w-5 h-5 shrink-0" />
+                      <span>Press Kit</span>
+                    </a>
+                    <a href="https://instagram.com/sensengames" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-3 py-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      <FaInstagram className="w-5 h-5 shrink-0" />
+                      <span>Instagram</span>
+                    </a>
+                  </div>
+                </div> 
               )}
             </nav>
           </header>

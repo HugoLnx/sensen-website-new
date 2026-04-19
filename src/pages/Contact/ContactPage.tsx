@@ -1,6 +1,8 @@
 import { useLanguage } from "@/contexts/useLanguage";
-import { Mail, Phone, MapPin } from 'lucide-react';
-import {ContactForm} from '../../components/Forms/ContactForm';
+import { Globe } from 'lucide-react';
+import { FaSteam, FaGoogleDrive, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
+import {ContactForm} from '../../components/Forms/ContactForm'; 
+import BlueskyIcon from "@/components/ui/BlueskyIcon";
 
 const ContactPage = () => {
   const { t } = useLanguage();
@@ -18,35 +20,85 @@ const ContactPage = () => {
           <div className="space-y-6">
             <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
               <h2 className="text-2xl mb-6 text-primary font-semibold">{t('contact.infoTitle')}</h2>
-              <div className="space-y-6">
+              <div className="space-y-4.75">
+                {/* Steam */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5 text-primary" />
+                    <FaSteam className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-slate-100 font-medium mb-1">{t('contact.contactInfo.email')}</h3>
-                    <p className="text-slate-400">contato@sensengames.com</p>
+                    <a href={t('contact.socials.steam.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
+                      <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.steam.label')}</h3>
+                    </a>
                   </div>
                 </div>
+                {/* Press Kit */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
+                    <FaGoogleDrive className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-slate-100 font-medium mb-1">{t('contact.contactInfo.phone')}</h3>
-                    <p className="text-slate-400">(11) 9999-9999</p>
+                    <a href={t('contact.socials.press.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
+                      <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.press.label')}</h3>
+                    </a>
                   </div>
                 </div>
+                {/* Instagram */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
+                    <FaInstagram className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-slate-100 font-medium mb-1">{t('contact.contactInfo.address')}</h3>
-                    <p className="text-slate-400">Av. Paulista, 1000</p>
+                    <a href={t('contact.socials.instagram.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
+                      <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.instagram.label')}</h3>
+                    </a>
                   </div>
                 </div>
-              </div>
+                {/* Threads */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
+                    <Globe className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <a href={t('contact.socials.threads.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
+                      <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.threads.label')}</h3>                      
+                    </a>
+                  </div>
+                </div>
+                {/* Bluesky */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
+                    <BlueskyIcon size={20} className="text-primary" />
+                  </div>
+                  <div>
+                    <a href={t('contact.socials.bluesky.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
+                      <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.bluesky.label')}</h3>
+                    </a>
+                  </div>
+                </div>
+                {/* Twitter */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
+                    <FaTwitter className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <a href={t('contact.socials.twitter.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
+                      <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.twitter.label')}</h3>
+                    </a>
+                  </div>
+                </div>
+                {/* Facebook */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
+                    <FaFacebook className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <a href={t('contact.socials.facebook.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
+                      <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.facebook.label')}</h3>
+                    </a>
+                  </div>
+                </div>
+              </div> 
             </div>
             
             <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">

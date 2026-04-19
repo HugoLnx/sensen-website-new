@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { FaTwitter, FaFacebook, FaInstagram, FaSteam, FaYoutube, FaWhatsapp, FaArrowRight } from 'react-icons/fa';
+import { FaTwitter, FaFacebook, FaInstagram, FaSteam, FaYoutube, FaWhatsapp, FaArrowRight, FaGoogleDrive } from 'react-icons/fa';
 import { Mail, CheckCircle } from 'lucide-react';
 import BlueskyIcon from '../ui/BlueskyIcon';
+import ThreadsIcon from '../ui/ThreadsIcon'; 
 import { settingsMock } from '@/mocks/settingsMock';
 import { useLanguage } from '@/contexts/useLanguage';
 
@@ -12,8 +13,8 @@ interface IFooterNewsletter {
 }
 
 const socialIconMap: { [key: string]: React.ElementType } = {
-  FaTwitter, FaFacebook, FaInstagram, FaSteam, FaYoutube, FaWhatsapp, BlueskyIcon
-};
+  FaTwitter, FaFacebook, FaInstagram, FaSteam, FaYoutube, FaWhatsapp, BlueskyIcon, FaGoogleDrive, ThreadsIcon
+}; 
 
 const Footer = () => {
   const { t } = useLanguage();
