@@ -84,7 +84,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
         <div className="flex gap-4 justify-center flex-wrap">
           <button 
             onClick={() => handleOpenModal(current)}
-            className="bg-primary hover:cursor-pointer hover:bg-primary-dark text-primary-on-color font-bold py-4 px-10 rounded-lg transition-colors shadow-lg"
+            className="btn-steam hover:cursor-pointer text-primary-on-color font-bold py-4 px-10 rounded-lg transition-colors shadow-lg"
           >
             {t('hero.viewMore')}
           </button>
@@ -93,7 +93,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
               href={current.storeLinks.steam}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-steam font-bold py-4 px-10 rounded-lg transition-colors shadow-lg flex items-center gap-2"
+              className="btn-primary font-bold py-4 px-10 rounded-lg transition-colors shadow-lg flex items-center gap-2"
             >
               <FaSteam size={20} />
               {t('gamesPage.steam')}

@@ -184,7 +184,7 @@ const CatalogPage = () => {
 
                   <div className="flex justify-between items-center">
                     <button
-                      className="btn-steam px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
+                      className="btn-primary px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleGameClick(game);
@@ -193,7 +193,7 @@ const CatalogPage = () => {
                       {t('gamesPage.steam')}
                     </button>
                     <button
-                      className="btn-primary px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
+                      className="btn-steam px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
                       onClick={(e) => {
                         e.stopPropagation();
                         handlePressClick(game);
@@ -202,7 +202,7 @@ const CatalogPage = () => {
                       {t('gamesPage.press')}
                     </button>
                     <button
-                      className="btn-primary px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
+                      className="btn-steam px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleTraillerClick(game);
