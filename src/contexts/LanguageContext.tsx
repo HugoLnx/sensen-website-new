@@ -22,7 +22,9 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   const setLanguage = (lang: 'pt-BR' | 'en-US') => {
     setCurrentLang(lang);
-    localStorage.setItem('preferredLanguage', lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferredLanguage', lang);
+    }
   };
 
   const t = (key: string): string => {

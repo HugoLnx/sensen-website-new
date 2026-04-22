@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import { FaTwitter, FaFacebook, FaInstagram, FaSteam, FaYoutube, FaWhatsapp, FaArrowRight, FaGoogleDrive } from 'react-icons/fa';
 import { Mail, CheckCircle } from 'lucide-react';
 import BlueskyIcon from '../ui/BlueskyIcon';
@@ -48,9 +47,9 @@ const Footer = () => {
               <h4 className="text-general font-semibold text-sm uppercase tracking-wider">{t('footer.explore')}</h4>
               <nav>
                 <ul className="space-y-2 text-sm">
-                  <li><Link to="/" className="hover:text-primary transition-colors">{t('header.home')}</Link></li>
-                  <li><Link to="/jogos" className="hover:text-primary transition-colors">{t('header.games')}</Link></li>
-                  <li><Link to="/contato" className="hover:text-primary transition-colors">{t('header.contact')}</Link></li>
+                  <li><a href="/" className="hover:text-primary transition-colors">{t('header.home')}</a></li>
+                  <li><a href="/jogos" className="hover:text-primary transition-colors">{t('header.games')}</a></li>
+                  <li><a href="/contato" className="hover:text-primary transition-colors">{t('header.contact')}</a></li>
                 </ul>
               </nav>
             </div>

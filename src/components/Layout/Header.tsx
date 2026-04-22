@@ -1,15 +1,15 @@
-import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Gamepad2, Globe } from 'lucide-react';
 import { FaSteam, FaInstagram, FaGoogleDrive } from 'react-icons/fa';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/useLanguage';
 import { useSettings } from '@/contexts/SettingsContext';
 import { resolveMedia } from '@/utils/media'; 
+import { usePageContext } from 'vike-react/usePageContext';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, currentLang, setLanguage } = useLanguage();
-  const location = useLocation();
+  const pageContext = usePageContext();
   const { settings } = useSettings();
 
   const navigation = [
@@ -18,7 +18,7 @@ const Header = () => {
     { name: t('header.contact'), href: '/contato' },
   ];
 
-  const isActive = (href: string) => location.pathname === href;
+  const isActive = (href: string) => pageContext.urlPathname === href;
 
   const toggleLanguage = () => {
     setLanguage(currentLang === 'pt-BR' ? 'en-US' : 'pt-BR');
@@ -29,7 +29,7 @@ const Header = () => {
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16">
                 {/* Logo */}
-                <Link to="/" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors" >
+                <a href="/" className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors" >
                   {settings?.logoUrl ? (
                     <img
                       src={resolveMedia(settings.logoUrl)}
@@ -40,14 +40,14 @@ const Header = () => {
                     <Gamepad2 className="w-8 h-8" />
                   )}
                   <span className="text-xl">{settings?.siteName ?? 'IndieVerse'}</span>
-                </Link>
+                </a>
     
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">
                   {navigation.map((item) => (
-                    <Link
+                    <a
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       className={`transition-colors ${
                         isActive(item.href)
                           ? 'text-primary'
@@ -55,7 +55,7 @@ const Header = () => {
                       }`}
                     >
                       {item.name}
-                    </Link>
+                    </a>
                   ))}
                   
                   {/* Language Toggle */}
@@ -93,9 +93,9 @@ const Header = () => {
               {mobileMenuOpen && (
                 <div className="md:hidden py-4 border-t border-slate-800">
                   {navigation.map((item) => (
-                    <Link
+                    <a
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       className={`block py-2 transition-colors ${
                         isActive(item.href)
                           ? 'text-violet-400'
@@ -104,7 +104,7 @@ const Header = () => {
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
-                    </Link>
+                    </a>
                   ))}
                   
                   {/* Language Toggle Mobile */}
