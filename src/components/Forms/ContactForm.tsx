@@ -66,7 +66,6 @@ export function ContactForm() {
       onSubmit={handleSubmit(onSubmit)} 
       className="flex flex-col gap-4 p-6 bg-slate-900 rounded-lg max-w-md mx-auto shadow-lg"
     >
-<h2 className="text-2xl font-bold text-white mb-2">{t('contact.sendMessage')}</h2>
 
       {/* Nome */}
       <div className="flex flex-col gap-1">
