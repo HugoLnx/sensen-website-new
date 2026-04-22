@@ -147,6 +147,11 @@
         "label": "Press Kit",
         "url": "https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma"
       },
+      "pressKit": {
+        "title": "Press Kit",
+        "description": "Access official logos, screenshots, and info about our games.",
+        "button": "Download Press Kit"
+      },
       "instagram": {
         "label": "Instagram",
         "url": "https://instagram.com/sensengames"
