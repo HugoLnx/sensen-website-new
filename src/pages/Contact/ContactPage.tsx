@@ -1,8 +1,8 @@
 import { useLanguage } from "@/contexts/useLanguage";
-import { Globe } from 'lucide-react';
 import { FaSteam, FaGoogleDrive, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import {ContactForm} from '../../components/Forms/ContactForm'; 
 import BlueskyIcon from "@/components/ui/BlueskyIcon";
+import ThreadsIcon from "@/components/ui/ThreadsIcon";
 
 const ContactPage = () => {
   const { t } = useLanguage();
@@ -57,7 +57,7 @@ const ContactPage = () => {
                 {/* Threads */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
-                    <Globe className="w-5 h-5 text-primary" />
+                    <ThreadsIcon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <a href={t('contact.socials.threads.url')} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors underline decoration-slate-600 underline-offset-2">
