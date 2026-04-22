@@ -8,7 +8,6 @@ export interface Game {
   description?: string;
   short_description?: string;
   genre: string[];
-  rating: number;
   platforms?: string[];
   storeLinks?: Record<string, string>;
   publisher?: string;

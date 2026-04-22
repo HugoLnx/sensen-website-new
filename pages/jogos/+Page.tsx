@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/useLanguage';
-import { Star, Tag } from 'lucide-react';
+import { Tag } from 'lucide-react';
 import { GameModal } from '@/components/GameModal';
 import type { Game } from '@/types';
 import { useSettings } from '@/contexts/SettingsContext';
@@ -154,13 +154,7 @@ export default function Page() {
                 <div className="p-5">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl text-general line-clamp-1">{game.title}</h3>
-                    <div className="flex items-center gap-1 text-yellow-400">
-                      <Star className="w-4 h-4 fill-current" />
-                      <span className="text-sm">{game.rating}</span>
-                    </div>
                   </div>
-
-                  <p className="text-sm text-general-dim mb-3 line-clamp-2">{game.developer}</p>
 
                   <p className="text-general-dim text-sm mb-4 line-clamp-2">
                     {t(game.description || 'gameModal.noDescription')}
