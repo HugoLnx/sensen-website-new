@@ -17,10 +17,10 @@ const ContactPage = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-6">
+          <div className="flex flex-col h-full space-y-6">
             <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
               <h2 className="text-2xl mb-6 text-primary font-semibold">{t('contact.infoTitle')}</h2>
-              <div className="space-y-4.75">
+              <div className="space-y-5">
                 {/* Steam */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
@@ -33,7 +33,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 {/* Press Kit */}
-                <div className="flex items-start gap-4">
+                {/* <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
                     <FaGoogleDrive className="w-5 h-5 text-primary" />
                   </div>
@@ -42,7 +42,7 @@ const ContactPage = () => {
                       <h3 className="text-slate-100 font-medium mb-1">{t('contact.socials.press.label')}</h3>
                     </a>
                   </div>
-                </div>
+                </div> */}
                 {/* Instagram */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
@@ -101,22 +101,19 @@ const ContactPage = () => {
               </div> 
             </div>
             
-            <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
-              <h2 className="text-2xl mb-4 text-primary font-semibold">{t('contact.schedule.title')}</h2>
-              <div className="space-y-3 text-slate-300">
-                <div className="flex justify-between border-b border-slate-800 pb-2">
-                  <span>{t('contact.schedule.weekdays')}</span>
-                  <span className="text-slate-400">{t('contact.schedule.hours')}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>{t('contact.schedule.weekend')}</span>
-                  <span className="text-slate-400">{t('contact.schedule.closed')}</span>
-                </div>
-              </div>
-            </div>
+            <div className="bg-slate-900 flex-1 flex flex-col border border-slate-800 rounded-lg p-6">
+              <h2 className="text-2xl mb-4 text-primary font-semibold">{t('contact.socials.pressKit.title')}</h2>
+              <p className="text-slate-300 mb-6">{t('contact.socials.pressKit.description')}</p>
+              <a href={t('contact.socials.press.url')} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center mt-1 bg-primary hover:brightness-110 text-white font-bold py-3 px-4 rounded transition-all shadow-md hover:shadow-lg cursor-pointer transform active:scale-95">
+                <FaGoogleDrive className="mr-2 w-5 h-5" /> {t('contact.socials.pressKit.button')}
+              </a>
+            </div>              
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 h-fit">
+          <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 h-full">
             <h2 className="text-2xl mb-6 text-primary font-semibold">{t('contact.sendMessage')}</h2>
             <ContactForm />
           </div>
