@@ -16,7 +16,7 @@ export default function Page() {
         {/* Hero Video Background Section */}
         <section className="relative w-full h-screen border-b-2 mb-2 border-primary overflow-hidden md:flex-row gap-6 items-center">
           <VideoPlayer 
-            url="/videos/game1_preview.mp4" //inserir-url-do-video-aqui 
+            url="/videos/compiled_edit.mp4" //inserir-url-do-video-aqui 
             fallbackSrc="/videos/game1_preview.mp4"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
