@@ -13,22 +13,30 @@ export default function Page() {
   return (
     <>
       <main className="page-bg">
-        <section className="w-full">
-          <div className="max-w-full mx-auto px-2 sm:px-4 lg:px-6 py-6">
+        {/* Hero Video Background Section */}
+        <section className="relative w-full h-screen border-b-2 mb-2 border-primary overflow-hidden md:flex-row gap-6 items-center">
+          <VideoPlayer 
+            url="/videos/game1_preview.mp4" //inserir-url-do-video-aqui 
+            fallbackSrc="/videos/game1_preview.mp4"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          />
+          
+          {/* Overlay Gradient Filter */}
+          <div className="absolute inset-0 bg-ç-to-b from-black/40 to-black/80 z-10"></div>
+          
+          {/* Content Overlay */}
+          <div className="absolute inset-0 w-full flex flex-col justify-center z-20 text-center mb-8">
             <Reveal>
-              <h2 className="text-3xl md:text-4xl text-center mb-8 text-primary">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary bg-black/60 px-6 py-3 rounded-2xl inline-block [text-shadow:2px_2px_4px_rgba(0,0,0,0.8)] backdrop-blur-sm mb-6 leading-tight shadow-2xl">
                 {t('home.gamesVideo.title')}
               </h2>
             </Reveal>
-            <div className="relative w-full h-[50vh] md:h-[70vh] border-2 border-primary rounded-xl overflow-hidden shadow-2xl bg-black">
-              {/* Pode trocar a URL abaixo por um link do YouTube ou um MP4 externo! GoogleDrive e afins ainda em teste */}
-              <VideoPlayer 
-                url="/videos/game1_preview.mp4" 
-                fallbackSrc="/videos/game1_preview.mp4" 
-                className="w-full h-full"
-              />
-              <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
-            </div>
+            {/* Future CTA */}
+            <Reveal>
+              <p className="text-xl md:text-2xl text-primary bg-black/50 px-4 py-2 rounded-xl inline-block [text-shadow:1px_1px_3px_rgba(0,0,0,0.9)] backdrop-blur flex-1 shadow-xl">
+                {t('home.about.ctaDescription')}
+              </p>
+            </Reveal>
           </div>
         </section>
 
@@ -81,9 +89,9 @@ export default function Page() {
             </Reveal>
 
             <div className="flex flex-col gap-4 text-general leading-relaxed">
-                <Reveal >
-                  <p>{aboutParagraphs}</p>
-                </Reveal>
+              <Reveal >
+                <p>{aboutParagraphs}</p>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -108,3 +116,4 @@ export default function Page() {
     </>
   );
 }
+
