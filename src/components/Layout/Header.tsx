@@ -59,6 +59,17 @@ const Header = () => {
                       {item.name}
                     </a>
                   ))}
+
+                  {/* Social Icons Desktop */}
+                  <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Steam" aria-label="Steam">
+                    <FaSteam className="w-5 h-5" />
+                  </a>
+                  <a href="https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Press Kit" aria-label="Press Kit">
+                    <FaGoogleDrive className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/sensengames" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Instagram" aria-label="Instagram">
+                    <FaInstagram className="w-5 h-5" />
+                  </a>                  
                   
                   {/* Language Toggle */}
                   <button
@@ -78,17 +89,6 @@ const Header = () => {
                   >
                     {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
                   </button>
-
-                  {/* Social Icons Desktop */}
-                  <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Steam" aria-label="Steam">
-                    <FaSteam className="w-5 h-5" />
-                  </a>
-                  <a href="https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Press Kit" aria-label="Press Kit">
-                    <FaGoogleDrive className="w-5 h-5" />
-                  </a>
-                  <a href="https://instagram.com/sensengames" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Instagram" aria-label="Instagram">
-                    <FaInstagram className="w-5 h-5" />
-                  </a>
                 </div> 
     
                 {/* Mobile Menu Button */}
@@ -117,6 +117,26 @@ const Header = () => {
                       {item.name}
                     </a>
                   ))}
+
+                  <hr className="h-1 w-full bg-general border-t border-general-dark" />
+
+                  {/* Social Icons Mobile */}
+                  <div className="py-2 border-t border-general-dark">
+                    <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="w-fit flex items-center gap-3 py-1 px-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      <FaSteam className="w-5 h-5 shrink-0" />
+                      <span>Steam</span>
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma" target="_blank" rel="noopener noreferrer" className="w-fit flex items-center gap-3 py-1 px-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      <FaGoogleDrive className="w-5 h-5 shrink-0" />
+                      <span>Press Kit</span>
+                    </a>
+                    <a href="https://instagram.com/sensengames" target="_blank" rel="noopener noreferrer" className="w-fit flex items-center gap-3 py-1 px-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                      <FaInstagram className="w-5 h-5 shrink-0" />
+                      <span>Instagram</span>
+                    </a>
+                  </div>
+                  
+                  <hr className="h-1 w-full bg-general border-t border-general-dark" />
                   
                   {/* Language Toggle Mobile */}
                   <div className="hover:cursor-pointer py-2 border-t border-general-dark">
@@ -125,12 +145,14 @@ const Header = () => {
                         toggleLanguage();
                         setMobileMenuOpen(false);
                       }}
-                      className="w-full flex items-center gap-2 rounded-lg hover:bg-general-dark transition-colors text-left"
+                      className="w-fit p-1 flex items-center gap-2 rounded-lg hover:bg-general-dark transition-colors text-left"
                     >
                       <Globe className="w-5 h-5 text-general" />
                       <span className="text-general">Switch to {currentLang === 'pt-BR' ? 'English' : 'Português'}</span>
                     </button>
                   </div>
+
+                  <hr className="h-1 w-full bg-general border-t border-general-dark" />
 
                   {/* Theme Toggle Mobile */}
                   <div className="hover:cursor-pointer py-2 border-t border-general-dark">
@@ -139,27 +161,11 @@ const Header = () => {
                         toggleTheme();
                         setMobileMenuOpen(false);
                       }}
-                      className="w-full flex items-center gap-2 rounded-lg hover:bg-general-dark transition-colors text-left"
+                      className="w-fit p-1 flex items-center gap-0.5 rounded-lg hover:bg-general-dark transition-colors text-left"
                     >
                       {theme === 'light' ? <Moon className="w-5 h-5 text-general" /> : <Sun className="w-5 h-5 text-general" />}  
                       <span className="text-general ml-2">{theme === 'light' ? t('theme.dark') : t('theme.light')}</span>
                     </button>
-                  </div>
-
-                  {/* Social Icons Mobile */}
-                  <div className="py-2 border-t border-general-dark">
-                    <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-3 py-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                      <FaSteam className="w-5 h-5 shrink-0" />
-                      <span>Steam</span>
-                    </a>
-                    <a href="https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-3 py-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                      <FaGoogleDrive className="w-5 h-5 shrink-0" />
-                      <span>Press Kit</span>
-                    </a>
-                    <a href="https://instagram.com/sensengames" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-3 py-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                      <FaInstagram className="w-5 h-5 shrink-0" />
-                      <span>Instagram</span>
-                    </a>
                   </div>
                 </div> 
               )}
