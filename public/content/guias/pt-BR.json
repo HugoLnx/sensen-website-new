@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "como-jogar-typomancer",
+    "frontmatter": {
+      "title": "Como Jogar Typomancer: Guia para Iniciantes",
+      "description": "Aprenda as mecânicas básicas de Typomancer, desde o sistema de digitação até os primeiros feitiços.",
+      "date": "2024-06-20",
+      "author": "Equipe Sensen Games",
+      "image": "/images/game1_cover.jpg",
+      "tags": [
+        "Typomancer",
+        "Guia",
+        "Iniciantes"
+      ]
+    },
+    "content": "<h2>Introdução</h2>\n<p><strong>Typomancer</strong> é um RPG de digitação onde sua velocidade e precisão definem o poder do seu personagem. Este guia cobre tudo que você precisa saber para começar.</p>\n<h2>Mecânicas Básicas</h2>\n<h3>Sistema de Digitação</h3>\n<ul>\n<li>Digite as palavras que aparecem na tela o mais rápido possível</li>\n<li>Palavras mais longas causam mais dano</li>\n<li>Erros reduzem seu multiplicador de combo</li>\n</ul>\n<h3>Feitiços Iniciais</h3>\n<ol>\n<li><strong>Fireball</strong> — Digite &quot;fire&quot; para lançar</li>\n<li><strong>Ice Shard</strong> — Digite &quot;ice&quot; para congelar inimigos</li>\n<li><strong>Heal</strong> — Digite &quot;heal&quot; para recuperar vida</li>\n</ol>\n<blockquote>\n<p><strong>Dica:</strong> Pratique no modo Treino antes de enfrentar bosses!</p>\n</blockquote>\n<h2>Progressão</h2>\n<table>\n<thead>\n<tr>\n<th>Nível</th>\n<th>Desbloqueio</th>\n<th>Velocidade Mínima</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1</td>\n<td>Fireball</td>\n<td>20 WPM</td>\n</tr>\n<tr>\n<td>5</td>\n<td>Ice Shard</td>\n<td>35 WPM</td>\n</tr>\n<tr>\n<td>10</td>\n<td>Thunder</td>\n<td>50 WPM</td>\n</tr>\n<tr>\n<td>15</td>\n<td>Meteor</td>\n<td>70 WPM</td>\n</tr>\n</tbody></table>\n<h2>Controles Avançados</h2>\n<p>Use <strong>atalhos de teclado</strong> para acelerar seu gameplay:</p>\n<ul>\n<li><code>Tab</code> — Seleciona o próximo inimigo</li>\n<li><code>Space</code> — Pula diálogos</li>\n<li><code>Esc</code> — Pausa o jogo</li>\n</ul>\n<h2>Conclusão</h2>\n<p>Com prática consistente, você dominará Typomancer em pouco tempo. Boa sorte nas masmorras!</p>\n"
+  }
+]

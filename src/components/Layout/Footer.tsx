@@ -50,6 +50,8 @@ const Footer = () => {
                   <li><a href="/" className="hover:text-primary transition-colors">{t('header.home')}</a></li>
                   <li><a href="/jogos" className="hover:text-primary transition-colors">{t('header.games')}</a></li>
                   <li><a href="/contato" className="hover:text-primary transition-colors">{t('header.contact')}</a></li>
+                  <li><a href="/noticias" className="hover:text-primary transition-colors">{t('header.news')}</a></li>
+                  <li><a href="/guias" className="hover:text-primary transition-colors">{t('header.guides')}</a></li>
                 </ul>
               </nav>
             </div>

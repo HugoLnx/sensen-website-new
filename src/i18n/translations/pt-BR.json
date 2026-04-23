@@ -2,6 +2,8 @@
   "header": {
     "home": "Início",
     "games": "Jogos",
+    "news": "Notícias",
+    "guides": "Guias",
     "contact": "Contato"
   },
   "footer": {
@@ -175,5 +177,21 @@
     "toggle": "Alternar tema",
     "light": "Modo claro",
     "dark": "Modo escuro"
+  },
+  "markdownPages": {
+    "news": {
+      "title": "Notícias",
+      "subtitle": "Fique por dentro das últimas novidades, atualizações e anúncios da Sensen Games.",
+      "emptyMessage": "Nenhuma notícia publicada ainda. Volte em breve!",
+      "readMore": "Ler mais",
+      "backLabel": "Voltar para notícias"
+    },
+    "guides": {
+      "title": "Guias",
+      "subtitle": "Guias, tutoriais e dicas para aproveitar ao máximo os jogos da Sensen Games.",
+      "emptyMessage": "Nenhum guia publicado ainda. Volte em breve!",
+      "readMore": "Ver guia",
+      "backLabel": "Voltar para guias"
+    }
   }
 }
