@@ -30,21 +30,21 @@ function generate() {
     return;
   }
 
-  const sections = fs.readdirSync(CONTENT_DIR).filter((s) =>
+  const sections = fs.readdirSync(CONTENT_DIR).filter((s: string) =>
     fs.statSync(path.join(CONTENT_DIR, s)).isDirectory()
   );
 
   for (const section of sections) {
     const sectionPath = path.join(CONTENT_DIR, section);
-    const langs = fs.readdirSync(sectionPath).filter((l) =>
+    const langs = fs.readdirSync(sectionPath).filter((l: string) =>
       fs.statSync(path.join(sectionPath, l)).isDirectory()
     );
 
     for (const lang of langs) {
       const langPath = path.join(sectionPath, lang);
-      const files = fs.readdirSync(langPath).filter((f) => f.endsWith(".md"));
+      const files = fs.readdirSync(langPath).filter((f: string) => f.endsWith(".md"));
 
-      const posts = files.map((file) => {
+      const posts = files.map((file: string) => {
         const slug = file.replace(/\.md$/, "");
         const processed = processMarkdown(path.join(langPath, file));
         return {
