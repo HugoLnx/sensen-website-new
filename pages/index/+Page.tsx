@@ -1,5 +1,6 @@
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Reveal } from "@/components/Reveal";
+import { VideoPlayer } from "@/components/VideoPlayer";
 import { useLanguage } from "@/contexts/useLanguage";
 import { gamesMock } from "@/mocks/gameMock";
 
@@ -19,16 +20,14 @@ export default function Page() {
                 {t('home.gamesVideo.title')}
               </h2>
             </Reveal>
-            <div className="relative w-full h-[50vh] md:h-[70vh] border-2 border-primary rounded-xl overflow-hidden shadow-2xl">
-              <video 
-                src="/videos/game1_preview.mp4" 
-                autoPlay 
-                muted 
-                loop 
-                playsInline
-                className="w-full h-full object-cover"
+            <div className="relative w-full h-[50vh] md:h-[70vh] border-2 border-primary rounded-xl overflow-hidden shadow-2xl bg-black">
+              {/* Pode trocar a URL abaixo por um link do YouTube ou um MP4 externo! GoogleDrive e afins ainda em teste */}
+              <VideoPlayer 
+                url="/videos/game1_preview.mp4" 
+                fallbackSrc="/videos/game1_preview.mp4" 
+                className="w-full h-full"
               />
-              <div className="absolute inset-0 bg-black/30"></div>
+              <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
             </div>
           </div>
         </section>
