@@ -89,8 +89,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-general">{current.title}</h1>
-        <p className="text-xl text-general-dim mb-8 max-w-2xl mx-auto line-clamp-2">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">{current.title}</h1>
+        <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto line-clamp-2">
           {t(current.description ?? '')}
         </p>
         <div className="flex gap-4 justify-center flex-wrap">

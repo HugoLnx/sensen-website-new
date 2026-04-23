@@ -108,7 +108,7 @@ export default function Page() {
               <button
                 key={genre}
                 onClick={() => setSelectedGenre(genre)}
-                className={`px-4 py-2 rounded-lg transition-colors ${selectedGenre === genre
+                className={`px-4 py-2 rounded-lg transition-colors hover:cursor-pointer ${selectedGenre === genre
                   ? 'bg-primary text-primary-on-color'
                   : 'bg-general text-general hover:bg-primary-soft'
                   }`}

@@ -1,14 +1,16 @@
-import { Menu, X, Gamepad2, Globe } from 'lucide-react';
+import { Menu, X, Gamepad2, Globe, Sun, Moon } from 'lucide-react';
 import { FaSteam, FaInstagram, FaGoogleDrive } from 'react-icons/fa';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/useLanguage';
 import { useSettings } from '@/contexts/SettingsContext';
+import { useTheme } from '@/contexts/ThemeContext';
 import { resolveMedia } from '@/utils/media'; 
 import { usePageContext } from 'vike-react/usePageContext';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, currentLang, setLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const pageContext = usePageContext();
   const { settings } = useSettings();
 
@@ -68,6 +70,15 @@ const Header = () => {
                     <span>{currentLang === 'pt-BR' ? 'EN' : 'PT'}</span>
                   </button>
 
+                  {/* Theme Toggle */}
+                  <button
+                    onClick={toggleTheme}
+                    className="hover:cursor-pointer p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center"
+                    title={theme === 'light' ? t('theme.dark') : t('theme.light')}
+                  >
+                    {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+                  </button>
+
                   {/* Social Icons Desktop */}
                   <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center" title="Steam" aria-label="Steam">
                     <FaSteam className="w-5 h-5" />
@@ -91,15 +102,15 @@ const Header = () => {
     
               {/* Mobile Navigation */}
               {mobileMenuOpen && (
-                <div className="md:hidden py-4 border-t border-slate-800">
+                <div className="md:hidden py-4 border-t border-general-dark">
                   {navigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
                       className={`block py-2 transition-colors ${
                         isActive(item.href)
-                          ? 'text-violet-400'
-                          : 'text-general hover:text-violet-400'
+                          ? 'text-primary'
+                          : 'text-general hover:text-primary'
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -108,7 +119,7 @@ const Header = () => {
                   ))}
                   
                   {/* Language Toggle Mobile */}
-                  <div className="hover:cursor-pointer py-2 border-t border-slate-700">
+                  <div className="hover:cursor-pointer py-2 border-t border-general-dark">
                     <button
                       onClick={() => {
                         toggleLanguage();
@@ -116,13 +127,27 @@ const Header = () => {
                       }}
                       className="w-full flex items-center gap-2 rounded-lg hover:bg-general-dark transition-colors text-left"
                     >
-                      <Globe className="w-5 h-5" />
-                      <span>Switch to {currentLang === 'pt-BR' ? 'English' : 'Português'}</span>
+                      <Globe className="w-5 h-5 text-general" />
+                      <span className="text-general">Switch to {currentLang === 'pt-BR' ? 'English' : 'Português'}</span>
+                    </button>
+                  </div>
+
+                  {/* Theme Toggle Mobile */}
+                  <div className="hover:cursor-pointer py-2 border-t border-general-dark">
+                    <button
+                      onClick={() => {
+                        toggleTheme();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="w-full flex items-center gap-2 rounded-lg hover:bg-general-dark transition-colors text-left"
+                    >
+                      {theme === 'light' ? <Moon className="w-5 h-5 text-general" /> : <Sun className="w-5 h-5 text-general" />}  
+                      <span className="text-general ml-2">{theme === 'light' ? t('theme.dark') : t('theme.light')}</span>
                     </button>
                   </div>
 
                   {/* Social Icons Mobile */}
-                  <div className="py-2 border-t border-slate-700">
+                  <div className="py-2 border-t border-general-dark">
                     <a href="https://store.steampowered.com/developer/sensengames" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-3 py-1 rounded-lg hover:bg-general-dark transition-colors" onClick={() => setMobileMenuOpen(false)}>
                       <FaSteam className="w-5 h-5 shrink-0" />
                       <span>Steam</span>

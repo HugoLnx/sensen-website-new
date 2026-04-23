@@ -28,19 +28,11 @@
     "homepageAboutUsTitle": "Sobre Nós",
     "homepageAboutUsText": "Somos dois irmãos que jogamos juntos desde a era do Super Nintendo e PlayStation 1 & 2. Jogamos Megaman X series, Castlevania SotN, Super Metroid, Aero Fighters, Guitar Hero e outros clássicos o dia todo naquela época! Após anos trabalhando como programador web e designer web, decidimos começar a fazer jogos no estilo que amamos jogar: desafiadores e divertidos!",
     "homepageMailingListTitle": "JUNTE-SE À NOSSA LISTA DE E-MAILS",
-    "features": {
-      "curation": {
-        "title": "Curadoria Especializada",
-        "description": "Selecionamos cada jogo para garantir qualidade e originalidade."
-      },
-      "community": {
-        "title": "Comunidade Ativa",
-        "description": "Faça parte de uma comunidade apaixonada por jogos indie."
-      },
-      "support": {
-        "title": "Apoio aos Desenvolvedores",
-        "description": "Comprando aqui, você apoia diretamente os criadores independentes."
-      }
+    "gamesVideo": {
+      "title": "Sensen Games"
+    },
+    "featuredGames": {
+      "title": "Nossos Principais Jogos"
     },
     "about": {
       "title": "Sobre a Sensen Games",
@@ -178,5 +170,10 @@
     "emailError": "Digite um e-mail válido.",
     "closeModal": "Fechar modal",
     "browserNoVideoSupport": "Seu navegador não suporta vídeo."
+  },
+  "theme": {
+    "toggle": "Alternar tema",
+    "light": "Modo claro",
+    "dark": "Modo escuro"
   }
 }

@@ -7,6 +7,7 @@ export interface Game {
   video?: string;
   description?: string;
   short_description?: string;
+  isFeatured?: boolean;
   genre: string[];
   platforms?: string[];
   storeLinks?: Record<string, string>;

@@ -8,6 +8,7 @@ export const gamesMock: Game[] = [
     image: "/images/game1_cover.jpg",
     video: "/videos/game1_preview.mp4",
     description: "games.typomancer.description",
+    isFeatured: true,
     genre: ["Typing", "2D Platformer", "2D"],
     platforms: ["PC"],
     storeLinks: {
@@ -22,6 +23,7 @@ export const gamesMock: Game[] = [
     image: "/images/game2_cover.jpg",
     video: "/videos/game2_preview.mp4",
     description: "games.tyfortress.description",
+    isFeatured: true,
     genre: ["Typing", "Tower Defense", "2D"],
     platforms: ["PC"],
     storeLinks: {
@@ -36,6 +38,7 @@ export const gamesMock: Game[] = [
     image: "/images/game3_cover.jpg",
     video: "/videos/game3_preview.mp4",
     description: "games.tybot-invasion.description",
+    isFeatured: true,
     genre: ["Typing", "Runner", "2D"],
     platforms: ["PC"],
     storeLinks: {
@@ -64,6 +67,7 @@ export const gamesMock: Game[] = [
     image: "/images/game5_cover.jpg",
     video: "/videos/game5_preview.mp4",
     description: "games.neon-ships.description",
+    isFeatured: true,
     genre: ["Typing", "Shoot'em Up", "2D"],
     platforms: ["PC"],
     storeLinks: {
@@ -120,6 +124,7 @@ export const gamesMock: Game[] = [
     image: "/images/game9_cover.jpg",
     video: "/videos/game9_preview.mp4",
     description: "games.spooky-typing.description",
+    isFeatured: false,
     genre: ["Typing", "Runner", "2D"],
     platforms: ["PC"],
     storeLinks: {

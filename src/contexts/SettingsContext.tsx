@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext, type ReactNode } from 'react';
 import apiClient from '../api/axios';
+import { useTheme } from './ThemeContext';
 
 interface SiteSettings {
   siteName: string;
@@ -28,7 +29,7 @@ interface SiteSettings {
   _id?: string;
 }
 
-interface SocialLink { // Also define SocialLink here for consistency
+interface SocialLink {
   name: string;
   url: string;
   icon: string;
@@ -38,7 +39,7 @@ interface SettingsContextType {
   settings: SiteSettings | null;
   loading: boolean;
   error: string | null;
-  refetchSettings: () => void; // Function to manually refetch settings
+  refetchSettings: () => void;
 }
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
@@ -47,7 +48,8 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [settings, setSettings] = useState<SiteSettings | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [fetchTrigger, setFetchTrigger] = useState<number>(0); // To manually refetch
+  const [fetchTrigger, setFetchTrigger] = useState<number>(0);
+  const { theme } = useTheme();
 
   const refetchSettings = () => {
     setFetchTrigger((prev) => prev + 1);
@@ -67,29 +69,33 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }
       }
     };
     fetchSettings();
-
-    // Auto-refresh disabled to prevent UI glithces
-    // const intervalId = setInterval(() => {
-    //   // fetchSettings();
-    // }, 10000); 
-
-    // return () => clearInterval(intervalId);
-  }, [fetchTrigger]); // Re-fetch when fetchTrigger changes
+  }, [fetchTrigger]);
 
   useEffect(() => {
     if (settings) {
       const root = document.documentElement;
       root.style.setProperty('--primary-color', settings.primaryColor);
-      root.style.setProperty('--secondary-color', settings.secondaryColor);
-      root.style.setProperty('--general-text-color', settings.generalTextColor);
-      root.style.setProperty('--page-background-color', settings.pageBackgroundColor);
-      root.style.setProperty('--general-background-color', settings.generalBackgroundColor);
-      root.style.setProperty('--header-background-color', settings.headerBackgroundColor);
-      root.style.setProperty('--footer-background-color', settings.footerBackgroundColor);
       root.style.setProperty('--font-family', settings.fontFamily);
-      // Add other dynamic styles here
+
+      if (theme === 'dark') {
+        // Apply custom colors from settings only in dark mode
+        root.style.setProperty('--secondary-color', settings.secondaryColor);
+        root.style.setProperty('--general-text-color', settings.generalTextColor);
+        root.style.setProperty('--page-background-color', settings.pageBackgroundColor);
+        root.style.setProperty('--general-background-color', settings.generalBackgroundColor);
+        root.style.setProperty('--header-background-color', settings.headerBackgroundColor);
+        root.style.setProperty('--footer-background-color', settings.footerBackgroundColor);
+      } else {
+        // Clear style overrides in light mode to let CSS variables from .light take over
+        root.style.removeProperty('--secondary-color');
+        root.style.removeProperty('--general-text-color');
+        root.style.removeProperty('--page-background-color');
+        root.style.removeProperty('--general-background-color');
+        root.style.removeProperty('--header-background-color');
+        root.style.removeProperty('--footer-background-color');
+      }
     }
-  }, [settings]); // Re-run when settings change
+  }, [settings, theme]);
 
   const value = {
     settings,
@@ -101,7 +107,6 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useSettings = () => {
   const context = useContext(SettingsContext);
   if (context === undefined) {

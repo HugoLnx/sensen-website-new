@@ -1,4 +1,3 @@
-import { Sparkles, Users, Trophy } from "lucide-react";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Reveal } from "@/components/Reveal";
 import { useLanguage } from "@/contexts/useLanguage";
@@ -13,6 +12,26 @@ export default function Page() {
   return (
     <>
       <main className="page-bg">
+        <section className="w-full">
+          <div className="max-w-full mx-auto px-2 sm:px-4 lg:px-6 py-6">
+            <Reveal>
+              <h2 className="text-3xl md:text-4xl text-center mb-8 text-primary">
+                {t('home.gamesVideo.title')}
+              </h2>
+            </Reveal>
+            <div className="relative w-full h-[50vh] md:h-[70vh] border-2 border-primary rounded-xl overflow-hidden shadow-2xl">
+              <video 
+                src="/videos/game1_preview.mp4" 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30"></div>
+            </div>
+          </div>
+        </section>
 
         <HeroCarousel games={MOCK_GAMES} />
 
@@ -20,40 +39,36 @@ export default function Page() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <h2 className="text-3xl text-center mb-12 text-primary">
-                {t('home.whyChoose')}
+                {t('home.featuredGames.title')}
               </h2>
             </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Reveal>
-                <div className="bg-general border border-general-dark rounded-lg p-6 hover:border-primary transition-colors">
-                  <div className="w-12 h-12 bg-primary-soft rounded-lg flex items-center justify-center mb-4">
-                    <Sparkles className="w-6 h-6 text-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {MOCK_GAMES.filter(game => Boolean(game.isFeatured)).map((game) => (
+                <Reveal key={game.id}>
+                  <div className="bg-general border border-general-dark rounded-xl p-6 hover:border-primary hover:shadow-xl transition-all group cursor-pointer overflow-hidden">
+                    <div className="w-full h-32 md:h-40 bg-primary-soft rounded-lg mb-4 overflow-hidden group-hover:scale-105 transition-transform">
+                      <img 
+                        src={game.image || ''} 
+                        alt={game.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h3 className="text-xl mb-3 text-general font-bold">{game.title}</h3>
+                    <p className="text-general-dim mb-4 line-clamp-2">{t(game.description || '')}</p>   
+                    {game.storeLinks?.steam && (
+                      <a 
+                        href={game.storeLinks.steam} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn-primary w-full text-center py-2 px-4 text-sm block rounded"
+                      >
+                        {t('gamesPage.steam')}
+                      </a>
+                    )}
                   </div>
-                  <h3 className="text-xl mb-3 text-general">{t('home.features.curation.title')}</h3>
-                  <p className="text-general">{t('home.features.curation.description')}</p>
-                </div>
-              </Reveal>
-
-              <Reveal>
-                <div className="bg-general border border-general-dark rounded-lg p-6 hover:border-primary transition-colors">
-                  <div className="w-12 h-12 bg-primary-soft rounded-lg flex items-center justify-center mb-4">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl mb-3 text-general">{t('home.features.community.title')}</h3>
-                  <p className="text-general">{t('home.features.community.description')}</p>
-                </div>
-              </Reveal>
-
-              <Reveal>
-                <div className="bg-general border border-general-dark rounded-lg p-6 hover:border-primary transition-colors">
-                  <div className="w-12 h-12 bg-primary-soft rounded-lg flex items-center justify-center mb-4">
-                    <Trophy className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl mb-3 text-general">{t('home.features.support.title')}</h3>
-                  <p className="text-general">{t('home.features.support.description')}</p>
-                </div>
-              </Reveal>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
