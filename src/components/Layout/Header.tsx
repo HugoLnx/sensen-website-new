@@ -42,7 +42,7 @@ const Header = () => {
                     />
                   ) : (
                     <img
-                      src='/public/images/logo.jpg'
+                      src='/images/logo.jpg'
                       alt={settings?.siteName ?? 'Sensen Games Logo'}
                       className="h-8 w-8 rounded-full object-cover"
                     />
