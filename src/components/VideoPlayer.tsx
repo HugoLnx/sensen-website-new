@@ -15,8 +15,17 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
 }) => {
   const [isReady, setIsReady] = useState(false);
   const [loadError, setLoadError] = useState(false);
+  const [prevUrl, setPrevUrl] = useState(url);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // Reset state during render when URL changes
+  if (url !== prevUrl) {
+    setPrevUrl(url);
+    setIsReady(false);
+    setLoadError(false);
+  }
 
   const parsedVideo = useMemo(() => {
     if (!url) return { type: 'none', id: null };
@@ -38,23 +47,6 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     return { type: 'direct', id: null };
   }, [url]);
 
-  // Timeout fallback - no sync setState issue as initial false
-  useEffect(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    timeoutRef.current = setTimeout(() => {
-      setLoadError(true);
-    }, 10000);
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [parsedVideo.type]);
-
   const handleReady = useCallback(() => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -71,6 +63,42 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     }
     setLoadError(true);
   }, []);
+
+  // Sync check for already loaded video (important for hydration)
+  useEffect(() => {
+    if (parsedVideo.type === 'direct' && videoRef.current) {
+      const video = videoRef.current;
+      if (video.readyState >= 2) {
+        // Move to next tick to avoid synchronous setState warning in effect
+        setTimeout(handleReady, 0);
+      }
+      // Explicitly try to play for hydration
+      video.play().catch(() => {});
+    }
+  }, [url, parsedVideo.type, handleReady]);
+
+  // Timeout fallback
+  useEffect(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      // Only set error if not already ready
+      setIsReady(prev => {
+        if (!prev) {
+          setLoadError(true);
+        }
+        return prev;
+      });
+    }, 10000);
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [url, parsedVideo.type]);
 
   const renderErrorFallback = useCallback(() => (
     <div className="absolute inset-0 bg-black flex flex-col items-center justify-center text-primary gap-4 p-8 z-10">
@@ -118,7 +146,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
           onError={handleError}
         />
         {(!isReady || loadError) && (
-          <div className="absolute inset-0 bg-black/80 animate-pulse flex items-center justify-center text-primary">
+          <div className={`absolute inset-0 bg-black/80 flex items-center justify-center text-primary ${!loadError ? 'animate-pulse' : ''}`}>
             {!loadError ? 'Carregando...' : renderErrorFallback()}
           </div>
         )}
@@ -140,7 +168,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
           onError={handleError}
         />
         {(!isReady || loadError) && (
-          <div className="absolute inset-0 bg-black/80 animate-pulse flex items-center justify-center text-primary">
+          <div className={`absolute inset-0 bg-black/80 flex items-center justify-center text-primary ${!loadError ? 'animate-pulse' : ''}`}>
             {!loadError ? 'Carregando...' : renderErrorFallback()}
           </div>
         )}
@@ -154,6 +182,8 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
       <div className={`relative w-full h-full overflow-hidden bg-black ${className}`}>
         <video
           key={videoKey}
+          ref={videoRef}
+          src={url}
           poster={poster}
           autoPlay
           muted
@@ -162,11 +192,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
           onCanPlay={handleReady}
           onError={handleError}
           className={`w-full h-full object-cover ${commonClasses}`}
-        >
-          <source src={url} type="video/mp4" />
-        </video>
+        />
         {(!isReady || loadError) && (
-          <div className="absolute inset-0 bg-black/80 animate-pulse flex items-center justify-center text-primary">
+          <div className={`absolute inset-0 bg-black/80 flex items-center justify-center text-primary ${!loadError ? 'animate-pulse' : ''}`}>
             {!loadError ? 'Carregando...' : renderErrorFallback()}
           </div>
         )}

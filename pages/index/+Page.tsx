@@ -22,7 +22,7 @@ export default function Page() {
           />
           
           {/* Overlay Gradient Filter */}
-          <div className="absolute inset-0 bg-ç-to-b from-black/40 to-black/80 z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-black/40 to-black/80 z-10"></div>
           
           {/* Content Overlay */}
           <div className="absolute inset-0 w-full flex flex-col justify-center z-20 text-center mb-8">
