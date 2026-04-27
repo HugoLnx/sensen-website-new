@@ -1,4 +1,4 @@
-import { Menu, X, Gamepad2, Globe, Sun, Moon } from 'lucide-react';
+import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
 import { FaSteam, FaInstagram, FaGoogleDrive } from 'react-icons/fa';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/useLanguage';
@@ -37,13 +37,17 @@ const Header = () => {
                   {settings?.logoUrl ? (
                     <img
                       src={resolveMedia(settings.logoUrl)}
-                      alt={settings?.siteName ?? 'IndieVerse'}
+                      alt={settings?.siteName ?? 'Sensen Games Logo'}
                       className="h-8 w-8 rounded-full object-cover"
                     />
                   ) : (
-                    <Gamepad2 className="w-8 h-8" />
+                    <img
+                      src='/public/images/logo.jpg'
+                      alt={settings?.siteName ?? 'Sensen Games Logo'}
+                      className="h-8 w-8 rounded-full object-cover"
+                    />
                   )}
-                  <span className="text-xl">{settings?.siteName ?? 'IndieVerse'}</span>
+                  <span className="text-xl">{settings?.siteName ?? 'Sensen Games'}</span>
                 </a>
     
                 {/* Desktop Navigation */}
