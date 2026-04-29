@@ -1,0 +1,182 @@
+{
+  "header": {
+    "home": "Home",
+    "games": "Games",
+    "contact": "Contact"
+  },
+  "footer": {
+    "sensenGames": "Sensen Games",
+    "tagline": "Creating immersive worlds and unforgettable experiences. Connect with us.",
+    "explore": "Explore",
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Game news every week. No spam, just epic content.",
+      "button": "Subscribe",
+      "placeholder": "your@email.com",
+      "error": "Enter a valid email.",
+      "successTitle": "Subscription Confirmed!",
+      "successMessage": "Thank you for joining us."
+    },
+    "copyright": " Sensen Games. All rights reserved."
+  },
+  "home": {
+    "whyChoose": "Why Choose Sensen Games?",
+    "featuredTitle": "Featured Titles",
+    "aboutTitle": "FUELING ADVENTURE AND IMAGINATION",
+    "homepageTitle": "Experience the next generation of indie games",
+    "gamesPageTitle": "Our Amazing Games",
+    "homepageAboutUsTitle": "About Us",
+    "homepageAboutUsText": "We are two brothers who have been gaming together since the Super Nintendo and PlayStation 1 & 2 era. We played Megaman X series, Castlevania SotN, Super Metroid, Aero Fighters, Guitar Hero and other classics all day back then! After years working as web programmer and web designer, we decided to start making games in the style we love to play: challenging and fun!",
+    "homepageMailingListTitle": "JOIN OUR EMAIL LIST",
+    "features": {
+      "curation": {
+        "title": "Specialized Curation",
+        "description": "We select each game to ensure quality and originality."
+      },
+      "community": {
+        "title": "Active Community",
+        "description": "Join a community passionate about indie games."
+      },
+      "support": {
+        "title": "Support Developers",
+        "description": "Buying here directly supports independent creators."
+      }
+    },
+    "about": {
+      "title": "About Sensen Games",
+      "ctaTitle": "Ready to Start?",
+      "ctaDescription": "Explore our games and find your next favorite one.",
+      "games": "View Games",
+      "contact": "Contact Us"
+    }
+  },
+  "gameModal": {
+    "viewImage": "View Image",
+    "viewVideo": "View Video",
+    "description": "Description",
+    "noDescription": "Description not available."
+  },
+  "gamesPage": {
+    "all": "All",
+    "loading": "Loading data...",
+    "error": "Loading error",
+    "noGames": "No games found for this genre.",
+    "title": "Games List",
+    "subtitle": "Explore our curated selection of amazing indie games",
+    "filterPrefix": "Filter by genre:",
+    "steam": "View on Steam",
+    "press": "Press Kit",
+    "viewTrailler": "View Trailler"
+  },
+  "hero": {
+    "viewMore": "View More"
+  },
+  "games": {
+    "typomancer": {
+      "description": "Run, jump and type words to cast spells and help your typing mage disinfect TyWorld from slime monsters! Be prepared to type a lot, as typing will allow you to refill your quill and control the universe around you!"
+    },
+    "tyfortress": {
+      "description": "Build towers, type phrases and words to protect the last human stronghold against robots! Build and upgrade towers that will help while you destroy robots by typing words! Oh, and don't forget to quickly type the phrases that appear to collect resources and build towers."
+    },
+    "tybot-invasion": {
+      "description": "Quickly type words to destroy robots, move across lanes, and destroy waves of enemies in this robotic invasion that blends typing and 'Runner'! The future of Robworld is in your hands, will you be fast enough to destroy the robots?"
+    },
+    "smashing-spirits": {
+      "description": "Face Spartans on Brazil Island with aggressive boxing combos in this insanely fast fighting-platformer! Play as Aiyra, an indigenous boxer caught in the middle of a conflict between her own people and foreigners from across the ocean."
+    },
+    "neon-ships": {
+      "description": "Shoot enemies while typing pop culture phrases to destroy them with your special laser attack! This is a classic Shoot'em up game with a typing twist! We challenge you to dodge all the shots and destroy all the enemies!"
+    },
+    "kings-bullseye": {
+      "description": "Shoot Chess pieces! The king is tired of being protected, so he's taking out the enemies himself! King Bullseye is a 'target shooting' game where the enemies are chess pieces; you'll have to think and act fast to prioritize the pieces that will hit the king first!"
+    },
+    "akuma-bloodrain": {
+      "description": "As the ninja Akiji, you will blast and slash through hordes of akumas/yokais attacking your Japanese village. Move quickly through the arena by climbing and boosting, leaving a trail of blood and demon parts wherever you go!"
+    },
+    "sniper-ships": {
+      "description": "Dodge bullets and click to destroy enemies with your sniper shot! This is a classic 'ship game' mixed with a traditional shooter! We challenge you to dodge thousands of bullets while aiming and taking down enemy ships and bosses!"
+    },
+    "spooky-typing": {
+      "description": "Be prepared to dodge sharp elements and type words to eliminate ghosts. Can you do it fast enough to stop the ghost infestation around the world?"
+    }
+  },
+  "genres": {
+    "2D": "2D",
+    "2D Platformer": "2D Platformer",
+    "2_5D": "2.5D",
+    "Retro FPS": "Retro FPS",
+    "Runner": "Runner",
+    "Shoot'em Up": "Shoot'em Up",
+    "Target Shooting": "Target Shooting",
+    "Tower Defense": "Tower Defense",
+    "Typing": "Typing"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have questions or suggestions? We'd love to hear from you!",
+    "infoTitle": "Our Social Networks",
+    "sendMessage": "Send a Message",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "newsletter": "Subscribe to Newsletter",
+    "newsletterDesc": "Get project updates.",
+    "submit": "Send Message",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thank you for contacting us",
+    "thankYouContact": "Thank you for contacting us, {name}!",
+    "newsletterSubscribed": "✅ Successfully subscribed to Newsletter!",
+    "newsletterNotSubscribed": "❌ You chose not to receive the Newsletter.",
+    "sendAnother": "Send another message",
+    "nameRequired": "Name is required.",
+    "emailRequired": "Invalid or required email.",
+    "messageRequired": "Message is required.",
+    "schedule": {
+      "title": "Office Hours",
+      "weekdays": "Monday - Friday",
+      "weekend": "Saturday & Sunday",
+      "hours": "9am - 6pm",
+      "closed": "Closed"
+    },
+    "socials": {
+      "steam": {
+        "label": "Steam (Studio Page)",
+        "url": "https://store.steampowered.com/developer/sensengames"
+      },
+      "press": {
+        "label": "Press Kit",
+        "url": "https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma"
+      },
+      "pressKit": {
+        "title": "Press Kit",
+        "description": "Access official logos, screenshots, and info about our games.",
+        "button": "Download Press Kit"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://instagram.com/sensengames"
+      },
+      "threads": {
+        "label": "Threads",
+        "url": "https://threads.com/sensengames"
+      },
+      "bluesky": {
+        "label": "Bluesky",
+        "url": "https://sensengames.bsky.social/"
+      },
+      "twitter": {
+        "label": "X/Twitter",
+        "url": "https://x.com/sensengames"
+      },
+      "facebook": {
+        "label": "Facebook",
+        "url": "https://fb.com/sensengames/"
+      }
+    }
+  },
+  "common": {
+    "emailError": "Enter a valid email.",
+    "closeModal": "Close modal",
+    "browserNoVideoSupport": "Your browser does not support video."
+  }
+}

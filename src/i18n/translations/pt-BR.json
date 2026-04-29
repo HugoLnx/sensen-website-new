@@ -1,0 +1,182 @@
+{
+  "header": {
+    "home": "Início",
+    "games": "Jogos",
+    "contact": "Contato"
+  },
+  "footer": {
+    "sensenGames": "Sensen Games",
+    "tagline": "Criando mundos imersivos e experiências inesquecíveis. Conecte-se com a gente.",
+    "explore": "Explorar",
+    "newsletter": {
+      "title": "Fique atualizado",
+      "description": "Novidades de Games toda semana. Sem spam, apenas conteúdo épico.",
+      "button": "Inscrever",
+      "placeholder": "seu@email.com",
+      "error": "Digite um e-mail válido.",
+      "successTitle": "Inscrição Confirmada!",
+      "successMessage": "Obrigado por se juntar a nós."
+    },
+    "copyright": " Sensen Games. Todos os direitos reservados."
+  },
+  "home": {
+    "whyChoose": "Por que escolher a Sensen Games?",
+    "featuredTitle": "Títulos em Destaque",
+    "aboutTitle": "ALIMENTANDO AVENTURA E IMAGINAÇÃO",
+    "homepageTitle": "Experimente a próxima geração de jogos indie",
+    "gamesPageTitle": "Nossos Jogos",
+    "homepageAboutUsTitle": "Sobre Nós",
+    "homepageAboutUsText": "Somos dois irmãos que jogamos juntos desde a era do Super Nintendo e PlayStation 1 & 2. Jogamos Megaman X series, Castlevania SotN, Super Metroid, Aero Fighters, Guitar Hero e outros clássicos o dia todo naquela época! Após anos trabalhando como programador web e designer web, decidimos começar a fazer jogos no estilo que amamos jogar: desafiadores e divertidos!",
+    "homepageMailingListTitle": "JUNTE-SE À NOSSA LISTA DE E-MAILS",
+    "features": {
+      "curation": {
+        "title": "Curadoria Especializada",
+        "description": "Selecionamos cada jogo para garantir qualidade e originalidade."
+      },
+      "community": {
+        "title": "Comunidade Ativa",
+        "description": "Faça parte de uma comunidade apaixonada por jogos indie."
+      },
+      "support": {
+        "title": "Apoio aos Desenvolvedores",
+        "description": "Comprando aqui, você apoia diretamente os criadores independentes."
+      }
+    },
+    "about": {
+      "title": "Sobre a Sensen Games",
+      "ctaTitle": "Pronto para Começar?",
+      "ctaDescription": "Explore nosso catálogo e encontre seu próximo jogo favorito.",
+      "games": "Ver Jogos",
+      "contact": "Fale Conosco"
+    }
+  },
+  "gameModal": {
+    "viewImage": "Ver Imagem",
+    "viewVideo": "Ver Vídeo",
+    "description": "Descrição",
+    "noDescription": "Descrição não disponível."
+  },
+  "gamesPage": {
+    "all": "Todos",
+    "loading": "Carregando dados...",
+    "error": "Erro ao carregar",
+    "noGames": "Nenhum jogo encontrado para este gênero.",
+    "title": "Lista de Jogos",
+    "subtitle": "Explore nossa seleção curada de jogos indie incríveis",
+    "filterPrefix": "Filtrar por gênero:",
+    "steam": "Ver na Steam",
+    "press": "Kit de Imprensa",
+    "viewTrailler": "Ver Trailler"
+  },
+  "hero": {
+    "viewMore": "Ver mais"
+  },
+  "games": {
+    "typomancer": {
+      "description": "Corra, pule e digite palavras para conjurar magias e ajudar seu mago da digitação a desinfectar o TyWorld dos mostros gosma! Esteja preparado para digitar muito, pois digitar vai permitir que você recarregue sua pena e controle o universo ao seu redor!"
+    },
+    "tyfortress": {
+      "description": "Construa torres, digite frases e palavras para proteger a última fortaleza da raça humana contra os robôs! Construa e evolua torres que vão ajudar enquanto você destrói robôs digitando palavras! Ah, e não esqueça de digitar rápido as frases que aparecerem para coletar recursos e construir torres."
+    },
+    "tybot-invasion": {
+      "description": "Escreva rapidamente as palavras para destruir os robôs, mova-se pelas pistas, e destrua as ondas de inimigos nessa invasão robótica que junta digitação e \"Runner\"! O futuro do Robworld está nas suas mãos, você será rápido o suficiente para destruir os robôs?"
+    },
+    "smashing-spirits": {
+      "description": "Enfrente espartanos na Brazil Island com combos de boxe agressivos nesse insanamente rápido fighting-platformer! Jogue com Aiyra, uma boxeadora indígena lutando no meio do conflito entre seu próprio povo e estrangeiros vindos pelo oceano."
+    },
+    "neon-ships": {
+      "description": "Atire nos inimigos enquanto digita frases da cultura pop para destruí-los com seu ataque de laser especial! Este é um jogo clássico de Shoot'em up com um toque de digitação! Desafiamos você a desviar de todos os tiros e destruir todos os inimigos!"
+    },
+    "kings-bullseye": {
+      "description": "Atire nas peças de Xadrez! O rei cansou de ser protegido por isso está eliminando os inimigos ele mesmo! King Bullseye é um jogo de \"atirar no alvo\" onde os inimigos são peças de xadrez, você terá que pensar e agir rapido para priorizar as peças que vão atingir o rei primeiro!"
+    },
+    "akuma-bloodrain": {
+      "description": "Como ninja Akiji, você vai explodir e retalhar hordas de akumas/yokais que estão atacando sua vila japonesa. Movimente-se rapidamente pela arena escalando e impulsionando, deixando um rastro de sangue e pedaços de demônios por onde você passar!"
+    },
+    "sniper-ships": {
+      "description": "Esquive de balas e clique para destruir inimigos com seu tiro de sniper! Esse é um clássico \"jogo de navinha\" misturado com o tradicional jogo de tiro! Nós te desafiamos a desviar das milhares de balas enquanto mira e elimina as naves e chefes inimigos!"
+    },
+    "spooky-typing": {
+      "description": "Esteja preparado para desviar dos elementos afiados e digitar as palavras para eliminar os fantasmas. Você consegue fazer isso rápido o suficiente para impedir a infestação de fantasmas pelo mundo?"
+    }
+  },
+  "genres": {
+    "2D": "2D",
+    "2D Platformer": "Plataforma 2D",
+    "2_5D": "2.5D",
+    "Retro FPS": "FPS Retrô",
+    "Runner": "Corredor",
+    "Shoot'em Up": "Atire em Todos",
+    "Target Shooting": "Tiro ao Alvo",
+    "Tower Defense": "Defesa de Torre",
+    "Typing": "Digitação"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Tem dúvidas ou sugestões? Adoraríamos ouvir você!",
+    "infoTitle": "Nossas Redes Sociais",
+    "sendMessage": "Envie uma Mensagem",
+    "name": "Nome",
+    "email": "E-mail",
+    "message": "Mensagem",
+    "newsletter": "Inscrever-se na Newsletter",
+    "newsletterDesc": "Receba novidades sobre o projeto.",
+    "submit": "Enviar Mensagem",
+    "successTitle": "Mensagem Enviada!",
+    "successMessage": "Obrigado pelo contato",
+    "thankYouContact": "Obrigado pelo contato, {name}!",
+    "newsletterSubscribed": "✅ Inscrito na Newsletter com sucesso!",
+    "newsletterNotSubscribed": "❌ Você optou por não receber a Newsletter.",
+    "sendAnother": "Enviar outra mensagem",
+    "nameRequired": "O nome é obrigatório.",
+    "emailRequired": "E-mail inválido ou obrigatório.",
+    "messageRequired": "A mensagem é obrigatória.",
+    "schedule": {
+      "title": "Horário de Atendimento",
+      "weekdays": "Segunda - Sexta",
+      "weekend": "Sábado e Domingo",
+      "hours": "9h - 18h",
+      "closed": "Fechado"
+    },
+    "socials": {
+      "steam": {
+        "label": "Steam (Página do estúdio)",
+        "url": "https://store.steampowered.com/developer/sensengames"
+      },
+      "press": {
+        "label": "Press Kit",
+        "url": "https://drive.google.com/drive/folders/1L_eGgQdwwhAiC6X7qb9LjyxprvuhX3Ma"
+      },
+      "pressKit": {
+        "title": "Press Kit",
+        "description": "Acesse logos, capturas de tela e informações oficiais dos nossos jogos.",
+        "button": "Baixar Press Kit"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "url": "https://instagram.com/sensengames"
+      },
+      "threads": {
+        "label": "Threads",
+        "url": "https://threads.com/sensengames"
+      },
+      "bluesky": {
+        "label": "Bluesky",
+        "url": "https://sensengames.bsky.social/"
+      },
+      "twitter": {
+        "label": "X/Twitter",
+        "url": "https://x.com/sensengames"
+      },
+      "facebook": {
+        "label": "Facebook",
+        "url": "https://fb.com/sensengames/"
+      }
+    }
+  },
+  "common": {
+    "emailError": "Digite um e-mail válido.",
+    "closeModal": "Fechar modal",
+    "browserNoVideoSupport": "Seu navegador não suporta vídeo."
+  }
+}
