@@ -1,7 +1,7 @@
 ---
 title: "Como Jogar Typomancer: Guia para Iniciantes"
 description: "Aprenda as mecânicas básicas de Typomancer, desde o sistema de digitação até os primeiros feitiços."
-date: "2024-06-20"
+date: "2026-06-20"
 author: "Equipe Sensen Games"
 image: "/images/game1_cover.jpg"
 tags:

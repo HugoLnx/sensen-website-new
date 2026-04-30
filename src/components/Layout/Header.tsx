@@ -81,7 +81,7 @@ const Header = () => {
                   <button
                     onClick={toggleLanguage}
                     className="hover:cursor-pointer p-1.5 rounded-lg hover:bg-general-dark transition-colors text-general hover:text-primary flex items-center gap-1 text-sm"
-                    title={`Switch to ${currentLang === 'pt-BR' ? 'English' : 'Português'}`}
+                    title={`${currentLang === 'pt-BR' ? 'Mudar para Inglês' : 'Switch to Portuguese'}`}
                   >
                     <Globe className="w-4 h-4" />
                     <span>{currentLang === 'pt-BR' ? 'EN' : 'PT'}</span>
@@ -102,7 +102,7 @@ const Header = () => {
                   className="md:hidden text-general hover:text-primary transition-colors"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
-                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                  {mobileMenuOpen ? <X className="w-6 h-6 hover:cursor-pointer" /> : <Menu className="w-6 h-6 hover:cursor-pointer" />}
                 </button>
               </div>
     
@@ -154,7 +154,7 @@ const Header = () => {
                       className="w-fit p-1 flex items-center gap-2 rounded-lg hover:bg-general-dark transition-colors text-left"
                     >
                       <Globe className="w-5 h-5 text-general" />
-                      <span className="text-general">Switch to {currentLang === 'pt-BR' ? 'English' : 'Português'}</span>
+                      <span className="text-general hover:cursor-pointer">{currentLang === 'pt-BR' ? 'Mudar para Inglês' : 'Switch to Portuguese'}</span>
                     </button>
                   </div>
 
@@ -167,7 +167,7 @@ const Header = () => {
                         toggleTheme();
                         setMobileMenuOpen(false);
                       }}
-                      className="w-fit p-1 flex items-center gap-0.5 rounded-lg hover:bg-general-dark transition-colors text-left"
+                      className="w-fit p-1 flex items-center gap-0.5 rounded-lg hover:cursor-pointer hover:bg-general-dark transition-colors text-left"
                     >
                       {theme === 'light' ? <Moon className="w-5 h-5 text-general" /> : <Sun className="w-5 h-5 text-general" />}  
                       <span className="text-general ml-2">{theme === 'light' ? t('theme.dark') : t('theme.light')}</span>

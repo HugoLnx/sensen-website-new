@@ -1,7 +1,7 @@
 ---
 title: "How to Play Typomancer: Beginner's Guide"
 description: "Learn the basic mechanics of Typomancer, from the typing system to your first spells."
-date: "2024-06-20"
+date: "2026-06-20"
 author: "Sensen Games Team"
 image: "/images/game1_cover.jpg"
 tags:

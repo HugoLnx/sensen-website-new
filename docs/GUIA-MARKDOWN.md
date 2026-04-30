@@ -15,7 +15,7 @@ O site possui **seções** baseadas em Markdown. Cada seção é uma pasta dentr
 
 Dentro de cada seção, os arquivos são organizados por **idioma**:
 
-```
+```sh
 content/
   noticias/
     pt-BR/
@@ -32,6 +32,8 @@ content/
 Para adicionar uma nova página, basta criar um arquivo `.md` na pasta de idioma correspondente.
 
 > **Nota sobre o frontmatter:** O início do arquivo `.md` contém um bloco entre `---` (chamado "frontmatter") com metadados como título, descrição e data. Se você não estiver vendo esse bloco no VSCode, certifique-se de que abriu o arquivo correto na pasta `content/` do projeto (não um arquivo do próprio VSCode).
+
+![exemplo](image.png)
 
 ---
 
