@@ -1,5 +1,4 @@
-import { Sparkles, Users, Trophy } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Sparkles, Users, Trophy, Link } from "lucide-react";
 import { HeroCarousel } from "../components/HeroCarousel";
 import { Reveal } from "../components/Reveal";
 import { useLanguage } from "@/contexts/useLanguage";
