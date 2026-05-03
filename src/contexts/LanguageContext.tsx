@@ -1,4 +1,4 @@
-import React, { createContext, useState, type ReactNode } from 'react';
+import React, { createContext, useState, useEffect, type ReactNode } from 'react';
 import { detectLanguage } from '@/utils/detectLanguage';
 import ptBR from '../i18n/translations/pt-BR.json' with { type: 'json' };
 import enUS from '../i18n/translations/en-US.json' with { type: 'json' };
@@ -16,13 +16,22 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [currentLang, setCurrentLang] = useState<'pt-BR' | 'en-US'>(() => {
-    return detectLanguage();
-  });
+  // Always start with a fixed language to avoid hydration mismatch
+  const [currentLang, setCurrentLang] = useState<'pt-BR' | 'en-US'>('pt-BR');
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // After mount, detect the actual language
+    const detected = detectLanguage();
+    setCurrentLang(detected);
+    setIsMounted(true);
+  }, []);
 
   const setLanguage = (lang: 'pt-BR' | 'en-US') => {
     setCurrentLang(lang);
-    localStorage.setItem('preferredLanguage', lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferredLanguage', lang);
+    }
   };
 
   const t = (key: string): string => {
@@ -38,9 +47,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   return (
     <LanguageContext.Provider value={{ currentLang, setLanguage, t }}>
+      {/* 
+          Optionally: you could wait for isMounted to be true 
+          to avoid a flash of 'pt-BR' if the user wants 'en-US',
+          but that might cause layout shift.
+      */}
       {children}
     </LanguageContext.Provider>
   );
 };
-
-

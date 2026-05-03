@@ -2,6 +2,8 @@
   "header": {
     "home": "Home",
     "games": "Games",
+    "news": "News",
+    "guides": "Guides",
     "contact": "Contact"
   },
   "footer": {
@@ -28,19 +30,11 @@
     "homepageAboutUsTitle": "About Us",
     "homepageAboutUsText": "We are two brothers who have been gaming together since the Super Nintendo and PlayStation 1 & 2 era. We played Megaman X series, Castlevania SotN, Super Metroid, Aero Fighters, Guitar Hero and other classics all day back then! After years working as web programmer and web designer, we decided to start making games in the style we love to play: challenging and fun!",
     "homepageMailingListTitle": "JOIN OUR EMAIL LIST",
-    "features": {
-      "curation": {
-        "title": "Specialized Curation",
-        "description": "We select each game to ensure quality and originality."
-      },
-      "community": {
-        "title": "Active Community",
-        "description": "Join a community passionate about indie games."
-      },
-      "support": {
-        "title": "Support Developers",
-        "description": "Buying here directly supports independent creators."
-      }
+    "gamesVideo": {
+      "title": "Sensen Games"
+    },
+    "featuredGames": {
+      "title": "Our Main Games"
     },
     "about": {
       "title": "About Sensen Games",
@@ -178,5 +172,26 @@
     "emailError": "Enter a valid email.",
     "closeModal": "Close modal",
     "browserNoVideoSupport": "Your browser does not support video."
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "markdownPages": {
+    "news": {
+      "title": "News",
+      "subtitle": "Stay up to date with the latest news, updates, and announcements from Sensen Games.",
+      "emptyMessage": "No news published yet. Check back soon!",
+      "readMore": "Read more",
+      "backLabel": "Back to news"
+    },
+    "guides": {
+      "title": "Guides",
+      "subtitle": "Guides, tutorials, and tips to get the most out of Sensen Games titles.",
+      "emptyMessage": "No guides published yet. Check back soon!",
+      "readMore": "View guide",
+      "backLabel": "Back to guides"
+    }
   }
 }

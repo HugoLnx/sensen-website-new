@@ -15,6 +15,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const goToNext = useCallback(() => {
@@ -34,6 +35,17 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
     setIsModalOpen(false);
     setTimeout(() => setSelectedGame(null), 300);
   };
+
+  // Check for mobile on mount and window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (games.length === 0) return;
@@ -77,8 +89,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-general">{current.title}</h1>
-        <p className="text-xl text-general-dim mb-8 max-w-2xl mx-auto line-clamp-2">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">{current.title}</h1>
+        <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto line-clamp-2">
           {t(current.description ?? '')}
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
@@ -120,7 +132,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ games }) => {
         <div
           className="flex transition-transform duration-500 ease-in-out md:transform-none md:justify-center md:space-x-4 md:items-center"
           style={{
-            transform: window.innerWidth < 768 
+            transform: isMobile 
               ? `translateX(-${translateValue * 33.33}%)` 
               : 'none'
           }}

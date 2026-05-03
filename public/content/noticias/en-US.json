@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "exemplo-noticia",
+    "frontmatter": {
+      "title": "New Typomancer Update Available!",
+      "description": "Discover what's new in the latest Typomancer update, including new spells and typing mechanics.",
+      "date": "2024-06-15",
+      "author": "Sensen Games Team",
+      "image": "/images/game1_cover.jpg",
+      "tags": [
+        "Typomancer",
+        "Update",
+        "RPG"
+      ]
+    },
+    "content": "<h2>What&#39;s New?</h2>\n<p>We&#39;re excited to announce the <strong>biggest Typomancer update ever</strong>! This version brings brand new content, quality of life improvements, and important fixes.</p>\n<h3>New Spells</h3>\n<ul>\n<li><strong>Meteor Shower</strong>: An epic spell that deals area damage</li>\n<li><strong>Time Warp</strong>: Distorts time to gain advantage in battles</li>\n<li><strong>Shadow Clone</strong>: Creates clones of your words for double attacks</li>\n</ul>\n<h3>Gameplay Improvements</h3>\n<p>Typing speed now directly influences damage dealt. The faster you type correctly, the more powerful your character becomes!</p>\n<blockquote>\n<p>&quot;The new combo mechanic completely transformed the game experience.&quot; — <em>Community Review</em></p>\n</blockquote>\n<h2>How to Access</h2>\n<p>To update your game, simply visit the <a href=\"https://store.steampowered.com\">Typomancer page on Steam</a> and download the update automatically.</p>\n<p>We thank all players who sent feedback and helped us make Typomancer even better!</p>\n"
+  }
+]

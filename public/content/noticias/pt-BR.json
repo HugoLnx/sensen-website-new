@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "exemplo-noticia",
+    "frontmatter": {
+      "title": "Nova Atualização do Typomancer Disponível!",
+      "description": "Conheça as novidades da última atualização de Typomancer, incluindo novos feitiços e mecânicas de digitação.",
+      "date": "2024-06-15",
+      "author": "Equipe Sensen Games",
+      "image": "/images/game1_cover.jpg",
+      "tags": [
+        "Typomancer",
+        "Atualização",
+        "RPG"
+      ]
+    },
+    "content": "<h2>O que há de novo?</h2>\n<p>Estamos empolgados em anunciar a <strong>maior atualização de Typomancer até hoje</strong>! Esta versão traz conteúdo inédito, melhorias de qualidade de vida e correções importantes.</p>\n<h3>Novos Feitiços</h3>\n<ul>\n<li><strong>Meteor Shower</strong>: Um feitiço épico que causa dano em área</li>\n<li><strong>Time Warp</strong>: Distorce o tempo para ganhar vantagem em batalhas</li>\n<li><strong>Shadow Clone</strong>: Cria clones das suas palavras para ataques duplos</li>\n</ul>\n<h3>Melhorias de Gameplay</h3>\n<p>A velocidade de digitação agora influencia diretamente o dano causado. Quanto mais rápido você digitar corretamente, mais poderoso seu personagem se torna!</p>\n<blockquote>\n<p>&quot;A nova mecânica de combo transformou completamente a experiência de jogo.&quot; — <em>Review da Comunidade</em></p>\n</blockquote>\n<h2>Como Acessar</h2>\n<p>Para atualizar seu jogo, basta acessar a <a href=\"https://store.steampowered.com\">página do Typomancer na Steam</a> e baixar a atualização automaticamente.</p>\n<p>Agradecemos a todos os jogadores que enviaram feedback e nos ajudaram a tornar Typomancer ainda melhor!</p>\n"
+  }
+]
