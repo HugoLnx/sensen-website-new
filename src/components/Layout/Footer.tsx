@@ -58,7 +58,7 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="bg-general border border-general-dark rounded-xl p-6 md:p-8">
+            <div className="glass-effect rounded-xl p-6 md:p-8 shadow-lg">
               {!isSubmitted ? (
                 <>
                   <div className="flex items-center gap-3 mb-2">

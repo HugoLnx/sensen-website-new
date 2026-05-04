@@ -3,4 +3,12 @@
 @import "../../index.css"; /* Delegate to main vars */
 
 /* Local overrides if needed, otherwise empty */
-
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

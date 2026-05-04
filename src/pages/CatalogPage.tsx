@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/useLanguage';
-import { Star, Tag } from 'lucide-react';
+import { Tag } from 'lucide-react';
 import { GameModal } from '../components/GameModal';
 import type { Game } from '../types';
 import { useSettings } from '../contexts/SettingsContext';
@@ -126,7 +126,7 @@ const CatalogPage = () => {
             return (
               <div
                 key={game.id ?? game.title}
-                className="bg-general border border-general-dark rounded-lg overflow-hidden hover:border-primary transition-all hover:scale-[1.02] cursor-pointer group relative"
+                className="glass-effect rounded-xl overflow-hidden hover:border-primary transition-all hover:scale-[1.02] cursor-pointer group relative shadow-lg hover:shadow-xl"
                 onClick={() => handleGameClick(game)}
                 onMouseEnter={() => game.id != null && handleMouseEnter(game.id)}
                 onMouseLeave={handleMouseLeave}
@@ -159,10 +159,6 @@ const CatalogPage = () => {
                 <div className="p-5">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl text-general line-clamp-1">{game.title}</h3>
-                    <div className="flex items-center gap-1 text-yellow-400">
-                      <Star className="w-4 h-4 fill-current" />
-                      <span className="text-sm">{game.rating}</span>
-                    </div>
                   </div>
 
                   <p className="text-sm text-general-dim mb-3 line-clamp-2">{game.developer}</p>

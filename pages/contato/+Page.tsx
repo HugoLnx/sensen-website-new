@@ -18,7 +18,7 @@ export default function Page() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex flex-col h-full space-y-6">
-            <div className="bg-general border border-general-dark rounded-lg p-6">
+            <div className="glass-effect rounded-lg p-6 shadow-lg">
               <h2 className="text-2xl mb-6 text-primary font-semibold">{t('contact.infoTitle')}</h2>
               <div className="space-y-5">
                 {/* Steam */}
@@ -90,7 +90,7 @@ export default function Page() {
               </div> 
             </div>
             
-            <div className="bg-general flex-1 flex flex-col border border-general-dark rounded-lg p-6">
+            <div className="glass-effect flex-1 flex flex-col rounded-lg p-6 shadow-lg">
               <h2 className="text-2xl mb-4 text-primary font-semibold">{t('contact.socials.pressKit.title')}</h2>
               <p className="text-general-dim mb-6">{t('contact.socials.pressKit.description')}</p>
               <a href={t('contact.socials.press.url')} 
@@ -102,11 +102,12 @@ export default function Page() {
             </div>              
           </div>
 
-          <div className="bg-general border border-general-dark rounded-lg p-6 h-full">
+          <div className="glass-effect rounded-lg p-6 h-full shadow-lg">
             <h2 className="text-2xl mb-6 text-primary font-semibold">{t('contact.sendMessage')}</h2>
             <ContactForm />
           </div>
         </div>
+
       </div>
     </div>
   );

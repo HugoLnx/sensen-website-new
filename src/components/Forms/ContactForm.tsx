@@ -64,7 +64,7 @@ export function ContactForm() {
   return (
     <form 
       onSubmit={handleSubmit(onSubmit)} 
-      className="flex flex-col gap-4 p-6 bg-general border border-general-dark rounded-lg max-w-md mx-auto shadow-lg"
+      className="flex flex-col gap-4 p-6 glass-effect rounded-lg max-w-md mx-auto shadow-lg"
     >
 
       {/* Nome */}
