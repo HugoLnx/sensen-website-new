@@ -28,17 +28,17 @@ export const HomePage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Reveal>
-                <div className="bg-general border border-general-dark rounded-lg p-6 hover:border-primary transition-colors">
+                <div className="glass-effect rounded-lg p-6 hover:border-primary transition-all shadow-lg hover:shadow-xl">
                   <div className="w-12 h-12 bg-primary-soft rounded-lg flex items-center justify-center mb-4">
                     <Sparkles className="w-6 h-6 text-primary" />
                   </div>
-<h3 className="text-xl mb-3 text-general">{t('home.features.curation.title')}</h3>
+            <h3 className="text-xl mb-3 text-general">{t('home.features.curation.title')}</h3>
                   <p className="text-general">{t('home.features.curation.description')}</p>
                 </div>
               </Reveal>
 
               <Reveal>
-                <div className="bg-general border border-general-dark rounded-lg p-6 hover:border-primary transition-colors">
+                <div className="glass-effect rounded-lg p-6 hover:border-primary transition-all shadow-lg hover:shadow-xl">
                   <div className="w-12 h-12 bg-primary-soft rounded-lg flex items-center justify-center mb-4">
                     <Users className="w-6 h-6 text-primary" />
                   </div>
@@ -48,7 +48,7 @@ export const HomePage: React.FC = () => {
               </Reveal>
 
               <Reveal>
-                <div className="bg-general border border-general-dark rounded-lg p-6 hover:border-primary transition-colors">
+                <div className="glass-effect rounded-lg p-6 hover:border-primary transition-all shadow-lg hover:shadow-xl">
                   <div className="w-12 h-12 bg-primary-soft rounded-lg flex items-center justify-center mb-4">
                     <Trophy className="w-6 h-6 text-primary" />
                   </div>
@@ -57,6 +57,7 @@ export const HomePage: React.FC = () => {
                 </div>
               </Reveal>
             </div>
+
           </div>
         </section>
 
