@@ -11,14 +11,23 @@
 	--header-background-color: #373737;
 	--footer-background-color: #373737;
 	--page-background-color: #0f172a;
-	--font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-title: "Space Mono", monospace;
 	--primary-on-color: #FFFFFF;
 	--steam-on-color: #c7d5e0;
 	--border-color: #373737;
 	--card-bg: #2C2C2C;
 	--general-dark-bg: #1e293b;
 	--general-dark-bg-i: #373e49;
+	--font-title: 'Space Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-title);
+}
+
+p, span, li {
+  font-family: var(--font-body);
 }
 
 :root.light {
