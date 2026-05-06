@@ -53,7 +53,7 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {MOCK_GAMES.filter(game => Boolean(game.isFeatured)).map((game) => (
                 <Reveal key={game.id}>
-                  <div className="bg-general border border-general-dark rounded-xl p-6 hover:border-primary hover:shadow-xl transition-all group cursor-pointer overflow-hidden">
+                  <div className="glass-effect rounded-xl p-6 hover:border-primary shadow-lg hover:shadow-xl transition-all group cursor-pointer overflow-hidden">
                     <div className="w-full h-32 md:h-40 bg-primary-soft rounded-lg mb-4 overflow-hidden group-hover:scale-105 transition-transform">
                       <img 
                         src={game.image || ''} 

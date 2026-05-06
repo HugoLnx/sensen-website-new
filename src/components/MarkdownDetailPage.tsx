@@ -136,7 +136,7 @@ export default function MarkdownDetailPage({
           )}
         </header>
 
-        <div className="bg-general border border-general-dark rounded-2xl p-6 md:p-10 shadow-lg">
+        <div className="glass-effect rounded-2xl p-6 md:p-10 shadow-lg">
           <MarkdownRenderer html={content} />
         </div>
 

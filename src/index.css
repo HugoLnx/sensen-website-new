@@ -7,18 +7,30 @@
 	--secondary-color: #F5F5F5;
 	--general-text-color: #FFFFFF;
 	--general-dim-color: rgba(255, 255, 255, 0.6);
-	--general-background-color: #2C2C2C;
+	--general-background-color: #2c2c2c;
 	--header-background-color: #373737;
 	--footer-background-color: #373737;
 	--page-background-color: #0f172a;
-	--font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-title: "Space Mono", monospace;
 	--primary-on-color: #FFFFFF;
 	--steam-on-color: #c7d5e0;
 	--border-color: #373737;
 	--card-bg: #2C2C2C;
 	--general-dark-bg: #1e293b;
-	--general-dark-bg-i: #373e49;
+	--general-dark-bg-i: #4f4f50;
+	--font-title: 'Space Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --font-family: var(--font-family);
+  --glass-bg-dark: rgba(255, 255, 255, 0.05);
+  --glass-bg-light: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-title);
+}
+
+p, span, li {
+  font-family: var(--font-body);
 }
 
 :root.light {
@@ -32,7 +44,18 @@
 	--border-color: #e2e8f0;
 	--card-bg: #f8fafc;
 	--general-dark-bg: #f1f5f9;
-	--general-dark-bg-i: #f1f5f9;
+  --general-dark-bg-i: #f1f5f9;
+	--primary-color: #b6b6b6;
+	--primary-dark: #c9c9c9;
+	--steam-color: #171a21;
+	--primary-on-color: #FFFFFF;
+	--steam-on-color: #c7d5e0;
+	--font-title: 'Space Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --font-family: var(--font-body);
+  --glass-bg-dark: rgba(255, 255, 255, 0.05);
+  --glass-bg-light: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
 }
 
 .bg-primary { background-color: var(--primary-color) !important; }
@@ -61,6 +84,20 @@
 .container-padded { padding-left: 1rem; padding-right: 1rem; }
 
 .bg-card { background-color: var(--card-bg) !important; }
+
+.glass-effect {
+  background: var(--glass-bg-dark);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+:root.light .glass-effect {
+  background: var(--glass-bg-light);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.07);
+}
+
 
 /* Markdown content styles */
 .markdown-content h1 {

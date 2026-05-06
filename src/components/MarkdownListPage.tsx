@@ -84,8 +84,9 @@ export default function MarkdownListPage({
               <a
                 key={post.slug}
                 href={`${basePath}/${post.slug}`}
-                className="group bg-general border border-general-dark rounded-2xl overflow-hidden hover:border-primary transition-all hover:shadow-xl hover:-translate-y-1"
+                className="group glass-effect rounded-2xl overflow-hidden hover:border-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
+
                 <div className="w-full h-48 overflow-hidden">
                   {post.frontmatter.image ? (
                     <img

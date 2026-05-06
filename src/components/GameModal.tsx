@@ -30,11 +30,11 @@ export function GameModal({ game, onClose }: GameModalProps) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="header-bg shadow-2xl max-w-3xl w-full p-6 rounded-xl relative overflow-y-auto max-h-[90vh]"
+        className="glass-effect shadow-2xl max-w-3xl w-full p-6 rounded-xl relative overflow-y-auto no-scrollbar max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Botão fechar */}
