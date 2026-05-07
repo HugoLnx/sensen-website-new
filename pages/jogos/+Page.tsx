@@ -171,7 +171,7 @@ export default function Page() {
                     ))}
                   </div>
 
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between gap-2 items-center">
                     <button
                       className="btn-primary px-4 py-2 rounded text-sm transition-colors hover:cursor-pointer"
                       onClick={(e) => {
