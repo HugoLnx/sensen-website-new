@@ -4,6 +4,7 @@
     "games": "Games",
     "news": "News",
     "guides": "Guides",
+    "challenges": "Challenges",
     "contact": "Contact"
   },
   "footer": {
@@ -63,9 +64,17 @@
     "viewTrailler": "View Trailler"
   },
   "hero": {
-    "viewMore": "View More"
+    "viewMore": "View more"
+  },
+  "streamerCarousel": {
+    "title": "Streamers Playing",
+    "showingOnly": "Showing only {lang} videos, want to see all?",
+    "filterDisabled": "Language filter disabled, want to see only {lang}?",
+    "watchOnYoutube": "Watch on YouTube",
+    "noVideos": "No videos available for this language."
   },
   "games": {
+
     "typomancer": {
       "description": "Run, jump and type words to cast spells and help your typing mage disinfect TyWorld from slime monsters! Be prepared to type a lot, as typing will allow you to refill your quill and control the universe around you!"
     },
@@ -192,6 +201,15 @@
       "emptyMessage": "No guides published yet. Check back soon!",
       "readMore": "View guide",
       "backLabel": "Back to guides"
+    },
+    "challenges": {
+      "title": "Challenges",
+      "subtitle": "Face epic challenges and earn exclusive rewards in Sensen Games titles.",
+      "emptyMessage": "No challenges available at the moment. Stay tuned!",
+      "readMore": "Accept Challenge",
+      "backLabel": "Back to challenges",
+      "difficulty": "Difficulty",
+      "reward": "Reward"
     }
   }
 }

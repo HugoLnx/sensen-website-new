@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 import { useData } from "vike-react/useData";
-import { Calendar, ArrowRight, User } from "lucide-react";
+import { Calendar, ArrowRight, Swords, Trophy } from "lucide-react";
 import { useLanguage } from "@/contexts/useLanguage";
 import { loadMarkdownClient } from "@/utils/markdownClient";
 import type { MarkdownPost } from "@/types";
 import { PageContainer } from "./ui/PageContainer";
 import { SectionHeader } from "./ui/SectionHeader";
 
-interface MarkdownListPageProps {
-  section: "noticias" | "guias";
+interface DesafioListPageProps {
+  section: "desafios";
   basePath: string;
-  translationKey: string; // ex: "markdownPages.news" ou "markdownPages.guides"
+  translationKey: string;
 }
 
-export default function MarkdownListPage({
+export default function DesafioListPage({
   section,
   basePath,
   translationKey,
-}: MarkdownListPageProps) {
+}: DesafioListPageProps) {
   const { currentLang, t } = useLanguage();
   const serverData = useData<MarkdownPost[]>();
   const [posts, setPosts] = useState<MarkdownPost[]>(serverData ?? []);
@@ -30,7 +30,6 @@ export default function MarkdownListPage({
 
   useEffect(() => {
     if (currentLang === "pt-BR") {
-      // eslint-disable-next-line
       setPosts(serverData ?? []);
       setLoading(false);
       return;
@@ -76,15 +75,14 @@ export default function MarkdownListPage({
           <p className="text-general-dim text-lg">{emptyMessage}</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {posts.map((post) => (
             <a
               key={post.slug}
               href={`${basePath}/${post.slug}`}
-              className="group glass-effect rounded-2xl overflow-hidden hover:border-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="group relative flex flex-col md:flex-row glass-effect rounded-2xl overflow-hidden hover:border-primary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary"
             >
-
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full md:w-48 h-48 md:h-full overflow-hidden shrink-0">
                 {post.frontmatter.image ? (
                   <img
                     src={post.frontmatter.image}
@@ -93,45 +91,44 @@ export default function MarkdownListPage({
                   />
                 ) : (
                   <div className="w-full h-full bg-general-dark flex items-center justify-center">
-                    <span className="text-general-dim text-sm">
-                      Sensen Games
-                    </span>
+                    <Swords className="w-12 h-12 text-primary/50" />
                   </div>
                 )}
               </div>
 
-              <div className="p-6">
-                <div className="flex items-center gap-4 text-general-dim text-sm mb-3">
-                  {post.frontmatter.date && (
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {new Date(post.frontmatter.date).toLocaleDateString(
-                        currentLang,
-                        {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                        }
-                      )}
+              <div className="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="flex items-center gap-1 text-general-dim text-xs">
+                      <Calendar className="w-3 h-3" />
+                      {post.frontmatter.date && new Date(post.frontmatter.date).toLocaleDateString(currentLang)}
                     </span>
-                  )}
-                  {post.frontmatter.author && (
-                    <span className="flex items-center gap-1">
-                      <User className="w-4 h-4" />
-                      {post.frontmatter.author}
-                    </span>
+                    {post.frontmatter.difficulty && (
+                      <span className="bg-primary/20 text-primary text-[10px] uppercase font-bold px-2 py-1 rounded tracking-wider">
+                        {t('markdownPages.challenges.difficulty')}: {post.frontmatter.difficulty}
+                      </span>
+                    )}
+                  </div>
+
+                  <h2 className="text-xl font-bold text-general mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                    {post.frontmatter.title}
+                  </h2>
+
+                  <p className="text-general-dim text-sm line-clamp-2 mb-4">
+                    {post.frontmatter.description}
+                  </p>
+
+                  {post.frontmatter.reward && (
+                    <div className="flex items-center gap-2 mb-4 p-2 bg-primary-soft/30 rounded-lg">
+                      <Trophy className="w-4 h-4 text-primary" />
+                      <span className="text-xs text-primary font-medium">
+                        {t('markdownPages.challenges.reward')}: {post.frontmatter.reward}
+                      </span>
+                    </div>
                   )}
                 </div>
 
-                <h2 className="text-xl font-bold text-general mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                  {post.frontmatter.title}
-                </h2>
-
-                <p className="text-general-dim text-sm line-clamp-3 mb-4">
-                  {post.frontmatter.description}
-                </p>
-
-                <span className="inline-flex items-center gap-1 text-primary text-sm font-medium group-hover:underline">
+                <span className="inline-flex items-center gap-1 text-primary text-sm font-bold uppercase tracking-widest group-hover:underline mt-auto">
                   {readMoreLabel}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -143,5 +140,3 @@ export default function MarkdownListPage({
     </PageContainer>
   );
 }
-
-

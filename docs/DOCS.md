@@ -67,7 +67,7 @@ O site público será iniciado e estará acessível, por padrão, em `http://loc
 
 * **Catálogo de Jogos**: Exibição dinâmica de todos os jogos disponíveis no catálogo, com cards interativos.
 * **Páginas de Detalhes do Jogo**: Cada jogo possui uma página dedicada com informações detalhadas, imagem de capa e vídeo de preview.
-* **Página Inicial (Home)**: Seção hero com jogos em destaque, seções "Sobre o Estúdio" e "Lista de E-mails" configuráveis via admin.
+* **Página Inicial (Home)**: Seção hero com jogos em destaque, carrosel de streamers parceiros com filtro de idioma, seções "Sobre o Estúdio" e "Lista de E-mails" configuráveis via admin.
 * **Formulário de Contato**: Permite aos visitantes enviar mensagens ao estúdio.
 * **Mailing List**: Formulário para inscrição na lista de e-mails do estúdio.
 * **Exibição de Mídias**: Imagens e vídeos de jogos são carregados do backend e exibidos corretamente.

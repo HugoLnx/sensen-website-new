@@ -12,6 +12,7 @@ O site possui **seções** baseadas em Markdown. Cada seção é uma pasta dentr
 |---|---|---|
 | Notícias | `content/noticias/` | `/noticias` |
 | Guias | `content/guias/` | `/guias` |
+| Desafios | `content/desafios/` | `/desafios` |
 
 Dentro de cada seção, os arquivos são organizados por **idioma**:
 
@@ -27,6 +28,11 @@ content/
       como-jogar-typomancer.md
     en-US/
       como-jogar-typomancer.md
+  desafios/
+    pt-BR/
+      desafio-1.md
+    en-US/
+      desafio-1.md
 ```
 
 Para adicionar uma nova página, basta criar um arquivo `.md` na pasta de idioma correspondente.
@@ -41,7 +47,7 @@ Para adicionar uma nova página, basta criar um arquivo `.md` na pasta de idioma
 
 ### 1. Escolher a seção
 
-Decida se o conteúdo é uma **notícia** (`content/noticias/`) ou um **guia** (`content/guias/`).
+Decida se o conteúdo é uma **notícia** (`content/noticias/`), um **guia** (`content/guias/`) ou um **desafio** (`content/desafios/`).
 
 ### 2. Criar o arquivo
 
@@ -51,6 +57,7 @@ Dentro da pasta escolhida, crie um arquivo com a extensão `.md`. O nome do arqu
 |---|---|---|
 | `minha-noticia.md` | noticias | `/noticias/minha-noticia` |
 | `tutorial-basico.md` | guias | `/guias/tutorial-basico` |
+| `desafio-semanal.md` | desafios | `/desafios/desafio-semanal` |
 
 **Regras para o nome do arquivo:**
 
@@ -72,6 +79,8 @@ image: "/images/nome-da-imagem.jpg"
 tags:
   - Tag1
   - Tag2
+difficulty: "Média" (Opcional - Apenas Desafios)
+reward: "Título Especial" (Opcional - Apenas Desafios)
 ---
 
 # Título Principal
@@ -102,15 +111,40 @@ Os campos entre `---` são obrigatórios ou opcionais:
 | `author` | ❌ Não | Nome do autor (aparece abaixo do título) |
 | `image` | ❌ Não | Caminho da imagem de capa (ex: `/images/game1_cover.jpg`) |
 | `tags` | ❌ Não | Lista de tags relacionadas ao conteúdo |
+| `difficulty` | ❌ Não | **(Apenas Desafios)** Nível de dificuldade (Ex: Fácil, Médio, Difícil) |
+| `reward` | ❌ Não | **(Apenas Desafios)** Prêmio por completar o desafio (Ex: Título, Skin) |
 
 ---
 
 ## Exemplos
 
-Veja os arquivos de exemplo já existentes:
+### Exemplo de Notícia ou Guia:
+```markdown
+---
+title: "Como jogar Typomancer"
+description: "Dicas essenciais para dominar a digitação mágica."
+date: "2024-05-09"
+---
+# Conteúdo aqui...
+```
+
+### Exemplo de Desafio:
+```markdown
+---
+title: "O Mestre da Digitação"
+description: "Alcance o Rank S em todas as fases."
+difficulty: "Difícil"
+reward: "Título: Velocidade da Luz"
+image: "/images/game1_cover.jpg"
+---
+# Conteúdo do desafio aqui...
+```
+
+Veja também os arquivos de exemplo já existentes:
 
 - `content/noticias/exemplo-noticia.md`
 - `content/guias/como-jogar-typomancer.md`
+- `content/desafios/pt-BR/desafio-1.md`
 
 ---
 
@@ -159,8 +193,6 @@ pages/artigos/@slug/+onBeforePrerenderStart.ts
 
 ```
 
-Dica: os arquivos `+title.ts`, `+description.ts` e os componentes `+Page.tsx` são **genéricos** e podem ser reutilizados apenas mudando `basePath` e textos.
-
 ### 3. Adicionar ao menu de navegação
 
 Edite `src/components/Layout/Header.tsx` e adicione a nova rota no array `navigation`:
@@ -170,8 +202,8 @@ const navigation = [
   { name: t('header.home'), href: '/' },
   { name: t('header.games'), href: '/jogos' },
   { name: t('header.news'), href: '/noticias' },
+  { name: t('header.challenges'), href: '/desafios' },
   { name: t('header.guides'), href: '/guias' },
-  { name: t('header.articles'), href: '/artigos' },  // ← nova rota
   { name: t('header.contact'), href: '/contato' },
 ];
 
@@ -189,22 +221,8 @@ Adicione a chave nos arquivos de tradução:
   "games": "Jogos",
   "news": "Notícias",
   "guides": "Guias",
-  "articles": "Artigos",  // ← nova tradução
+  "challenges": "Desafios",
   "contact": "Contato"
-}
-
-```
-
-**`src/i18n/translations/en-US.json`:**
-
-```json
-"header": {
-  "home": "Home",
-  "games": "Games",
-  "news": "News",
-  "guides": "Guides",
-  "articles": "Articles",  // ← nova tradução
-  "contact": "Contact"
 }
 
 ```
@@ -215,10 +233,6 @@ Adicione a chave nos arquivos de tradução:
 2. **Execute o build:** `npm run build`
 3. **Deploy:** `npm run deploy`
 
-> **Importante:** Os arquivos JSON em `public/content/` são **gerados automaticamente** durante o `npm run build`. Você não precisa criá-los manualmente — o script `generateContentJson.ts` processa todos os `.md` e gera os JSONs otimizados para cada idioma.
-
-O Vike detecta automaticamente os novos arquivos e gera as páginas estáticas com metatags e pré-renderização.
-
 ---
 
 ## Dicas
@@ -227,4 +241,3 @@ O Vike detecta automaticamente os novos arquivos e gera as páginas estáticas c
 - A `description` deve ter entre 120-160 caracteres para SEO ideal
 - Imagens devem estar na pasta `public/images/` e referenciadas com `/images/nome.jpg`
 - Não é necessário reiniciar o servidor de desenvolvimento (`npm run dev`) — as mudanças são detectadas automaticamente
-
