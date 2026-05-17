@@ -6,7 +6,7 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === 'serve' ? '/' : '/sensen-website-new/',
+  base: process.env.VITE_BASE_PATH || (command === 'serve' ? '/' : '/sensen-website-new/'),
   plugins: [
     vike(),
     react(),
