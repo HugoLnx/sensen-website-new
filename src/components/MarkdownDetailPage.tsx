@@ -5,6 +5,7 @@ import { useLanguage } from "@/contexts/useLanguage";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { loadMarkdownBySlug } from "@/utils/markdownClient";
 import type { MarkdownPost } from "@/types";
+import { PageContainer } from "./ui/PageContainer";
 
 interface MarkdownDetailPageProps {
   section: "noticias" | "guias";
@@ -55,39 +56,35 @@ export default function MarkdownDetailPage({
 
   if (loading) {
     return (
-      <main className="page-bg min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="animate-pulse space-y-4">
-            <div className="h-8 bg-general-dark rounded w-3/4 mx-auto" />
-            <div className="h-4 bg-general-dark rounded w-1/2 mx-auto" />
-            <div className="h-64 bg-general-dark rounded mt-8" />
-          </div>
+      <PageContainer innerClassName="max-w-4xl mx-auto">
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 bg-general-dark rounded w-3/4 mx-auto" />
+          <div className="h-4 bg-general-dark rounded w-1/2 mx-auto" />
+          <div className="h-64 bg-general-dark rounded mt-8" />
         </div>
-      </main>
+      </PageContainer>
     );
   }
 
   if (!post) {
     return (
-      <main className="page-bg min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-general-dim text-lg">Conteúdo não encontrado.</p>
-          <a
-            href={basePath}
-            className="inline-flex items-center gap-2 text-primary hover:text-primary-soft transition-colors underline underline-offset-4 mt-4"
-          >
-            ← {backLabel}
-          </a>
-        </div>
-      </main>
+      <PageContainer innerClassName="max-w-4xl mx-auto text-center">
+        <p className="text-general-dim text-lg">Conteúdo não encontrado.</p>
+        <a
+          href={basePath}
+          className="inline-flex items-center gap-2 text-primary hover:text-primary-soft transition-colors underline underline-offset-4 mt-4"
+        >
+          ← {backLabel}
+        </a>
+      </PageContainer>
     );
   }
 
   const { frontmatter, content } = post;
 
   return (
-    <main className="page-bg min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <article className="max-w-4xl mx-auto">
+    <PageContainer innerClassName="max-w-4xl mx-auto">
+      <article>
         <header className="mb-8 text-center">
           {frontmatter.image && (
             <div className="w-full h-64 md:h-96 mb-8 rounded-2xl overflow-hidden">
@@ -149,7 +146,8 @@ export default function MarkdownDetailPage({
           </a>
         </div>
       </article>
-    </main>
+    </PageContainer>
   );
 }
+
 

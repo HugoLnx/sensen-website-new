@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "desafio-1",
+    "frontmatter": {
+      "title": "Challenge 1: Typing Master",
+      "description": "Prove you are the fastest in TyWorld by reaching S-rank in all stages.",
+      "date": "2026-05-09",
+      "author": "Sensen Games",
+      "image": "/images/game1_cover.jpg",
+      "difficulty": "Hard",
+      "reward": "Title: Light Speed"
+    },
+    "content": "<h1>Challenge 1: Typing Master</h1>\n<p>TyWorld is under attack and only the fastest can save it. Your goal is to complete all stages of Typomancer with S-Rank.</p>\n<h2>Requirements</h2>\n<ul>\n<li>Complete all stages.</li>\n<li>Make no more than 5 mistakes per stage.</li>\n<li>Maintain an accuracy above 95%.</li>\n</ul>\n<h2>Rewards</h2>\n<p>By completing this challenge, you will unlock the exclusive <strong>Light Speed</strong> title in your global profile.</p>\n"
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "desafio-1",
+    "frontmatter": {
+      "title": "Desafio 1: O Mestre da Digitação",
+      "description": "Prove que você é o mais rápido do TyWorld alcançando o rank S em todas as fases.",
+      "date": "2026-05-09",
+      "author": "Sensen Games",
+      "image": "/images/game1_cover.jpg",
+      "difficulty": "Difícil",
+      "reward": "Título: Velocidade da Luz"
+    },
+    "content": "<h1>Desafio 1: O Mestre da Digitação</h1>\n<p>O TyWorld está sob ataque e apenas os mais rápidos podem salvá-lo. Seu objetivo é completar todas as fases do jogo Typomancer com Rank S.</p>\n<h2>Requisitos</h2>\n<ul>\n<li>Completar todas as fases.</li>\n<li>Não cometer mais de 5 erros por fase.</li>\n<li>Manter uma precisão acima de 95%.</li>\n</ul>\n<h2>Recompensas</h2>\n<p>Ao completar este desafio, você desbloqueará o título exclusivo <strong>Velocidade da Luz</strong> em seu perfil global.</p>\n"
+  }
+]

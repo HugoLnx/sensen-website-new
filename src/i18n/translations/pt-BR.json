@@ -4,6 +4,7 @@
     "games": "Jogos",
     "news": "Notícias",
     "guides": "Guias",
+    "challenges": "Desafios",
     "contact": "Contato"
   },
   "footer": {
@@ -64,6 +65,13 @@
   },
   "hero": {
     "viewMore": "Ver mais"
+  },
+  "streamerCarousel": {
+    "title": "Streamers Jogando",
+    "showingOnly": "Mostrando somente vídeos {lang}, deseja ver todos?",
+    "filterDisabled": "Filtro de idioma desabilitado, deseja ver somente os {lang}?",
+    "watchOnYoutube": "Assistir no YouTube",
+    "noVideos": "Nenhum vídeo disponível para este idioma."
   },
   "games": {
     "typomancer": {
@@ -192,6 +200,15 @@
       "emptyMessage": "Nenhum guia publicado ainda. Volte em breve!",
       "readMore": "Ver guia",
       "backLabel": "Voltar para guias"
+    },
+    "challenges": {
+      "title": "Desafios",
+      "subtitle": "Enfrente desafios épicos e ganhe recompensas exclusivas nos jogos da Sensen Games.",
+      "emptyMessage": "Nenhum desafio disponível no momento. Fique atento!",
+      "readMore": "Aceitar Desafio",
+      "backLabel": "Voltar para desafios",
+      "difficulty": "Dificuldade",
+      "reward": "Recompensa"
     }
   }
 }

@@ -1,10 +1,15 @@
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { StreamerCarousel } from "@/components/StreamerCarousel";
 import { Reveal } from "@/components/Reveal";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { useLanguage } from "@/contexts/useLanguage";
 import { gamesMock } from "@/mocks/gameMock";
+import { streamerMock } from "@/mocks/streamerMock";
+import { GameCard } from "@/components/GameCard";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const MOCK_GAMES = gamesMock
+const MOCK_STREAMERS = streamerMock
 
 export default function Page() {
   const { t } = useLanguage();
@@ -42,39 +47,20 @@ export default function Page() {
 
         <HeroCarousel games={MOCK_GAMES} />
 
+        <StreamerCarousel videos={MOCK_STREAMERS} />
+
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Reveal>
-              <h2 className="text-3xl text-center mb-12 text-primary">
-                {t('home.featuredGames.title')}
-              </h2>
-            </Reveal>
+            <SectionHeader title={t('home.featuredGames.title')} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {MOCK_GAMES.filter(game => Boolean(game.isFeatured)).map((game) => (
-                <Reveal key={game.id}>
-                  <div className="glass-effect rounded-xl p-6 hover:border-primary shadow-lg hover:shadow-xl transition-all group cursor-pointer overflow-hidden">
-                    <div className="w-full h-32 md:h-40 bg-primary-soft rounded-lg mb-4 overflow-hidden group-hover:scale-105 transition-transform">
-                      <img 
-                        src={game.image || ''} 
-                        alt={game.title} 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-xl mb-3 text-general font-bold">{game.title}</h3>
-                    <p className="text-general-dim mb-4 line-clamp-2">{t(game.description || '')}</p>   
-                    {game.storeLinks?.steam && (
-                      <a 
-                        href={game.storeLinks.steam} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="btn-primary w-full text-center py-2 px-4 text-sm block rounded"
-                      >
-                        {t('gamesPage.steam')}
-                      </a>
-                    )}
-                  </div>
-                </Reveal>
+                <GameCard 
+                  key={game.id} 
+                  game={game} 
+                  variant="simple" 
+                  onSteamClick={(g) => g.storeLinks?.steam && window.open(g.storeLinks.steam, '_blank')}
+                />
               ))}
             </div>
           </div>
@@ -82,11 +68,7 @@ export default function Page() {
 
         <section className="py-16 bg-general">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <Reveal>
-              <h2 className="text-3xl mb-8 text-primary">
-                {t('home.about.title')}
-              </h2>
-            </Reveal>
+            <SectionHeader title={t('home.about.title')} />
 
             <div className="flex flex-col gap-4 text-general leading-relaxed">
               <Reveal >
@@ -116,4 +98,5 @@ export default function Page() {
     </>
   );
 }
+
 

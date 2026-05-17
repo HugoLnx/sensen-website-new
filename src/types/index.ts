@@ -15,6 +15,19 @@ export interface Game {
   developer?: string;
 }
 
+export interface StreamerVideo {
+  id: string | number;
+  youtubeId: string;
+  title: string;
+  streamerName: string;
+  streamerImage?: string;
+  channelLink?: string;
+  languages: {
+    'pt-BR': boolean;
+    'en-US': boolean;
+  };
+}
+
 export interface NewsFrontmatter {
   title: string;
   description: string;

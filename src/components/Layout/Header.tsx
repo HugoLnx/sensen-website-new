@@ -18,7 +18,8 @@ const Header = () => {
     { name: t('header.home'), href: '/' },
     { name: t('header.games'), href: '/jogos' },
     { name: t('header.news'), href: '/noticias' },
-    { name: t('header.guides'), href: '/guias' },
+    { name: t('header.challenges'), href: '/desafios' },
+    // { name: t('header.guides'), href: '/guias' },
     { name: t('header.contact'), href: '/contato' },
   ];
 
