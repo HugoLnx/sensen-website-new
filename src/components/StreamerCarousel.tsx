@@ -61,8 +61,8 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
     const handle = video.channelLink?.split('@')[1] || video.streamerName.replace(/\s+/g, '');
     
     // Usando unavatar.io como proxy automático para YouTube
-    return `https://unavatar.io/youtube/${handle.startsWith('@') ? handle : `@${handle}`}`;
-  };
+    return `https://unavatar.io/youtube/${handle.startsWith('@') ? handle : `@${handle}`}`; 
+  }; /* TODO: Analisar a precificação do consumo */
 
   const safeIndex = currentIndex % filteredVideos.length;
   const current = filteredVideos[safeIndex];
@@ -75,18 +75,6 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
               <h2 className="text-3xl font-bold text-primary">{t('streamerCarousel.title')}</h2>
-              <button 
-                onClick={() => {
-                  setShowAll(!showAll);
-                  setCurrentIndex(0);
-                }}
-                className="text-sm text-general-dim hover:text-primary transition-colors mt-2 text-left cursor-pointer"
-              >
-                {showAll 
-                  ? t('streamerCarousel.filterDisabled').replace('{lang}', currentLang.toUpperCase())
-                  : t('streamerCarousel.showingOnly').replace('{lang}', currentLang.toUpperCase())
-                }
-              </button>
             </div>
           </div>
         </Reveal>
@@ -113,7 +101,7 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
             >
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden border-2 border-white/20 shrink-0">
                 <img 
-                  src={getAvatarUrl(current)} 
+                  src={getAvatarUrl(current)} /* TODO: Adicionar imagem de fallback */
                   alt={current.streamerName} 
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -166,10 +154,23 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
             </>
           )}
         </div>
-
         {/* Thumbnails */}
         {filteredVideos.length > 1 && (
           <div className="mt-8 px-4 overflow-hidden">
+            
+        
+              <button 
+                onClick={() => {
+                  setShowAll(!showAll);
+                  setCurrentIndex(0);
+                }}
+                className="text-sm text-general-dim hover:text-primary transition-colors mt-2 text-left cursor-pointer"
+              >
+                {showAll 
+                  ? t('streamerCarousel.filterDisabled').replace('{lang}', currentLang.toUpperCase())
+                  : t('streamerCarousel.showingOnly').replace('{lang}', currentLang.toUpperCase())
+                }
+              </button> {/* TODO: Alterar posicionamento do botão para estar posicionado entre player e filteredVideos */}
             <div
               className="flex transition-transform duration-500 ease-in-out md:transform-none md:justify-center md:space-x-4 md:items-center"
               style={{

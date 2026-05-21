@@ -40,7 +40,7 @@ export default function Page() {
   const filteredGames = selectedGenre === 'Todos'
     ? gamesData
     : gamesData.filter(game => game.genre.includes(selectedGenre));
-
+  /* TODO: Ordenar pelo release date */
   const handleGameClick = (game: Game) => {
     if (game.storeLinks?.steam) {
       window.open(game.storeLinks.steam, '_blank');

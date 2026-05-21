@@ -1,5 +1,5 @@
 import type { Game } from '../types';
-
+/* TODO: Incluir releaseDate*/
 export const gamesMock: Game[] = [
   {
     id: 1,
