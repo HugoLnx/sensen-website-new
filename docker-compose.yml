@@ -1,0 +1,21 @@
+services:
+  # Ambiente de Desenvolvimento
+  dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  # Simulação de Produção localmente
+  prod:
+    build:
+      context: .
+      target: production
+    ports:
+      - "8080:80"

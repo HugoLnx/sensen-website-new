@@ -1,3 +1,4 @@
+/* TODO: Incluir releaseDate no type Game*/
 export interface Game {
   _id?: string | number; // Aceita ID do banco (MongoDB)
   id?: string | number;  // Aceita ID numérico (SQL)
