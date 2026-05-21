@@ -36,7 +36,7 @@ export function Head() {
       <meta property="og:type" content="website" />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:image" content={socialImage} />
-      <meta property="og:site_name" content={`{Sensen Games: `} /> /* TODO: Tornar esta tag mais flexível */
+      <meta property="og:site_name" content={`{Sensen Games: `} /> {/* TODO: Tornar esta tag mais flexível */}
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
