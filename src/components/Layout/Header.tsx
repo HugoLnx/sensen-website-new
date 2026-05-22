@@ -48,7 +48,7 @@ const Header = () => {
                       className="h-8 w-8 rounded-full object-cover"
                     />
                   )}
-                  <span className="text-xl">{settings?.siteName ?? 'Sensen Games'}</span>
+                  <h3 className="text-xl">{settings?.siteName ?? 'Sensen Games'}</h3>
                 </a>
     
                 {/* Desktop Navigation */}
