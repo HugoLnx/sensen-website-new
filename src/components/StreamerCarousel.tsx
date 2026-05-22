@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import type { StreamerVideo } from "@/types";
 import { useLanguage } from "@/contexts/useLanguage";
 import { ChevronLeft, ChevronRight, Youtube } from "lucide-react";
@@ -12,7 +13,8 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
   const { t, currentLang } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showAll, setShowAll] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
 
   const filteredVideos = videos.filter(video => 
     showAll || video.languages[currentLang]
@@ -28,15 +30,40 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
     setCurrentIndex((prev) => (prev - 1 + filteredVideos.length) % filteredVideos.length);
   };
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+  const updateConstraints = useCallback(() => {
+    if (containerRef.current) {
+      const containerWidth = containerRef.current.offsetWidth;
+      const contentWidth = containerRef.current.scrollWidth;
+      setConstraints({
+        left: -(contentWidth - containerWidth),
+        right: 0
+      });
+    }
   }, []);
+
+  useEffect(() => {
+    updateConstraints();
+    window.addEventListener('resize', updateConstraints);
+    return () => window.removeEventListener('resize', updateConstraints);
+  }, [updateConstraints, filteredVideos.length, showAll]);
+
+  // Center active thumbnail
+  const x = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 30 });
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const containerWidth = containerRef.current.offsetWidth;
+      const thumbWidth = window.innerWidth < 768 ? 160 : 192; // Match w-40 and w-48
+      const gap = 16; // gap-4
+      
+      const targetX = -(currentIndex * (thumbWidth + gap)) + (containerWidth / 2) - (thumbWidth / 2);
+      
+      // Bound the targetX within constraints
+      const boundedX = Math.max(Math.min(targetX, constraints.right), constraints.left);
+      x.set(boundedX);
+    }
+  }, [currentIndex, constraints, x]);
 
   if (filteredVideos.length === 0) {
     return (
@@ -56,17 +83,12 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
 
   const getAvatarUrl = (video: StreamerVideo) => {
     if (video.streamerImage) return video.streamerImage;
-    
-    // Extrair o handle do canal (ex: @Aluxa) do link ou nome
-    const handle = video.channelLink?.split('@')[1] || video.streamerName.replace(/\s+/g, '');
-    
-    // Usando unavatar.io como proxy automático para YouTube
-    return `https://unavatar.io/youtube/${handle.startsWith('@') ? handle : `@${handle}`}`; 
-  }; /* TODO: Analisar a precificação do consumo */
+    const fileName = `${video.streamerName.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+    return `/images/streamers/${fileName}`;
+  };
 
   const safeIndex = currentIndex % filteredVideos.length;
   const current = filteredVideos[safeIndex];
-  const translateValue = Math.min(safeIndex, filteredVideos.length - 3);
 
   return (
     <section className="relative w-full py-16 bg-black/30 overflow-hidden">
@@ -101,7 +123,7 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
             >
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden border-2 border-white/20 shrink-0">
                 <img 
-                  src={getAvatarUrl(current)} /* TODO: Adicionar imagem de fallback */
+                  src={getAvatarUrl(current)} 
                   alt={current.streamerName} 
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -154,52 +176,73 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
             </>
           )}
         </div>
+
         {/* Thumbnails */}
         {filteredVideos.length > 1 && (
-          <div className="mt-8 px-4 overflow-hidden">
-            
-        
-              <button 
-                onClick={() => {
-                  setShowAll(!showAll);
-                  setCurrentIndex(0);
-                }}
-                className="text-sm text-general-dim hover:text-primary transition-colors mt-2 text-left cursor-pointer"
-              >
-                {showAll 
-                  ? t('streamerCarousel.filterDisabled').replace('{lang}', currentLang.toUpperCase())
-                  : t('streamerCarousel.showingOnly').replace('{lang}', currentLang.toUpperCase())
-                }
-              </button> {/* TODO: Alterar posicionamento do botão para estar posicionado entre player e filteredVideos */}
-            <div
-              className="flex transition-transform duration-500 ease-in-out md:transform-none md:justify-center md:space-x-4 md:items-center"
-              style={{
-                transform: isMobile 
-                  ? `translateX(-${translateValue * 33.33}%)` 
-                  : 'none'
+          <div className="mt-8 max-w-5xl mx-auto relative px-0">
+            <button 
+              onClick={() => {
+                setShowAll(!showAll);
+                setCurrentIndex(0);
               }}
+              className="text-sm text-general-dim hover:text-primary transition-colors mb-6 text-left cursor-pointer px-4 md:px-0"
             >
-              {filteredVideos.map((video, index) => (
-                <div
-                  key={video.id}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`relative cursor-pointer transition-all duration-300 overflow-hidden rounded-lg shrink-0 
-                    w-1/3 px-1 md:px-0 h-20 md:h-28 md:w-48
-                    ${index === currentIndex
-                      ? "border-2 border-primary ring-4 ring-primary/20 scale-105"
-                      : "border-2 border-transparent opacity-50 hover:opacity-100"
-                    }`}
+              {showAll 
+                ? t('streamerCarousel.filterDisabled').replace('{lang}', currentLang.toUpperCase())
+                : t('streamerCarousel.showingOnly').replace('{lang}', currentLang.toUpperCase())
+              }
+            </button>
+            
+            <div className="relative group/thumbs flex items-center px-12">
+              {/* Left Scroll Button */}
+              <button 
+                onClick={goToPrev}
+                className="absolute left-0 z-20 bg-black/60 hover:bg-primary p-2 rounded-full text-white transition-all hover:scale-110"
+              >
+                <ChevronLeft size={24} />
+              </button>
+
+              <div 
+                ref={containerRef}
+                className="w-full overflow-hidden py-4 px-2 cursor-grab active:cursor-grabbing"
+              >
+                <motion.div 
+                  className="flex gap-4"
+                  drag="x"
+                  dragConstraints={constraints}
+                  style={{ x: springX }}
                 >
-                  <img
-                    src={`https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`}
-                    alt={video.title}
-                    className="w-full h-full object-cover rounded-md"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                    <Youtube className="text-white w-8 h-8" />
-                  </div>
-                </div>
-              ))}
+                  {filteredVideos.map((video, index) => (
+                    <div
+                      key={video.id}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`relative transition-all duration-300 overflow-hidden rounded-lg shrink-0 
+                        w-40 md:w-48 h-24 md:h-28
+                        ${index === currentIndex
+                          ? "border-2 border-primary ring-4 ring-primary/20 scale-110 z-10"
+                          : "border-2 border-transparent opacity-50 hover:opacity-100"
+                        }`}
+                    >
+                      <img
+                        src={`https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`}
+                        alt={video.title}
+                        className="w-full h-full object-cover rounded-md pointer-events-none"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                        <Youtube className="text-white w-8 h-8" />
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Right Scroll Button */}
+              <button 
+                onClick={goToNext}
+                className="absolute right-0 z-20 bg-black/60 hover:bg-primary p-2 rounded-full text-white transition-all hover:scale-110"
+              >
+                <ChevronRight size={24} />
+              </button>
             </div>
           </div>
         )}
