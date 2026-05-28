@@ -91,7 +91,7 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
   const current = filteredVideos[safeIndex];
 
   return (
-    <section className="relative w-full py-16 bg-black/30 overflow-hidden">
+    <section className="relative w-full py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
