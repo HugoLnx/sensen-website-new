@@ -9,7 +9,9 @@
     "deploy": "gh-pages -d dist/client",
     "dev": "vite",
     "generate-content": "npx tsx scripts/generateContentJson.ts",
-    "build": "npm run generate-content && vite build",
+    "update-avatars": "npx tsx scripts/fetchStreamerAvatars.ts",
+    "update-avatars:force": "npx tsx scripts/fetchStreamerAvatars.ts --force",
+    "build": "npm run update-avatars:force && npm run generate-content && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

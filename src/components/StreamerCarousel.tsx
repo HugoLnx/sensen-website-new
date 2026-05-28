@@ -57,19 +57,17 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
   const getAvatarUrl = (video: StreamerVideo) => {
     if (video.streamerImage) return video.streamerImage;
     
-    // Extrair o handle do canal (ex: @Aluxa) do link ou nome
-    const handle = video.channelLink?.split('@')[1] || video.streamerName.replace(/\s+/g, '');
-    
-    // Usando unavatar.io como proxy automático para YouTube
-    return `https://unavatar.io/youtube/${handle.startsWith('@') ? handle : `@${handle}`}`; 
-  }; /* TODO: Analisar a precificação do consumo */
+    // Fallback para o caminho local padrão caso não esteja definido explicitamente
+    const fileName = `${video.streamerName.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+    return `/images/streamers/${fileName}`;
+  };
 
   const safeIndex = currentIndex % filteredVideos.length;
   const current = filteredVideos[safeIndex];
   const translateValue = Math.min(safeIndex, filteredVideos.length - 3);
 
   return (
-    <section className="relative w-full py-16 bg-black/30 overflow-hidden">
+    <section className="relative w-full py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
@@ -101,7 +99,7 @@ export const StreamerCarousel: React.FC<StreamerCarouselProps> = ({ videos }) =>
             >
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden border-2 border-white/20 shrink-0">
                 <img 
-                  src={getAvatarUrl(current)} /* TODO: Adicionar imagem de fallback */
+                  src={getAvatarUrl(current)} 
                   alt={current.streamerName} 
                   className="w-full h-full object-cover"
                   onError={(e) => {
