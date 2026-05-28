@@ -19,7 +19,7 @@ type GameModalProps = {
 ======================= */
 
 export function GameModal({ game, onClose }: GameModalProps) {
-  const { t } = useLanguage();
+  const { t, currentLang } = useLanguage();
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -27,6 +27,16 @@ export function GameModal({ game, onClose }: GameModalProps) {
 
   const videoSrc = resolveMedia(game.video);
   const imageSrc = resolveMedia(game.image);
+
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return null;
+    const date = new Date(dateString);
+    return date.toLocaleDateString(currentLang, {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+  };
 
   return (
     <div
@@ -81,6 +91,14 @@ export function GameModal({ game, onClose }: GameModalProps) {
             </span>
           ))}
         </div>
+
+        {/* Lançamento */}
+        {game.releaseDate && (
+          <div className="mb-6 text-sm text-gray-500">
+            <span className="font-semibold">{t('gamesPage.releaseDate')} </span>
+            <span>{formatDate(game.releaseDate)}</span>
+          </div>
+        )}
 
         {/* =======================
             DESCRIÇÃO

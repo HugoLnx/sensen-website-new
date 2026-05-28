@@ -61,7 +61,8 @@
     "filterPrefix": "Filtrar por gênero:",
     "steam": "Ver na Steam",
     "press": "Kit de Imprensa",
-    "viewTrailler": "Ver Trailler"
+    "viewTrailler": "Ver Trailler",
+    "releaseDate": "Lançamento:"
   },
   "hero": {
     "viewMore": "Ver mais"

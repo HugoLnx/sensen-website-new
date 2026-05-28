@@ -1,4 +1,3 @@
-/* TODO: Incluir releaseDate no type Game*/
 export interface Game {
   _id?: string | number; // Aceita ID do banco (MongoDB)
   id?: string | number;  // Aceita ID numérico (SQL)
@@ -14,6 +13,7 @@ export interface Game {
   storeLinks?: Record<string, string>;
   publisher?: string;
   developer?: string;
+  releaseDate?: string; // Formato ISO 8601, ex: 2025-06-15
 }
 
 export interface StreamerVideo {

@@ -24,7 +24,12 @@ export default function Page() {
     const fetchGames = async () => {
       try {
         const response = await apiClient.get<Game[]>('/games');
-        setGamesData(response.data);
+        const sortedGames = [...response.data].sort((a, b) => {
+          const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
+          const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
+          return dateB - dateA;
+        });
+        setGamesData(sortedGames);
       } catch (err) {
         setGamesError('Failed to fetch games from API.');
         console.error('Error fetching games:', err);
