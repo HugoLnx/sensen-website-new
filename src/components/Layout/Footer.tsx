@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="lg:col-span-7 flex flex-col md:flex-row gap-8 md:gap-16">
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-primary flex items-center gap-2">
-                <span className="bg-primary-soft p-1 rounded">SG</span> {/* TODO: Alterar span pela logo */} {t('footer.sensenGames')}
+                <img src="/images/logo.jpg" alt="Sensen Games" className="w-8 h-8 rounded-full" /> {t('footer.sensenGames')}
               </h3>
               <p className="text-sm text-general-dim max-w-xs leading-relaxed">
                 {t('footer.tagline')}
