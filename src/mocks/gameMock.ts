@@ -1,5 +1,4 @@
 import type { Game } from '../types';
-/* TODO: Incluir releaseDate*/
 export const gamesMock: Game[] = [
   {
     id: 1,
@@ -15,6 +14,7 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1aNr4rs7a00bvgeaZWR2LrgNhQhUeDLd8",
       steam: "https://store.steampowered.com/app/1714300/Typomancer_in_the_Feathers_Way/?curator_clanid=40365443"
     },
+    releaseDate: "2021-10-15",
   },
   {
     id: 2,
@@ -30,6 +30,7 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1yJ3gsKTpK14ovogckSVvxcz854f-fpyo",
       steam: "https://store.steampowered.com/app/1661700/Tyfortress_Tactical_Typing/?curator_clanid=40365443"
     },
+    releaseDate: "2021-08-05",
   },
   {
     id: 3,
@@ -45,6 +46,7 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1rd6U_k5JU74TSJQgf4H5NViwgNX-GgtU",
       steam: "https://store.steampowered.com/app/1636000/Tybot_Invasion_The_Typing_Runner/"
     },
+    releaseDate: "2021-06-09",
   },
   {
     id: 4,
@@ -59,6 +61,7 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1CpzChi7TBAwNiPjdwILv5z10wt7JjfEs",
       steam: "https://store.steampowered.com/app/1263200/Smashing_Spirits_A_Primeira_Boxeadora_Brasileira/"
     },
+    releaseDate: "2020-09-10",
   },
   {
     id: 5,
@@ -74,6 +77,7 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1ZIDbyLLibq2SsW1_AS9ckbgjPeRD_2Nq",
       steam: "https://store.steampowered.com/app/1528580/Neon_Ships_The_Typeem_Up_Shooter/?curator_clanid=40365443"
     },
+    releaseDate: "2021-02-11",
   },
   {
     id: 6,
@@ -88,6 +92,7 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1rAcBWtHtE8VGHVKXaP7lbo2AueYfAw7t",
       steam: "https://store.steampowered.com/app/1600870/King_Bullseye_Headshot_Training/?curator_clanid=40365443"
     },
+    releaseDate: "2021-05-05",
   },
   {
     id: 7,
@@ -100,8 +105,9 @@ export const gamesMock: Game[] = [
     platforms: ["PC"],
     storeLinks: {
       press: "https://drive.google.com/drive/folders/13ansk9VF6E6HvjqM0YsVeSrJ3b2A7cZY",
-      steam: "https://store.steampowered.com/app/3700180/Akumas_Bloodrain_Demo/?curator_clanid=40365443"
+      steam: "https://store.steampowered.com/app/3692360/Akumas_Bloodrain/"
     },
+    releaseDate: "2026-04-06",
   },
   {
     id: 8,
@@ -116,6 +122,7 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1DPfYkoC2MU6y90Kw3aQc8J3VWw53-AgJ",
       steam: "https://store.steampowered.com/app/1555080/Sniper_Ships_Shootem_Up_on_Rails/?curator_clanid=40365443"
     },
+    releaseDate: "2021-03-26",
   },
   {
     id: 9,
@@ -131,5 +138,6 @@ export const gamesMock: Game[] = [
       press: "https://drive.google.com/drive/folders/1L4I3bnwF6Fz-EA2URdP6Vr38kRt70O4J",
       steam: "https://store.steampowered.com/app/1791870/Spooky_Typing_The_Ghost_Plague/?curator_clanid=40365443"
     },
+    releaseDate: "2021-10-30",
   },
 ];

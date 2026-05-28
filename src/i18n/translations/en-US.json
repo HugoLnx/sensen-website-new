@@ -61,7 +61,8 @@
     "filterPrefix": "Filter by genre:",
     "steam": "View on Steam",
     "press": "Press Kit",
-    "viewTrailler": "View Trailler"
+    "viewTrailler": "View Trailler",
+    "releaseDate": "Release:"
   },
   "hero": {
     "viewMore": "View more"

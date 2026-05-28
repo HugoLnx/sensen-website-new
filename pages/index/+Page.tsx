@@ -8,7 +8,11 @@ import { streamerMock } from "@/mocks/streamerMock";
 import { GameCard } from "@/components/GameCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-const MOCK_GAMES = gamesMock
+const MOCK_GAMES = [...gamesMock].sort((a, b) => {
+  const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
+  const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
+  return dateB - dateA;
+});
 const MOCK_STREAMERS = streamerMock
 
 export default function Page() {

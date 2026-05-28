@@ -24,11 +24,21 @@ export const GameCard: React.FC<GameCardProps> = ({
   onTrailerClick,
   showReveal = true,
 }) => {
-  const { t } = useLanguage();
+  const { t, currentLang } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
 
   const getPreviewVideo = (gameId: string | number) => `/videos/game${gameId}_preview.mp4`;
   const previewVideo = game.id != null ? resolveMedia(getPreviewVideo(game.id)) : undefined;
+
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return null;
+    const date = new Date(dateString);
+    return date.toLocaleDateString(currentLang, {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+  };
 
   const handleContainerClick = () => {
     if (onClick) onClick(game);
@@ -93,6 +103,13 @@ export const GameCard: React.FC<GameCardProps> = ({
                 </span>
               ))}
             </div>
+
+            {game.releaseDate && (
+              <div className="text-xs text-general-dim mb-4 flex items-center gap-1">
+                <span className="font-semibold">{t('gamesPage.releaseDate')}</span>
+                <span>{formatDate(game.releaseDate)}</span>
+              </div>
+            )}
 
             <div className="flex justify-between gap-2 items-center">
               <button
