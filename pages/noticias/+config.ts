@@ -1,6 +1,6 @@
 export default {
-  title: "Notícias | Sensen Games",
-  description:
-    "Fique por dentro das últimas novidades, atualizações e anúncios da Sensen Games.",
+  titleKey: "markdownPages.news.title",
+  descriptionKey: "markdownPages.news.subtitle",
+  ogSiteName: "header.news"
 };
 
