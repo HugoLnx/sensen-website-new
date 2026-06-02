@@ -1,73 +1,102 @@
-# React + TypeScript + Vite
+# Sensen Games Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the repository for the official Sensen Games studio website. A high-performance, SEO-optimized portfolio featuring their game catalog, challenges, guides, and community news.
 
-Currently, two official plugins are available:
+Live Demo: [https://hugolnx.github.io/sensen-website-new/](https://hugolnx.github.io/sensen-website-new/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## React Compiler
+### Core Stack
+- **Framework:** [Vike](https://vike.dev/) (formerly vite-plugin-ssr) + [React 19](https://react.dev/)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Package Manager:** [npm](https://www.npmjs.com/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Supporting Tools
+- **Content:** Markdown (processed via `gray-matter` & `marked`)
+- **Icons:** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+- **Forms:** [React Hook Form](https://react-hook-form.com/)
+- **UI Components:** [Radix UI](https://www.radix-ui.com/) & [Sonner](https://sonner.stevenly.me/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **SSG & SEO:** All pages are pre-rendered at build time using Vike, ensuring maximum performance and SEO indexing.
+- **Multilingual Support:** Fully localized in English (**en-US**) and Portuguese (**pt-BR**).
+- **Markdown Content:** Easy-to-manage challenges, guides, and news powered by Markdown files.
+- **Dynamic Game Catalog:** High-performance catalog with video previews on hover and detailed modals.
+- **Automated Workflows:** Scripts for generating content metadata and fetching streamer avatars automatically.
+- **Responsive & Modern UI:** Polished user experience with fluid animations and a mobile-first approach.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `/pages`: Vike routing and page components.
+- `/content`: Markdown files for Challenges, Guides, and News.
+- `/src/components`: Reusable React components.
+- `/src/i18n`: Translation files.
+- `/scripts`: Automation scripts for content and assets.
+- `/public`: Static assets (images, videos, generated JSON).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/hugolnx/sensen-website-new.git
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+## Development
+
+Start the development server:
+```bash
+npm run dev
+```
+This will start a local server at `http://localhost:5173`.
+
+### Utility Scripts
+- **Generate Content Metadata:** `npm run generate-content` (Scans `/content` and updates public JSON files).
+- **Update Streamer Avatars:** `npm run update-avatars` (Fetches latest avatars for the community section).
+
+## Build & Deploy
+
+### Build
+To build the production-ready version (SSG):
+```bash
+npm run build
+```
+The built files will be placed in the `dist/` folder. This script automatically runs metadata generation and avatar updates before building.
+
+### Deploy
+The project is configured for **GitHub Pages**:
+```bash
+npm run deploy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Docker
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project includes a multi-stage `Dockerfile` and `docker-compose.yml` for both development and production simulation.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Development Environment
+To run the project in a containerized development environment with hot-reloading:
+```bash
+docker-compose up dev
 ```
+The application will be available at `http://localhost:3000`.
+
+### Production Preview
+To build and run the production version (served by Nginx):
+```bash
+docker-compose up prod
+```
+The application will be available at `http://localhost:8080`.
+
+## License
+
+This project is licensed under the **GNU General Public License v3.0**. You can find the full text of the license in the repository's root.
+
+---
+*Developed with ❤️ by Sensen Games. Please keep the credits at the footer when forking.*
